@@ -182,13 +182,18 @@ export function IncomingCall() {
               <button
                 type="button"
                 autoFocus
-                onClick={() => answer(true)}
-                aria-label="Accept dispatch"
+                onClick={() => {
+                  answer(true);
+                  // Opened inside the tap so browsers allow it. On a phone this hands off to the maps app.
+                  window.open(mapsDirectionsUrl(site), "_blank", "noopener");
+                  updateDispatch((s) => setCallState(s, call.id, "en_route"));
+                }}
+                aria-label="Accept dispatch and start navigation"
                 className="flex size-18 items-center justify-center rounded-full bg-emerald-600 hover:bg-emerald-700 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-emerald-300"
               >
                 <Phone className="size-8" />
               </button>
-              <span className="text-xs">Accept</span>
+              <span className="text-xs">Accept &amp; navigate</span>
             </div>
           </div>
         )}
