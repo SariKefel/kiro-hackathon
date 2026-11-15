@@ -17,7 +17,9 @@ export default function ResponderHome() {
         <div>
           <p className="mb-1 text-xs text-muted-foreground">Alpha team · Field responder</p>
           <h1 className="page-title">Hello, Amir.</h1>
-          <p className="mt-2 text-sm text-muted-foreground">Your safety comes first.</p>
+          <p className="mt-2 text-sm text-muted-foreground">
+            Review your assignment or save a safety check-in.
+          </p>
         </div>
         <span
           role="img"
@@ -34,7 +36,7 @@ export default function ResponderHome() {
       <ActiveDispatch />
       <section data-tour="responder-safety" className="panel overflow-hidden">
         <div className="border-b px-5 py-4">
-          <p className="text-[10px] font-medium text-muted-foreground">Your active incident</p>
+          <p className="text-xs font-medium text-muted-foreground">Your active incident</p>
           <h2 className="mt-1.5 text-base font-semibold tracking-tight">{incident.title}</h2>
           <p className="mt-2 flex items-center gap-1.5 text-xs text-muted-foreground">
             <MapPin className="size-3.5" />
@@ -68,7 +70,7 @@ export default function ResponderHome() {
             <ClipboardList className="size-4 text-muted-foreground" />
             Current assignment
           </h2>
-          <span className="rounded bg-amber-50 px-2 py-1 text-[10px] font-medium text-amber-800 dark:bg-amber-950 dark:text-amber-300">
+          <span className="rounded bg-amber-50 px-2 py-1 text-xs font-medium text-amber-800 dark:bg-amber-950 dark:text-amber-300">
             High priority
           </span>
         </div>

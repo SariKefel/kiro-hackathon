@@ -28,7 +28,10 @@ export function PersonnelDirectory({
         (p) =>
           `${p.name} ${p.role} ${p.team}`.toLowerCase().includes(search.toLowerCase()) &&
           (team === "all" || p.team === team) &&
-          (status === "all" || p.status === status),
+          (status === "all" ||
+            (status === "assistance"
+              ? p.status === "needs_help" || p.status === "unable_to_continue"
+              : p.status === status)),
       ),
     [search, team, status],
   );
@@ -44,12 +47,13 @@ export function PersonnelDirectory({
         data-tour="personnel-filters"
         className="flex flex-wrap items-center gap-3 border-b p-4 sm:p-5"
       >
-        <div className="relative min-w-48 flex-1">
+        <div className="relative w-full min-w-0 sm:min-w-48 sm:flex-1">
           <Search className="absolute left-3 top-3 size-4 text-muted-foreground" />
           <input
             type="search"
             aria-label="Search personnel by name, team, or role"
             placeholder="Search name, team, or role..."
+            autoComplete="off"
             value={search}
             onChange={(event) => setSearch(event.target.value)}
             className="field pl-9"
@@ -60,7 +64,7 @@ export function PersonnelDirectory({
           aria-label="Filter by team"
           value={team}
           onChange={(e) => setTeam(e.target.value)}
-          className="field w-auto"
+          className="field w-full min-w-0 sm:w-auto"
         >
           <option value="all">All teams</option>
           {["Alpha", "Bravo", "Charlie"].map((t) => (
@@ -73,10 +77,11 @@ export function PersonnelDirectory({
           aria-label="Filter by safety status"
           value={status}
           onChange={(e) => setStatus(e.target.value)}
-          className="field w-auto"
+          className="field w-full min-w-0 sm:w-auto"
         >
           <option value="all">All statuses</option>
           <option value="safe">Safe</option>
+          <option value="assistance">Needs assistance</option>
           <option value="needs_help">Needs help</option>
           <option value="unable_to_continue">Unable to continue</option>
           <option value="unknown">Unknown</option>
@@ -88,13 +93,13 @@ export function PersonnelDirectory({
           </Button>
         )}
       </div>
-      <div className="flex flex-wrap items-center justify-between gap-2 border-b bg-secondary/40 px-5 py-3 text-[11px] text-muted-foreground">
+      <div className="flex flex-wrap items-center justify-between gap-2 border-b bg-secondary/40 px-5 py-3 text-xs text-muted-foreground">
         <span role="status">
           {filtered.length} of {personnel.length} personnel
         </span>
         <span>Klang Valley flood response</span>
       </div>
-      <div className="hidden grid-cols-[1.4fr_.65fr_1fr_1.1fr_.85fr_20px] gap-3 border-b px-5 py-3 text-[10px] font-medium text-muted-foreground lg:grid">
+      <div className="hidden grid-cols-[1.4fr_.65fr_1fr_1.1fr_.85fr_20px] gap-3 border-b px-5 py-3 text-xs font-medium text-muted-foreground lg:grid">
         <span>Personnel</span>
         <span>Team</span>
         <span>Assigned role</span>
@@ -107,15 +112,15 @@ export function PersonnelDirectory({
           <details className="group" key={p.id}>
             <summary className="grid cursor-pointer list-none items-center gap-3 px-5 py-4 hover:bg-secondary/40 sm:grid-cols-[1.3fr_1fr_auto] lg:grid-cols-[1.4fr_.65fr_1fr_1.1fr_.85fr_20px] [&::-webkit-details-marker]:hidden">
               <span className="flex items-center gap-3">
-                <span className="flex size-9 shrink-0 items-center justify-center rounded-full bg-secondary text-[11px] font-semibold text-muted-foreground">
+                <span className="flex size-9 shrink-0 items-center justify-center rounded-full bg-secondary text-xs font-semibold text-muted-foreground">
                   {initials(p.name)}
                 </span>
                 <span>
                   <span className="block text-xs font-semibold">{p.name}</span>
-                  <span className="mt-1 block text-[10px] text-muted-foreground lg:hidden">
+                  <span className="mt-1 block text-xs text-muted-foreground lg:hidden">
                     {p.team} team · {p.role}
                   </span>
-                  <span className="mt-1 hidden text-[10px] text-muted-foreground lg:block">
+                  <span className="mt-1 hidden text-xs text-muted-foreground lg:block">
                     Demo responder
                   </span>
                 </span>
@@ -125,7 +130,7 @@ export function PersonnelDirectory({
               <span>
                 <StatusBadge status={p.status} />
               </span>
-              <span className="flex items-center gap-2 text-[11px] text-muted-foreground">
+              <span className="flex items-center gap-2 text-xs text-muted-foreground">
                 {p.lastCheckIn ? `${formatTime(p.lastCheckIn)} MYT` : "No check-in"}
                 <ChevronDown className="ml-auto size-3.5 transition-transform group-open:rotate-180 lg:hidden" />
               </span>
@@ -179,7 +184,7 @@ export function PersonnelDirectory({
           </Button>
         </div>
       )}
-      <p className="border-t px-5 py-3 text-[10px] leading-5 text-muted-foreground">
+      <p className="border-t px-5 py-3 text-xs leading-5 text-muted-foreground">
         Select a person to review their latest report. Unknown means missing or outdated
         confirmation, not a submitted status.
       </p>

@@ -19,7 +19,13 @@ const BOUNDS: [[number, number], [number, number]] = [
 ];
 const ignoreViewport = () => {};
 
-export function IncidentMap({ large = false }: { large?: boolean }) {
+export function IncidentMap({
+  large = false,
+  preview = false,
+}: {
+  large?: boolean;
+  preview?: boolean;
+}) {
   const assignments = useLocationAssignments();
   const [selected, setSelected] = useState(responseLocations[0].id);
   const [camera, setCamera] = useState<CameraRequest | null>(null);
@@ -55,7 +61,7 @@ export function IncidentMap({ large = false }: { large?: boolean }) {
   return (
     <section
       className="response-map overflow-hidden rounded-xl border bg-card"
-      aria-label="Demo response locations and assignments"
+      aria-label={preview ? "Sample response locations" : "Demo response locations and assignments"}
     >
       <div className="flex flex-wrap items-center justify-between gap-2 border-b px-4 py-3">
         <span className="flex items-center gap-2 text-sm font-semibold">
@@ -66,10 +72,10 @@ export function IncidentMap({ large = false }: { large?: boolean }) {
           Demo assignments
         </span>
       </div>
-      <div className="response-map-layout">
+      <div className={preview ? "" : "response-map-layout"}>
         <div
           data-tour="response-map"
-          className={`response-map-canvas relative ${large ? "h-[380px]" : "h-[300px]"}`}
+          className={`${preview ? "h-[260px] sm:h-[320px]" : `response-map-canvas ${large ? "h-[380px]" : "h-[300px]"}`} relative`}
         >
           <GeographicMap
             events={responseLocations.map((place) => ({
@@ -84,13 +90,17 @@ export function IncidentMap({ large = false }: { large?: boolean }) {
             onSelect={select}
             onViewportChange={ignoreViewport}
             initialBounds={BOUNDS}
-            ariaLabel="Shah Alam demo response locations. Select a location below to manage responders."
+            ariaLabel={
+              preview
+                ? "Shah Alam sample response locations. Use the buttons below to inspect each location."
+                : "Shah Alam demo response locations. Select a location below to manage responders."
+            }
           />
           <div className="pointer-events-none absolute bottom-7 left-3 rounded-md border bg-card/95 px-2 py-1 text-[10px] text-muted-foreground">
             Marker numbers show assigned responders
           </div>
         </div>
-        <div className="response-map-details">
+        <div className={preview ? "" : "response-map-details"}>
           <div
             className="grid grid-cols-3 border-y bg-secondary/40"
             role="group"
@@ -113,120 +123,129 @@ export function IncidentMap({ large = false }: { large?: boolean }) {
               );
             })}
           </div>
-          <div className="p-4">
-            <p className="text-[10px] text-muted-foreground">{location.kind}</p>
-            <h3 className="mt-1 text-sm font-semibold">{location.name}</h3>
-            <p className="mt-1 text-xs leading-5 text-muted-foreground">{location.description}</p>
-            <div className="mb-3 mt-4 flex flex-wrap items-center justify-between gap-2">
-              <h4 className="flex items-center gap-2 text-xs font-semibold">
-                <Users className="size-3.5" />
-                Assigned responders ({assigned.length})
-              </h4>
-              <button
-                type="button"
-                data-tour="assign-responders"
-                aria-expanded={editing}
-                onClick={() => setEditing(!editing)}
-                className="min-h-10 rounded-lg border px-3 text-xs font-medium hover:bg-secondary"
-              >
-                {editing ? "Done" : "Assign responders"}
-              </button>
-            </div>
-            {assigned.length === 0 && (
-              <p className="rounded-lg border border-dashed p-4 text-xs text-muted-foreground">
-                No responders assigned. Choose Assign responders to staff this location.
-              </p>
-            )}
-            <ul data-tour="response-roster" className="min-h-12 divide-y">
-              {assigned.map((person) => (
-                <li key={person.id} className="flex items-center gap-2 py-2.5">
-                  <span className="flex size-8 shrink-0 items-center justify-center rounded-full bg-primary/10 text-[10px] font-semibold text-primary dark:text-teal-300">
-                    {initials(person.name)}
-                  </span>
-                  <span className="min-w-0 flex-1">
-                    <span className="block text-xs font-medium">{person.name}</span>
-                    <span className="block text-[10px] text-muted-foreground">
-                      {person.team} · {person.role}
-                    </span>
-                  </span>
-                  <button
-                    type="button"
-                    aria-label={`Remove ${person.name} from ${location.shortName}`}
-                    onClick={() => assign(person.id, null)}
-                    className="flex size-10 shrink-0 items-center justify-center rounded-lg text-muted-foreground hover:bg-secondary"
-                  >
-                    <X className="size-3.5" />
-                  </button>
-                </li>
-              ))}
-            </ul>
-            {editing && (
-              <div className="mt-3 rounded-lg border bg-secondary/30 p-3">
-                <label className="relative block">
-                  <Search className="absolute left-3 top-3 size-4 text-muted-foreground" />
-                  <input
-                    type="search"
-                    value={search}
-                    onChange={(event) => setSearch(event.target.value)}
-                    className="field pl-9"
-                    placeholder="Search responders or teams"
-                    aria-label="Search responders to assign"
-                  />
-                </label>
-                <p className="my-3 text-[10px] leading-5 text-muted-foreground">
-                  Assigning someone moves their current location assignment. Only responders with a
-                  Safe report can be assigned in this demo.
-                </p>
-                <ul className="max-h-64 overflow-y-auto divide-y">
-                  {candidates.map((person) => {
-                    const current = responseLocations.find(
-                      (place) => place.id === assignments[person.id],
-                    );
-                    return (
-                      <li key={person.id} className="flex items-center justify-between gap-2 py-3">
-                        <span className="min-w-0">
-                          <span className="block text-xs font-medium">{person.name}</span>
-                          <span className="block text-[10px] text-muted-foreground">
-                            {person.team} · {current?.shortName ?? "Unassigned"}
-                          </span>
-                          <StatusBadge status={person.status} />
-                        </span>
-                        <button
-                          type="button"
-                          disabled={person.status !== "safe"}
-                          onClick={() => assign(person.id, selected)}
-                          className="min-h-10 shrink-0 rounded-lg bg-primary px-3 text-xs font-medium text-white disabled:cursor-not-allowed disabled:opacity-40"
-                          aria-label={`${current ? "Move" : "Assign"} ${person.name} to ${location.shortName}`}
-                        >
-                          {current ? "Move here" : "Assign"}
-                        </button>
-                      </li>
-                    );
-                  })}
-                </ul>
-                {candidates.length === 0 && (
-                  <p className="py-4 text-xs text-muted-foreground">
-                    No matching responders. Try another name or team.
-                  </p>
-                )}
+          {preview ? (
+            <p className="px-4 py-3 text-xs leading-5 text-muted-foreground">
+              {location.name}. Sample response locations for this demo.
+            </p>
+          ) : (
+            <div className="p-4">
+              <p className="text-[10px] text-muted-foreground">{location.kind}</p>
+              <h3 className="mt-1 text-sm font-semibold">{location.name}</h3>
+              <p className="mt-1 text-xs leading-5 text-muted-foreground">{location.description}</p>
+              <div className="mb-3 mt-4 flex flex-wrap items-center justify-between gap-2">
+                <h4 className="flex items-center gap-2 text-xs font-semibold">
+                  <Users className="size-3.5" />
+                  Assigned responders ({assigned.length})
+                </h4>
+                <button
+                  type="button"
+                  data-tour="assign-responders"
+                  aria-expanded={editing}
+                  onClick={() => setEditing(!editing)}
+                  className="min-h-10 rounded-lg border px-3 text-xs font-medium hover:bg-secondary"
+                >
+                  {editing ? "Done" : "Assign responders"}
+                </button>
               </div>
-            )}
-            <p
-              role="status"
-              className="mt-3 flex items-start gap-1 text-xs text-primary dark:text-teal-300"
-            >
-              {message && (
-                <>
-                  <Check className="mt-0.5 size-3 shrink-0" />
-                  {message}
-                </>
+              {assigned.length === 0 && (
+                <p className="rounded-lg border border-dashed p-4 text-xs text-muted-foreground">
+                  No responders assigned. Choose Assign responders to staff this location.
+                </p>
               )}
-            </p>
-            <p className="mt-2 text-[10px] leading-5 text-muted-foreground">
-              Illustrative response positions, not verified field locations. Assignments are local
-              to this browser and are not sent to responders.
-            </p>
-          </div>
+              <ul data-tour="response-roster" className="min-h-12 divide-y">
+                {assigned.map((person) => (
+                  <li key={person.id} className="flex items-center gap-2 py-2.5">
+                    <span className="flex size-8 shrink-0 items-center justify-center rounded-full bg-primary/10 text-[10px] font-semibold text-primary dark:text-teal-300">
+                      {initials(person.name)}
+                    </span>
+                    <span className="min-w-0 flex-1">
+                      <span className="block text-xs font-medium">{person.name}</span>
+                      <span className="block text-[10px] text-muted-foreground">
+                        {person.team} · {person.role}
+                      </span>
+                    </span>
+                    <button
+                      type="button"
+                      aria-label={`Remove ${person.name} from ${location.shortName}`}
+                      onClick={() => assign(person.id, null)}
+                      className="flex size-10 shrink-0 items-center justify-center rounded-lg text-muted-foreground hover:bg-secondary"
+                    >
+                      <X className="size-3.5" />
+                    </button>
+                  </li>
+                ))}
+              </ul>
+              {editing && (
+                <div className="mt-3 rounded-lg border bg-secondary/30 p-3">
+                  <label className="relative block">
+                    <Search className="absolute left-3 top-3 size-4 text-muted-foreground" />
+                    <input
+                      type="search"
+                      value={search}
+                      onChange={(event) => setSearch(event.target.value)}
+                      className="field pl-9"
+                      placeholder="Search responders or teams"
+                      aria-label="Search responders to assign"
+                    />
+                  </label>
+                  <p className="my-3 text-[10px] leading-5 text-muted-foreground">
+                    Assigning someone moves their current location assignment. Only responders with
+                    a Safe report can be assigned in this demo.
+                  </p>
+                  <ul className="max-h-64 overflow-y-auto divide-y">
+                    {candidates.map((person) => {
+                      const current = responseLocations.find(
+                        (place) => place.id === assignments[person.id],
+                      );
+                      return (
+                        <li
+                          key={person.id}
+                          className="flex items-center justify-between gap-2 py-3"
+                        >
+                          <span className="min-w-0">
+                            <span className="block text-xs font-medium">{person.name}</span>
+                            <span className="block text-[10px] text-muted-foreground">
+                              {person.team} · {current?.shortName ?? "Unassigned"}
+                            </span>
+                            <StatusBadge status={person.status} />
+                          </span>
+                          <button
+                            type="button"
+                            disabled={person.status !== "safe"}
+                            onClick={() => assign(person.id, selected)}
+                            className="min-h-10 shrink-0 rounded-lg bg-primary px-3 text-xs font-medium text-white disabled:cursor-not-allowed disabled:opacity-40"
+                            aria-label={`${current ? "Move" : "Assign"} ${person.name} to ${location.shortName}`}
+                          >
+                            {current ? "Move here" : "Assign"}
+                          </button>
+                        </li>
+                      );
+                    })}
+                  </ul>
+                  {candidates.length === 0 && (
+                    <p className="py-4 text-xs text-muted-foreground">
+                      No matching responders. Try another name or team.
+                    </p>
+                  )}
+                </div>
+              )}
+              <p
+                role="status"
+                className="mt-3 flex items-start gap-1 text-xs text-primary dark:text-teal-300"
+              >
+                {message && (
+                  <>
+                    <Check className="mt-0.5 size-3 shrink-0" />
+                    {message}
+                  </>
+                )}
+              </p>
+              <p className="mt-2 text-[10px] leading-5 text-muted-foreground">
+                Illustrative response positions, not verified field locations. Assignments are local
+                to this browser and are not sent to responders.
+              </p>
+            </div>
+          )}
         </div>
       </div>
     </section>

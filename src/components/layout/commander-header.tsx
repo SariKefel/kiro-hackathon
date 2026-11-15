@@ -1,39 +1,47 @@
 import { DemoTourButton } from "@/features/demo-tour/demo-tour";
 import Link from "next/link";
-import { Bell, ChevronRight, Circle } from "lucide-react";
+import { Bell } from "lucide-react";
 import { ThemeToggle } from "@/components/shared/theme-toggle";
 import { commander } from "@/features/incidents/demo-data";
 
 export function CommanderHeader() {
   return (
-    <header className="flex min-h-[76px] items-center justify-between gap-3 border-b bg-card px-5 md:px-8 lg:px-9">
-      <div className="flex min-w-0 items-center gap-2 text-xs">
-        <span className="hidden text-muted-foreground lg:inline">Selangor Response Network</span>
-        <ChevronRight className="hidden size-3.5 text-muted-foreground lg:block" />
-        <Link href="/incidents" className="truncate font-medium">
-          Klang Valley flood response
+    <header className="flex h-[76px] items-center justify-between gap-3 border-b bg-card px-4 sm:px-5 md:px-8 lg:px-9">
+      <div className="min-w-0">
+        <p className="mb-1 text-xs text-muted-foreground">
+          <span className="sm:hidden">Demo workspace</span>
+          <span className="hidden sm:inline">Selangor Response Network</span>
+        </p>
+        <Link
+          href="/incidents"
+          className="block text-sm font-semibold sm:truncate"
+          title="Klang Valley flood response"
+        >
+          <span className="sm:hidden">Command center</span>
+          <span className="hidden sm:inline">Klang Valley flood response</span>
         </Link>
-        <span className="ml-1 inline-flex shrink-0 items-center gap-1 rounded-full bg-emerald-50 px-2 py-1 text-[10px] font-medium text-emerald-800 dark:bg-emerald-950 dark:text-emerald-300">
-          <Circle className="size-1.5 fill-current" />
-          Active
-        </span>
       </div>
-      <div className="flex shrink-0 items-center gap-1 sm:gap-3">
+      <div className="flex shrink-0 items-center gap-1 sm:gap-2">
         <DemoTourButton />
         <ThemeToggle />
         <Link
           href="/dashboard#priority-alerts"
           aria-label="View 4 personnel requiring attention"
-          className="relative flex size-10 items-center justify-center rounded-lg hover:bg-secondary"
+          className="relative flex size-11 items-center justify-center rounded-lg hover:bg-secondary"
         >
-          <Bell className="size-[18px]" />
-          <span className="absolute right-2.5 top-2 size-1.5 rounded-full bg-orange-500" />
+          <Bell aria-hidden="true" className="size-[18px]" />
+          <span
+            aria-hidden="true"
+            className="absolute right-0.5 top-0.5 flex size-4 items-center justify-center rounded-full bg-amber-100 text-[10px] font-semibold text-amber-900 dark:bg-amber-900 dark:text-amber-100"
+          >
+            4
+          </span>
         </Link>
-        <span className="mx-1 hidden h-6 border-l sm:block" />
+        <span className="mx-2 hidden h-7 border-l sm:block" />
         <Link
           href="/settings"
           aria-label={`${commander.name}, demo commander settings`}
-          className="flex size-9 items-center justify-center rounded-full border bg-[#e7edf5] text-xs font-semibold text-[#3e5876]"
+          className="flex size-10 items-center justify-center rounded-full border bg-secondary text-xs font-semibold"
         >
           NR
         </Link>

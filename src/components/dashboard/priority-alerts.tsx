@@ -7,11 +7,11 @@ export function PriorityAlerts() {
     <section
       id="priority-alerts"
       data-tour="priority-alerts"
-      className="panel scroll-mt-6 p-5 sm:p-6"
+      className="panel scroll-mt-6 border-amber-200/80 p-5 dark:border-amber-900/70 sm:p-6"
     >
       <div className="mb-5 flex items-center justify-between">
         <h2 className="section-heading">Needs your attention</h2>
-        <span className="rounded-md bg-red-50 px-2 py-1 text-[10px] font-semibold text-red-800 dark:bg-red-950 dark:text-red-300">
+        <span className="rounded-md bg-red-50 px-2 py-1 text-xs font-semibold text-red-800 dark:bg-red-950 dark:text-red-300">
           4 personnel
         </span>
       </div>
@@ -30,11 +30,11 @@ export function PriorityAlerts() {
                 ) : (
                   <TriangleAlert className="size-3.5 text-orange-700 dark:text-orange-300" />
                 )}
-                <h3 className="text-xs font-semibold">{p.name}</h3>
+                <h3 className="text-sm font-semibold">{p.name}</h3>
                 <ArrowUpRight className="ml-auto size-3.5 text-muted-foreground" />
               </div>
-              <p className="mt-2 text-xs leading-relaxed text-muted-foreground">{p.message}</p>
-              <p className="mt-2 text-[10px] font-medium text-red-800 dark:text-red-300">
+              <p className="mt-2 text-sm leading-6 text-muted-foreground">{p.message}</p>
+              <p className="mt-2 text-xs font-medium text-red-800 dark:text-red-300">
                 {p.status === "needs_help" ? "Assistance requested" : "Follow-up required"} ·{" "}
                 {p.team} team
               </p>

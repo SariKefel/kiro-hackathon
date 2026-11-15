@@ -19,7 +19,7 @@ export default function CheckInPage() {
       <div>
         <h1 className="page-title">Safety check-in</h1>
         <p className="mt-2 text-sm text-muted-foreground">
-          A quick update helps your team look after you.
+          Choose your current status. Add a message or location if needed.
         </p>
       </div>
       <DemoBanner responder />

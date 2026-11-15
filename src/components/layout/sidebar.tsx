@@ -3,7 +3,6 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import {
   ArrowUpRight,
-  ChevronDown,
   LayoutDashboard,
   LifeBuoy,
   RadioTower,
@@ -39,7 +38,6 @@ export function Sidebar() {
           <p className="truncate text-xs font-medium text-slate-100">Selangor Response</p>
           <p className="mt-1 text-[10px]">Demo organization</p>
         </div>
-        <ChevronDown className="size-3.5" />
       </div>
       <p className="px-7 pb-3 pt-8 text-[11px] font-medium text-slate-400">Command center</p>
       <nav aria-label="Commander navigation" className="space-y-1 px-3">
@@ -91,21 +89,23 @@ export function MobileNavigation() {
   return (
     <nav
       aria-label="Commander navigation"
-      className="flex overflow-x-auto border-b bg-card px-3 md:hidden"
+      className="grid h-16 border-b bg-card px-1 md:hidden"
+      style={{ gridTemplateColumns: `repeat(${links.length}, minmax(0, 1fr))` }}
     >
       {links.map(({ href, label, icon: Icon }) => (
         <Link
           href={href}
           key={href}
+          aria-label={label}
           aria-current={pathname.startsWith(href) ? "page" : undefined}
           className={cn(
-            "flex flex-1 items-center justify-center gap-2 border-b-2 border-transparent px-3 py-3.5 text-xs",
+            "flex min-w-0 flex-col items-center justify-center gap-1 border-b-2 border-transparent px-1 text-center text-[11px] font-medium leading-tight text-muted-foreground transition-colors hover:bg-secondary",
             pathname.startsWith(href) &&
-              "border-primary font-semibold text-primary dark:text-teal-300",
+              "border-primary bg-primary/5 font-semibold text-primary dark:text-teal-300",
           )}
         >
-          <Icon className="size-4" />
-          {label}
+          <Icon aria-hidden="true" className="size-[18px]" />
+          <span>{href === "/explorer" ? "Explorer" : label}</span>
         </Link>
       ))}
     </nav>

@@ -168,17 +168,16 @@ export function DisasterExplorer() {
   );
 
   return (
-    <section className="disaster-explorer flex h-[calc(100dvh-139px)] flex-col md:h-[calc(100dvh-76px)]">
+    <section className="disaster-explorer flex h-[calc(100dvh-140px)] flex-col md:h-[calc(100dvh-76px)]">
       <div data-tour="hazard-intro" className="shrink-0 border-b px-5 py-3 md:px-7 md:py-5">
         <div className="flex flex-wrap items-start justify-between gap-4">
           <div>
             <h1 className="page-title">Disaster Explorer</h1>
             <p className="mt-2 hidden max-w-2xl text-sm leading-relaxed text-muted-foreground sm:block">
-              Regional Hazard Triage. Investigate reported locations, then verify with the original
-              source.
+              Explore regional hazard reports. Select a location to inspect its original source.
             </p>
             <p className="mt-2 text-xs font-medium text-primary dark:text-teal-300">
-              Genuine external reports / Demo workspace
+              Public hazard reports in a demo workspace
             </p>
           </div>
           <div className="flex items-center gap-3">
@@ -189,14 +188,18 @@ export function DisasterExplorer() {
                   ? "Refresh paused while hidden"
                   : isRefreshing
                     ? "Retrieving reports..."
-                    : "Five-minute refresh attempts"}
+                    : "Checks for updates every 5 minutes"}
             </span>
             <Button
               variant="outline"
               className="min-h-11"
               disabled={!online || !visible || isRefreshing || retryIn > 0}
               onClick={retry}
-              aria-label="Refresh hazard reports"
+              aria-label={
+                retryIn > 0
+                  ? `Refresh hazard reports - retry in ${retryIn} seconds`
+                  : "Refresh hazard reports"
+              }
             >
               <RefreshCw
                 className={cn("size-4", isRefreshing && "animate-spin motion-reduce:animate-none")}
@@ -223,7 +226,7 @@ export function DisasterExplorer() {
         {mobile ? (
           <details className="px-5 py-2">
             <summary className="min-h-8 cursor-pointer py-1 text-xs font-medium">
-              Source feeds and retrieval health{" "}
+              Sources and update status{" "}
               {data ? `/ ${data.feeds.filter((feed) => feed.retrievedAt).length} of 3 loaded` : ""}
               {!online && " / Offline"}
               {data?.feeds.some(
@@ -232,6 +235,7 @@ export function DisasterExplorer() {
             </summary>
             <div
               className="max-h-44 space-y-2 overflow-y-auto pt-2"
+              role="group"
               aria-label="Source feed health"
             >
               {data?.feeds.map((feed) => (
@@ -246,6 +250,7 @@ export function DisasterExplorer() {
         ) : (
           <div
             className="grid gap-2 px-5 py-3 sm:grid-cols-3 md:px-7"
+            role="group"
             aria-label="Source feed health"
           >
             {data?.feeds.map((feed) => (
@@ -390,9 +395,8 @@ export function DisasterExplorer() {
       </div>
       <p className="shrink-0 border-t px-5 py-2 text-[11px] leading-relaxed text-muted-foreground md:px-7">
         <span className="hidden sm:inline">
-          Locations are earthquake epicenters or Provider Representative Locations, not affected
-          boundaries. An absent marker does not establish safety or exhaustive country
-          coverage.{" "}
+          Markers show earthquake epicenters or provider-reported points, not affected areas.
+          Missing markers do not establish safety or complete coverage.{" "}
         </span>
         <span className="sm:hidden">
           Reported points do not establish affected areas or safety.{" "}

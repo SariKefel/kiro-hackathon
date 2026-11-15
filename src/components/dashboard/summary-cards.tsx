@@ -1,5 +1,5 @@
 import { CheckCheck, CircleHelp, HeartHandshake, Users } from "lucide-react";
-import { Card } from "@/components/ui/card";
+import Link from "next/link";
 import { getAccountability } from "@/features/incidents/demo-data";
 
 export function SummaryCards() {
@@ -10,51 +10,59 @@ export function SummaryCards() {
       value: count.total,
       icon: Users,
       detail: "Across 3 response teams",
-      color: "text-slate-600 bg-slate-100 dark:bg-slate-800 dark:text-slate-300",
+      href: "/personnel",
+      color: "text-slate-600 dark:text-slate-300",
     },
     {
       label: "Confirmed safe",
       value: count.safe,
       icon: CheckCheck,
-      detail: "60% of assigned personnel",
-      color: "text-emerald-700 bg-emerald-50 dark:bg-emerald-950 dark:text-emerald-300",
+      detail: `${count.total ? Math.round((count.safe / count.total) * 100) : 0}% of assigned personnel`,
+      href: "/personnel?status=safe",
+      color: "text-emerald-700 dark:text-emerald-300",
     },
     {
       label: "Need assistance",
       value: count.assistance,
       icon: HeartHandshake,
-      detail: "1 needs help · 1 unable to continue",
-      color: "text-red-700 bg-red-50 dark:bg-red-950 dark:text-red-300",
+      detail: "Review requests for help",
+      href: "/personnel?status=assistance",
+      color: "text-red-700 dark:text-red-300",
     },
     {
       label: "Status unknown",
       value: count.unknown,
       icon: CircleHelp,
-      detail: "Missing or outdated check-in",
-      color: "text-amber-800 bg-amber-50 dark:bg-amber-950 dark:text-amber-300",
+      detail: "Follow up on missing check-ins",
+      href: "/personnel?status=unknown",
+      color: "text-amber-800 dark:text-amber-300",
     },
   ];
   return (
-    <div
+    <section
       data-tour="accountability-summary"
-      className="grid grid-cols-2 gap-3 lg:grid-cols-4 lg:gap-4"
+      aria-label="Personnel safety summary"
+      className="panel grid grid-cols-2 overflow-hidden lg:grid-cols-4"
     >
-      {cards.map(({ label, value, icon: Icon, detail, color }) => (
-        <Card key={label} className="gap-0 px-4 py-5 shadow-none sm:px-5">
+      {cards.map(({ label, value, icon: Icon, detail, href, color }, index) => (
+        <Link
+          href={href}
+          key={label}
+          aria-label={`${label}: ${value}. View personnel`}
+          className={`group min-w-0 p-4 transition-colors hover:bg-secondary/60 focus-visible:relative focus-visible:z-10 sm:p-5 ${index % 2 === 1 ? "border-l" : ""} ${index > 1 ? "border-t lg:border-t-0" : ""} ${index === 2 ? "lg:border-l" : ""}`}
+        >
           <div className="flex items-center justify-between gap-2">
-            <p className="text-xs font-medium text-muted-foreground">{label}</p>
-            <span
-              className={`flex size-8 shrink-0 items-center justify-center rounded-lg ${color}`}
-            >
-              <Icon className="size-4" />
-            </span>
+            <p className="text-xs font-medium sm:text-sm">{label}</p>
+            <Icon aria-hidden="true" className={`size-[18px] shrink-0 ${color}`} />
           </div>
-          <p className="mt-2 text-[34px] font-semibold leading-tight tracking-[-0.04em] tabular-nums">
-            {value.toString().padStart(2, "0")}
+          <p
+            className={`mt-3 text-4xl font-semibold leading-none tracking-tight tabular-nums ${color}`}
+          >
+            {value}
           </p>
-          <p className="mt-2 text-[11px] leading-relaxed text-muted-foreground">{detail}</p>
-        </Card>
+          <p className="mt-3 text-xs leading-5 text-muted-foreground">{detail}</p>
+        </Link>
       ))}
-    </div>
+    </section>
   );
 }

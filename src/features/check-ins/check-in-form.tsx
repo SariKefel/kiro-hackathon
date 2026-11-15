@@ -26,7 +26,7 @@ import type { SafetyStatus } from "@/types/domain";
 const options = [
   {
     value: "safe",
-    title: "I'm Safe",
+    title: "I'm safe",
     description: "I am safe and able to continue.",
     icon: Check,
     color: "text-emerald-700 dark:text-emerald-300",
@@ -34,7 +34,7 @@ const options = [
   },
   {
     value: "needs_help",
-    title: "I Need Help",
+    title: "I need help",
     description: "I need assistance from my team.",
     icon: Hand,
     color: "text-red-700 dark:text-red-300",
@@ -42,7 +42,7 @@ const options = [
   },
   {
     value: "unable_to_continue",
-    title: "Unable to Continue",
+    title: "Unable to continue",
     description: "I cannot continue my assignment.",
     icon: TriangleAlert,
     color: "text-orange-800 dark:text-orange-300",
@@ -147,7 +147,7 @@ export function CheckInForm() {
           <ReportState operation={operation} />
         ) : (
           <p className="text-sm text-muted-foreground" role="status">
-            Saved locally. Waiting for a server acknowledgement.
+            Saved locally. This demo does not send reports to command.
           </p>
         )}
         <div className="mt-6 rounded-lg bg-secondary/70 p-4 text-xs leading-6">
@@ -177,17 +177,22 @@ export function CheckInForm() {
       </section>
     );
   return (
-    <form onSubmit={submit} className="space-y-6">
+    <form
+      onSubmit={submit}
+      aria-describedby={error || storageError ? "check-in-error" : undefined}
+      className="space-y-5"
+    >
       <fieldset data-tour="check-in-status">
-        <legend className="mb-3 text-sm font-semibold">
-          How are you right now? <span className="font-normal text-muted-foreground">Required</span>
+        <legend className="mb-3 text-base font-semibold">
+          How are you right now?{" "}
+          <span className="ml-1 text-xs font-normal text-muted-foreground">Required</span>
         </legend>
         <div className="space-y-3">
           {options.map(({ value, title, description, icon: Icon, color, selected }) => (
             <label
               key={value}
               className={cn(
-                "flex min-h-24 cursor-pointer items-center gap-4 rounded-xl border bg-card p-4 transition-colors hover:border-muted-foreground",
+                "flex min-h-24 cursor-pointer items-center gap-4 rounded-xl border bg-card p-4 transition-colors hover:border-muted-foreground focus-within:ring-2 focus-within:ring-ring/30",
                 status === value && selected,
               )}
             >
@@ -208,6 +213,7 @@ export function CheckInForm() {
               <input
                 type="radio"
                 name="safetyStatus"
+                required
                 value={value}
                 checked={status === value}
                 onChange={() => setStatus(value)}
@@ -217,111 +223,120 @@ export function CheckInForm() {
           ))}
         </div>
       </fieldset>
-      <section data-tour="check-in-details" className="panel space-y-4 p-5">
-        <div>
-          <label htmlFor="message" className="text-sm font-semibold">
-            Message <span className="text-xs font-normal text-muted-foreground">Optional</span>
-          </label>
-          <textarea
-            id="message"
-            maxLength={500}
-            value={message}
-            onChange={(e) => {
-              setMessage(e.target.value);
-              setVoiceNotice(null);
-            }}
-            placeholder="What should your team know?"
-            rows={3}
-            className="field mt-2 resize-y"
-          />
-          <p className="mt-1 text-right text-[10px] text-muted-foreground">{message.length}/500</p>
-          {voiceNotice && (
-            <p role="status" className="mt-1 text-xs leading-5 text-amber-800 dark:text-amber-300">
-              {voiceNotice}
-            </p>
-          )}
-          <VoiceInput onTranscript={addTranscript} online={online} disabled={saving} />
-        </div>
-        <div className="border-t pt-4">
-          <div className="flex items-center justify-between gap-2">
-            <h2 className="flex items-center gap-2 text-sm font-semibold">
-              <MapPin className="size-4" />
-              Location <span className="text-xs font-normal text-muted-foreground">Optional</span>
-            </h2>
-            {(latitude || longitude) && (
-              <button
-                type="button"
-                onClick={() => {
-                  setLatitude("");
-                  setLongitude("");
-                }}
-                className="flex min-h-9 items-center gap-1 text-xs text-muted-foreground"
+      <details data-tour="check-in-details" className="panel">
+        <summary className="min-h-14 cursor-pointer px-5 py-4 text-sm font-semibold">
+          Add a message or location{" "}
+          <span className="ml-1 text-xs font-normal text-muted-foreground">Optional</span>
+        </summary>
+        <div className="space-y-4 border-t p-5">
+          <div>
+            <label htmlFor="message" className="text-sm font-semibold">
+              Message <span className="text-xs font-normal text-muted-foreground">Optional</span>
+            </label>
+            <textarea
+              id="message"
+              maxLength={500}
+              value={message}
+              onChange={(e) => {
+                setMessage(e.target.value);
+                setVoiceNotice(null);
+              }}
+              placeholder="What should your team know?"
+              rows={3}
+              className="field mt-2 resize-y"
+            />
+            <p className="mt-1 text-right text-xs text-muted-foreground">{message.length}/500</p>
+            {voiceNotice && (
+              <p
+                role="status"
+                className="mt-1 text-xs leading-5 text-amber-800 dark:text-amber-300"
               >
-                <X className="size-3.5" />
-                Remove
-              </button>
+                {voiceNotice}
+              </p>
             )}
+            <VoiceInput onTranscript={addTranscript} online={online} disabled={saving} />
           </div>
-          <p className="mb-3 mt-2 text-xs leading-6 text-muted-foreground">
-            Share your device location or enter last-known coordinates.
-          </p>
-          <Button
-            type="button"
-            variant="outline"
-            className="h-11 w-full"
-            disabled={locating}
-            onClick={locate}
-          >
-            {locating ? (
-              <LoaderCircle className="size-4 animate-spin" />
-            ) : (
-              <Navigation className="size-4" />
-            )}
-            {locating ? "Getting location..." : "Use my current location"}
-          </Button>
-          {locationError && (
-            <p role="alert" className="mt-2 text-xs leading-5 text-amber-800 dark:text-amber-300">
-              {locationError}
-            </p>
-          )}
-          <div className="mt-4 grid grid-cols-2 gap-3">
-            <div>
-              <label htmlFor="latitude" className="text-xs text-muted-foreground">
-                Latitude
-              </label>
-              <input
-                id="latitude"
-                inputMode="decimal"
-                type="number"
-                step="any"
-                min={-90}
-                max={90}
-                placeholder="e.g. 3.0738"
-                value={latitude}
-                onChange={(e) => setLatitude(e.target.value)}
-                className="field mt-1"
-              />
+          <div className="border-t pt-4">
+            <div className="flex items-center justify-between gap-2">
+              <h2 className="flex items-center gap-2 text-sm font-semibold">
+                <MapPin className="size-4" />
+                Location <span className="text-xs font-normal text-muted-foreground">Optional</span>
+              </h2>
+              {(latitude || longitude) && (
+                <button
+                  type="button"
+                  onClick={() => {
+                    setLatitude("");
+                    setLongitude("");
+                  }}
+                  className="flex min-h-9 items-center gap-1 text-xs text-muted-foreground"
+                >
+                  <X className="size-3.5" />
+                  Remove
+                </button>
+              )}
             </div>
-            <div>
-              <label htmlFor="longitude" className="text-xs text-muted-foreground">
-                Longitude
-              </label>
-              <input
-                id="longitude"
-                inputMode="decimal"
-                type="number"
-                step="any"
-                min={-180}
-                max={180}
-                placeholder="e.g. 101.5183"
-                value={longitude}
-                onChange={(e) => setLongitude(e.target.value)}
-                className="field mt-1"
-              />
+            <p className="mb-3 mt-2 text-xs leading-6 text-muted-foreground">
+              Share your device location or enter last-known coordinates.
+            </p>
+            <Button
+              type="button"
+              variant="outline"
+              className="h-11 w-full"
+              disabled={locating}
+              onClick={locate}
+            >
+              {locating ? (
+                <LoaderCircle className="size-4 animate-spin" />
+              ) : (
+                <Navigation className="size-4" />
+              )}
+              {locating ? "Getting location..." : "Use my current location"}
+            </Button>
+            {locationError && (
+              <p role="alert" className="mt-2 text-xs leading-5 text-amber-800 dark:text-amber-300">
+                {locationError}
+              </p>
+            )}
+            <div className="mt-4 grid grid-cols-2 gap-3">
+              <div>
+                <label htmlFor="latitude" className="text-xs text-muted-foreground">
+                  Latitude
+                </label>
+                <input
+                  id="latitude"
+                  inputMode="decimal"
+                  type="number"
+                  step="any"
+                  min={-90}
+                  max={90}
+                  placeholder="e.g. 3.0738"
+                  value={latitude}
+                  onChange={(e) => setLatitude(e.target.value)}
+                  className="field mt-1"
+                />
+              </div>
+              <div>
+                <label htmlFor="longitude" className="text-xs text-muted-foreground">
+                  Longitude
+                </label>
+                <input
+                  id="longitude"
+                  inputMode="decimal"
+                  type="number"
+                  step="any"
+                  min={-180}
+                  max={180}
+                  placeholder="e.g. 101.5183"
+                  value={longitude}
+                  onChange={(e) => setLongitude(e.target.value)}
+                  className="field mt-1"
+                />
+              </div>
             </div>
           </div>
         </div>
-      </section>
+      </details>
       {(error || storageError) && (
         <p
           id="check-in-error"
@@ -346,7 +361,7 @@ export function CheckInForm() {
           {saving ? "Saving on this device..." : "Save check-in"}
         </Button>
         <p className="mt-3 text-center text-xs leading-6 text-muted-foreground">
-          Saved here first. Delivery is confirmed only after a server acknowledgement.
+          Demo check-ins stay on this device. Command will not receive them.
         </p>
       </div>
     </form>

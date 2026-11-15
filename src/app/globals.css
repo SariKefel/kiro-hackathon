@@ -29,13 +29,13 @@
   --radius-xl: 1rem;
 }
 :root {
-  --background: #f6f8fa;
+  --background: #f4f7fa;
   --foreground: #192a3c;
   --card: #ffffff;
   --primary: #087f72;
   --secondary: #f0f4f7;
   --muted-foreground: #5e6f80;
-  --border: #e1e7ed;
+  --border: #dce5ed;
   color-scheme: light;
 }
 .dark {
@@ -91,13 +91,13 @@
     @apply text-sm text-muted-foreground;
   }
   .field {
-    @apply w-full rounded-lg border bg-card px-3 py-2.5 text-sm placeholder:text-muted-foreground;
+    @apply min-h-11 w-full rounded-lg border bg-card px-3 py-2.5 text-base placeholder:text-muted-foreground sm:text-sm;
   }
   .page-content {
     @apply mx-auto w-full max-w-[1480px] p-5 md:p-8 lg:p-9;
   }
   .page-title {
-    @apply text-2xl font-semibold tracking-[-0.035em] md:text-[29px];
+    @apply text-[26px] font-semibold leading-tight tracking-[-0.035em] md:text-[32px];
   }
 }
 @media (prefers-reduced-motion: reduce) {

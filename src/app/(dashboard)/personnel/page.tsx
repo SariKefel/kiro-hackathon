@@ -17,7 +17,7 @@ export default async function PersonnelPage({
       : "all";
   const status =
     typeof params.status === "string" &&
-    ["safe", "needs_help", "unable_to_continue", "unknown"].includes(params.status)
+    ["safe", "assistance", "needs_help", "unable_to_continue", "unknown"].includes(params.status)
       ? params.status
       : "all";
   const invalidIncident = params.incident && params.incident !== incident.id;

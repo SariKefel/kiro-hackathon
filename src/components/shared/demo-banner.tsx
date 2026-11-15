@@ -1,24 +1,28 @@
 import { FlaskConical } from "lucide-react";
-import { Badge } from "@/components/ui/badge";
 
 export function DemoBanner({ responder = false }: { responder?: boolean }) {
   return (
-    <div
+    <aside
       data-tour="demo-mode"
-      className="flex items-start gap-2.5 rounded-lg border border-sky-200/70 bg-sky-50/70 px-3.5 py-3 text-xs leading-relaxed text-sky-900 dark:border-sky-900 dark:bg-sky-950/40 dark:text-sky-200"
+      aria-label="Demo mode information"
+      className="flex items-start gap-3 rounded-lg border border-sky-200/70 bg-sky-50/60 px-4 py-3 text-sky-950 dark:border-sky-900 dark:bg-sky-950/30 dark:text-sky-100"
     >
-      <FlaskConical className="mt-0.5 size-3.5 shrink-0" />
-      <p>
-        <Badge
-          variant="outline"
-          className="mr-1 border-sky-300 bg-transparent text-sky-900 dark:border-sky-700 dark:text-sky-200"
-        >
-          Demo Mode
-        </Badge>{" "}
-        {responder
-          ? "You are using Amir Hassan's sample identity. Reports save on this device; they are not delivered to command."
-          : "Sample incident data as of 15 Nov 2026, 08:40 MYT. Field reports on this device do not update this dashboard."}
-      </p>
-    </div>
+      <FlaskConical
+        aria-hidden="true"
+        className="mt-0.5 size-4 shrink-0 text-sky-700 dark:text-sky-300"
+      />
+      <div className="min-w-0">
+        <p className="text-xs font-semibold">
+          {responder
+            ? "Demo Mode - Amir Hassan's sample identity"
+            : "Demo Mode - sample response data"}
+        </p>
+        <p className="mt-1 text-xs leading-5 text-sky-900 dark:text-sky-200">
+          {responder
+            ? "Check-ins stay on this device and are not delivered to command."
+            : "Snapshot: 15 Nov 2026, 08:40 MYT. Check-ins saved on this device do not update these figures."}
+        </p>
+      </div>
+    </aside>
   );
 }
