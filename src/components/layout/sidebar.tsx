@@ -9,6 +9,7 @@ import {
   RadioTower,
   Settings2,
   ShieldCheck,
+  Sparkles,
   Users,
   Waves,
 } from "lucide-react";
@@ -19,6 +20,7 @@ const links = [
   { href: "/dashboard", label: "Overview", icon: LayoutDashboard },
   { href: "/incidents", label: "Incidents", icon: Waves },
   { href: "/personnel", label: "Personnel", icon: Users },
+  { href: "/ai-analysis", label: "AI Analysis", icon: Sparkles },
   { href: "/settings", label: "Settings", icon: Settings2 },
 ];
 export function Sidebar() {

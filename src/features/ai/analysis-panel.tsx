@@ -59,7 +59,8 @@ export function AiAnalysisPanel({ incidentId }: { incidentId: string }) {
     if (!navigator.onLine) {
       setState({
         status: "error",
-        message: "AI analysis needs an internet connection. The rest of the dashboard still works.",
+        message:
+          "AI analysis needs an internet connection. The rest of the command center still works.",
       });
       return;
     }

@@ -206,7 +206,7 @@ The check-in message field has an optional Dictate message button that uses the 
 It appears only in supporting browsers such as Chrome, Edge, and Safari, needs a connection, and only fills the editable field.
 Saving still goes through the normal local queue, and typing works offline as before.
 
-The commander dashboard's Generate AI Analysis button calls `POST /api/ai/analyze`, which accepts only an incident ID.
+The command center's separate AI Analysis page (`/ai-analysis`) has a Generate AI Analysis button that calls `POST /api/ai/analyze`, which accepts only an incident ID.
 The server selects the incident's reports, sends opaque report IDs, status, team, message, and time to Gemini without names or emails, and validates the JSON reply with Zod.
 One request returns a summary, key observations, uncertainties, and advisory priorities, each citing report IDs; replies citing unknown report IDs are rejected.
 Phase 1 analyzes the fictional sample reports in `demo-data.ts`, and the panel labels results as AI analysis of demo data.
@@ -225,7 +225,7 @@ To analyze real reports later, add a database-backed `ReportSource` in `src/feat
 | `DATABASE_URL_UNPOOLED` | Recommended for migration tooling        | Direct Neon connection to the same branch; Drizzle Kit falls back to `DATABASE_URL` when absent.   |
 | `BETTER_AUTH_SECRET`    | Optional Phase 2 preparation             | High-entropy server secret, generated locally by the wizard if requested; not consumed by Phase 1. |
 | `BETTER_AUTH_URL`       | Optional Phase 2 preparation             | Application origin, such as `http://localhost:3000`; not consumed by Phase 1.                      |
-| `GEMINI_API_KEY`        | Optional; enables AI analysis            | Server-only Google AI Studio key for the dashboard's Generate AI Analysis button.                  |
+| `GEMINI_API_KEY`        | Optional; enables AI analysis            | Server-only Google AI Studio key for the AI Analysis page (`/ai-analysis`).                        |
 | `GEMINI_MODEL`          | Optional                                 | Overrides the default stable model, `gemini-3.6-flash`.                                            |
 
 Copy `.env.example` to `.env.local` if you need database tooling.
