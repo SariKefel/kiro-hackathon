@@ -1,0 +1,3613 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-173.4, 9.8]
+      },
+      "properties": {
+        "eventtype": "TC",
+        "eventid": 1001348,
+        "episodeid": 24,
+        "eventname": "PENA-26",
+        "name": "Tropical Cyclone PENA-26",
+        "description": "Tropical Cyclone PENA-26",
+        "url": {
+          "report": "https://www.gdacs.org/report.aspx?eventid=1001348&episodeid=24&eventtype=TC"
+        },
+        "alertlevel": "Green",
+        "episodealertlevel": "Green",
+        "iscurrent": "true",
+        "country": "",
+        "fromdate": "2026-11-06T21:00:00",
+        "todate": "2026-11-12T15:00:00",
+        "datemodified": "2026-11-12T14:52:09",
+        "Class": "Point_Centroid",
+        "affectedcountries": [],
+        "severitydata": {
+          "severity": 92.592,
+          "severitytext": "Tropical Depression (maximum wind speed of 93 km/h)",
+          "severityunit": "km/h"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": []
+      },
+      "properties": {
+        "eventtype": "TC",
+        "eventid": 1001348,
+        "episodeid": 24,
+        "eventname": "PENA-26",
+        "name": "Tropical Cyclone PENA-26",
+        "description": "Tropical Cyclone PENA-26",
+        "url": {
+          "report": "https://www.gdacs.org/report.aspx?eventid=1001348&episodeid=24&eventtype=TC"
+        },
+        "alertlevel": "Green",
+        "episodealertlevel": "Green",
+        "iscurrent": "true",
+        "country": "",
+        "fromdate": "2026-11-06T21:00:00",
+        "todate": "2026-11-12T15:00:00",
+        "datemodified": "2026-11-12T14:52:09",
+        "affectedcountries": [],
+        "severitydata": {
+          "severity": 92.592,
+          "severitytext": "Tropical Depression (maximum wind speed of 93 km/h)",
+          "severityunit": "km/h"
+        },
+        "Class": "Poly_Green"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": []
+      },
+      "properties": {
+        "eventtype": "TC",
+        "eventid": 1001348,
+        "episodeid": 24,
+        "eventname": "PENA-26",
+        "name": "Tropical Cyclone PENA-26",
+        "description": "Tropical Cyclone PENA-26",
+        "url": {
+          "report": "https://www.gdacs.org/report.aspx?eventid=1001348&episodeid=24&eventtype=TC"
+        },
+        "alertlevel": "Green",
+        "episodealertlevel": "Green",
+        "iscurrent": "true",
+        "country": "",
+        "fromdate": "2026-11-06T21:00:00",
+        "todate": "2026-11-12T15:00:00",
+        "datemodified": "2026-11-12T14:52:09",
+        "affectedcountries": [],
+        "severitydata": {
+          "severity": 92.592,
+          "severitytext": "Tropical Depression (maximum wind speed of 93 km/h)",
+          "severityunit": "km/h"
+        },
+        "Class": "Poly_Orange"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": []
+      },
+      "properties": {
+        "eventtype": "TC",
+        "eventid": 1001348,
+        "episodeid": 24,
+        "eventname": "PENA-26",
+        "name": "Tropical Cyclone PENA-26",
+        "description": "Tropical Cyclone PENA-26",
+        "url": {
+          "report": "https://www.gdacs.org/report.aspx?eventid=1001348&episodeid=24&eventtype=TC"
+        },
+        "alertlevel": "Green",
+        "episodealertlevel": "Green",
+        "iscurrent": "true",
+        "country": "",
+        "fromdate": "2026-11-06T21:00:00",
+        "todate": "2026-11-12T15:00:00",
+        "datemodified": "2026-11-12T14:52:09",
+        "affectedcountries": [],
+        "severitydata": {
+          "severity": 92.592,
+          "severitytext": "Tropical Depression (maximum wind speed of 93 km/h)",
+          "severityunit": "km/h"
+        },
+        "Class": "Line_Line_0"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": []
+      },
+      "properties": {
+        "eventtype": "TC",
+        "eventid": 1001348,
+        "episodeid": 24,
+        "eventname": "PENA-26",
+        "name": "Tropical Cyclone PENA-26",
+        "description": "Tropical Cyclone PENA-26",
+        "url": {
+          "report": "https://www.gdacs.org/report.aspx?eventid=1001348&episodeid=24&eventtype=TC"
+        },
+        "alertlevel": "Green",
+        "episodealertlevel": "Green",
+        "iscurrent": "true",
+        "country": "",
+        "fromdate": "2026-11-06T21:00:00",
+        "todate": "2026-11-12T15:00:00",
+        "datemodified": "2026-11-12T14:52:09",
+        "affectedcountries": [],
+        "severitydata": {
+          "severity": 92.592,
+          "severitytext": "Tropical Depression (maximum wind speed of 93 km/h)",
+          "severityunit": "km/h"
+        },
+        "Class": "Line_Line_1"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": []
+      },
+      "properties": {
+        "eventtype": "TC",
+        "eventid": 1001348,
+        "episodeid": 24,
+        "eventname": "PENA-26",
+        "name": "Tropical Cyclone PENA-26",
+        "description": "Tropical Cyclone PENA-26",
+        "url": {
+          "report": "https://www.gdacs.org/report.aspx?eventid=1001348&episodeid=24&eventtype=TC"
+        },
+        "alertlevel": "Green",
+        "episodealertlevel": "Green",
+        "iscurrent": "true",
+        "country": "",
+        "fromdate": "2026-11-06T21:00:00",
+        "todate": "2026-11-12T15:00:00",
+        "datemodified": "2026-11-12T14:52:09",
+        "affectedcountries": [],
+        "severitydata": {
+          "severity": 92.592,
+          "severitytext": "Tropical Depression (maximum wind speed of 93 km/h)",
+          "severityunit": "km/h"
+        },
+        "Class": "Line_Line_2"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": []
+      },
+      "properties": {
+        "eventtype": "TC",
+        "eventid": 1001348,
+        "episodeid": 24,
+        "eventname": "PENA-26",
+        "name": "Tropical Cyclone PENA-26",
+        "description": "Tropical Cyclone PENA-26",
+        "url": {
+          "report": "https://www.gdacs.org/report.aspx?eventid=1001348&episodeid=24&eventtype=TC"
+        },
+        "alertlevel": "Green",
+        "episodealertlevel": "Green",
+        "iscurrent": "true",
+        "country": "",
+        "fromdate": "2026-11-06T21:00:00",
+        "todate": "2026-11-12T15:00:00",
+        "datemodified": "2026-11-12T14:52:09",
+        "affectedcountries": [],
+        "severitydata": {
+          "severity": 92.592,
+          "severitytext": "Tropical Depression (maximum wind speed of 93 km/h)",
+          "severityunit": "km/h"
+        },
+        "Class": "Line_Line_3"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": []
+      },
+      "properties": {
+        "eventtype": "TC",
+        "eventid": 1001348,
+        "episodeid": 24,
+        "eventname": "PENA-26",
+        "name": "Tropical Cyclone PENA-26",
+        "description": "Tropical Cyclone PENA-26",
+        "url": {
+          "report": "https://www.gdacs.org/report.aspx?eventid=1001348&episodeid=24&eventtype=TC"
+        },
+        "alertlevel": "Green",
+        "episodealertlevel": "Green",
+        "iscurrent": "true",
+        "country": "",
+        "fromdate": "2026-11-06T21:00:00",
+        "todate": "2026-11-12T15:00:00",
+        "datemodified": "2026-11-12T14:52:09",
+        "affectedcountries": [],
+        "severitydata": {
+          "severity": 92.592,
+          "severitytext": "Tropical Depression (maximum wind speed of 93 km/h)",
+          "severityunit": "km/h"
+        },
+        "Class": "Line_Line_4"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": []
+      },
+      "properties": {
+        "eventtype": "TC",
+        "eventid": 1001348,
+        "episodeid": 24,
+        "eventname": "PENA-26",
+        "name": "Tropical Cyclone PENA-26",
+        "description": "Tropical Cyclone PENA-26",
+        "url": {
+          "report": "https://www.gdacs.org/report.aspx?eventid=1001348&episodeid=24&eventtype=TC"
+        },
+        "alertlevel": "Green",
+        "episodealertlevel": "Green",
+        "iscurrent": "true",
+        "country": "",
+        "fromdate": "2026-11-06T21:00:00",
+        "todate": "2026-11-12T15:00:00",
+        "datemodified": "2026-11-12T14:52:09",
+        "affectedcountries": [],
+        "severitydata": {
+          "severity": 92.592,
+          "severitytext": "Tropical Depression (maximum wind speed of 93 km/h)",
+          "severityunit": "km/h"
+        },
+        "Class": "Line_Line_5"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": []
+      },
+      "properties": {
+        "eventtype": "TC",
+        "eventid": 1001348,
+        "episodeid": 24,
+        "eventname": "PENA-26",
+        "name": "Tropical Cyclone PENA-26",
+        "description": "Tropical Cyclone PENA-26",
+        "url": {
+          "report": "https://www.gdacs.org/report.aspx?eventid=1001348&episodeid=24&eventtype=TC"
+        },
+        "alertlevel": "Green",
+        "episodealertlevel": "Green",
+        "iscurrent": "true",
+        "country": "",
+        "fromdate": "2026-11-06T21:00:00",
+        "todate": "2026-11-12T15:00:00",
+        "datemodified": "2026-11-12T14:52:09",
+        "affectedcountries": [],
+        "severitydata": {
+          "severity": 92.592,
+          "severitytext": "Tropical Depression (maximum wind speed of 93 km/h)",
+          "severityunit": "km/h"
+        },
+        "Class": "Line_Line_6"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": []
+      },
+      "properties": {
+        "eventtype": "TC",
+        "eventid": 1001348,
+        "episodeid": 24,
+        "eventname": "PENA-26",
+        "name": "Tropical Cyclone PENA-26",
+        "description": "Tropical Cyclone PENA-26",
+        "url": {
+          "report": "https://www.gdacs.org/report.aspx?eventid=1001348&episodeid=24&eventtype=TC"
+        },
+        "alertlevel": "Green",
+        "episodealertlevel": "Green",
+        "iscurrent": "true",
+        "country": "",
+        "fromdate": "2026-11-06T21:00:00",
+        "todate": "2026-11-12T15:00:00",
+        "datemodified": "2026-11-12T14:52:09",
+        "affectedcountries": [],
+        "severitydata": {
+          "severity": 92.592,
+          "severitytext": "Tropical Depression (maximum wind speed of 93 km/h)",
+          "severityunit": "km/h"
+        },
+        "Class": "Line_Line_7"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": []
+      },
+      "properties": {
+        "eventtype": "TC",
+        "eventid": 1001348,
+        "episodeid": 24,
+        "eventname": "PENA-26",
+        "name": "Tropical Cyclone PENA-26",
+        "description": "Tropical Cyclone PENA-26",
+        "url": {
+          "report": "https://www.gdacs.org/report.aspx?eventid=1001348&episodeid=24&eventtype=TC"
+        },
+        "alertlevel": "Green",
+        "episodealertlevel": "Green",
+        "iscurrent": "true",
+        "country": "",
+        "fromdate": "2026-11-06T21:00:00",
+        "todate": "2026-11-12T15:00:00",
+        "datemodified": "2026-11-12T14:52:09",
+        "affectedcountries": [],
+        "severitydata": {
+          "severity": 92.592,
+          "severitytext": "Tropical Depression (maximum wind speed of 93 km/h)",
+          "severityunit": "km/h"
+        },
+        "Class": "Line_Line_8"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": []
+      },
+      "properties": {
+        "eventtype": "TC",
+        "eventid": 1001348,
+        "episodeid": 24,
+        "eventname": "PENA-26",
+        "name": "Tropical Cyclone PENA-26",
+        "description": "Tropical Cyclone PENA-26",
+        "url": {
+          "report": "https://www.gdacs.org/report.aspx?eventid=1001348&episodeid=24&eventtype=TC"
+        },
+        "alertlevel": "Green",
+        "episodealertlevel": "Green",
+        "iscurrent": "true",
+        "country": "",
+        "fromdate": "2026-11-06T21:00:00",
+        "todate": "2026-11-12T15:00:00",
+        "datemodified": "2026-11-12T14:52:09",
+        "affectedcountries": [],
+        "severitydata": {
+          "severity": 92.592,
+          "severitytext": "Tropical Depression (maximum wind speed of 93 km/h)",
+          "severityunit": "km/h"
+        },
+        "Class": "Line_Line_9"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": []
+      },
+      "properties": {
+        "eventtype": "TC",
+        "eventid": 1001348,
+        "episodeid": 24,
+        "eventname": "PENA-26",
+        "name": "Tropical Cyclone PENA-26",
+        "description": "Tropical Cyclone PENA-26",
+        "url": {
+          "report": "https://www.gdacs.org/report.aspx?eventid=1001348&episodeid=24&eventtype=TC"
+        },
+        "alertlevel": "Green",
+        "episodealertlevel": "Green",
+        "iscurrent": "true",
+        "country": "",
+        "fromdate": "2026-11-06T21:00:00",
+        "todate": "2026-11-12T15:00:00",
+        "datemodified": "2026-11-12T14:52:09",
+        "affectedcountries": [],
+        "severitydata": {
+          "severity": 92.592,
+          "severitytext": "Tropical Depression (maximum wind speed of 93 km/h)",
+          "severityunit": "km/h"
+        },
+        "Class": "Line_Line_10"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": []
+      },
+      "properties": {
+        "eventtype": "TC",
+        "eventid": 1001348,
+        "episodeid": 24,
+        "eventname": "PENA-26",
+        "name": "Tropical Cyclone PENA-26",
+        "description": "Tropical Cyclone PENA-26",
+        "url": {
+          "report": "https://www.gdacs.org/report.aspx?eventid=1001348&episodeid=24&eventtype=TC"
+        },
+        "alertlevel": "Green",
+        "episodealertlevel": "Green",
+        "iscurrent": "true",
+        "country": "",
+        "fromdate": "2026-11-06T21:00:00",
+        "todate": "2026-11-12T15:00:00",
+        "datemodified": "2026-11-12T14:52:09",
+        "affectedcountries": [],
+        "severitydata": {
+          "severity": 92.592,
+          "severitytext": "Tropical Depression (maximum wind speed of 93 km/h)",
+          "severityunit": "km/h"
+        },
+        "Class": "Line_Line_11"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": []
+      },
+      "properties": {
+        "eventtype": "TC",
+        "eventid": 1001348,
+        "episodeid": 24,
+        "eventname": "PENA-26",
+        "name": "Tropical Cyclone PENA-26",
+        "description": "Tropical Cyclone PENA-26",
+        "url": {
+          "report": "https://www.gdacs.org/report.aspx?eventid=1001348&episodeid=24&eventtype=TC"
+        },
+        "alertlevel": "Green",
+        "episodealertlevel": "Green",
+        "iscurrent": "true",
+        "country": "",
+        "fromdate": "2026-11-06T21:00:00",
+        "todate": "2026-11-12T15:00:00",
+        "datemodified": "2026-11-12T14:52:09",
+        "affectedcountries": [],
+        "severitydata": {
+          "severity": 92.592,
+          "severitytext": "Tropical Depression (maximum wind speed of 93 km/h)",
+          "severityunit": "km/h"
+        },
+        "Class": "Line_Line_12"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": []
+      },
+      "properties": {
+        "eventtype": "TC",
+        "eventid": 1001348,
+        "episodeid": 24,
+        "eventname": "PENA-26",
+        "name": "Tropical Cyclone PENA-26",
+        "description": "Tropical Cyclone PENA-26",
+        "url": {
+          "report": "https://www.gdacs.org/report.aspx?eventid=1001348&episodeid=24&eventtype=TC"
+        },
+        "alertlevel": "Green",
+        "episodealertlevel": "Green",
+        "iscurrent": "true",
+        "country": "",
+        "fromdate": "2026-11-06T21:00:00",
+        "todate": "2026-11-12T15:00:00",
+        "datemodified": "2026-11-12T14:52:09",
+        "affectedcountries": [],
+        "severitydata": {
+          "severity": 92.592,
+          "severitytext": "Tropical Depression (maximum wind speed of 93 km/h)",
+          "severityunit": "km/h"
+        },
+        "Class": "Line_Line_13"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": []
+      },
+      "properties": {
+        "eventtype": "TC",
+        "eventid": 1001348,
+        "episodeid": 24,
+        "eventname": "PENA-26",
+        "name": "Tropical Cyclone PENA-26",
+        "description": "Tropical Cyclone PENA-26",
+        "url": {
+          "report": "https://www.gdacs.org/report.aspx?eventid=1001348&episodeid=24&eventtype=TC"
+        },
+        "alertlevel": "Green",
+        "episodealertlevel": "Green",
+        "iscurrent": "true",
+        "country": "",
+        "fromdate": "2026-11-06T21:00:00",
+        "todate": "2026-11-12T15:00:00",
+        "datemodified": "2026-11-12T14:52:09",
+        "affectedcountries": [],
+        "severitydata": {
+          "severity": 92.592,
+          "severitytext": "Tropical Depression (maximum wind speed of 93 km/h)",
+          "severityunit": "km/h"
+        },
+        "Class": "Line_Line_14"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": []
+      },
+      "properties": {
+        "eventtype": "TC",
+        "eventid": 1001348,
+        "episodeid": 24,
+        "eventname": "PENA-26",
+        "name": "Tropical Cyclone PENA-26",
+        "description": "Tropical Cyclone PENA-26",
+        "url": {
+          "report": "https://www.gdacs.org/report.aspx?eventid=1001348&episodeid=24&eventtype=TC"
+        },
+        "alertlevel": "Green",
+        "episodealertlevel": "Green",
+        "iscurrent": "true",
+        "country": "",
+        "fromdate": "2026-11-06T21:00:00",
+        "todate": "2026-11-12T15:00:00",
+        "datemodified": "2026-11-12T14:52:09",
+        "affectedcountries": [],
+        "severitydata": {
+          "severity": 92.592,
+          "severitytext": "Tropical Depression (maximum wind speed of 93 km/h)",
+          "severityunit": "km/h"
+        },
+        "Class": "Line_Line_15"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": []
+      },
+      "properties": {
+        "eventtype": "TC",
+        "eventid": 1001348,
+        "episodeid": 24,
+        "eventname": "PENA-26",
+        "name": "Tropical Cyclone PENA-26",
+        "description": "Tropical Cyclone PENA-26",
+        "url": {
+          "report": "https://www.gdacs.org/report.aspx?eventid=1001348&episodeid=24&eventtype=TC"
+        },
+        "alertlevel": "Green",
+        "episodealertlevel": "Green",
+        "iscurrent": "true",
+        "country": "",
+        "fromdate": "2026-11-06T21:00:00",
+        "todate": "2026-11-12T15:00:00",
+        "datemodified": "2026-11-12T14:52:09",
+        "affectedcountries": [],
+        "severitydata": {
+          "severity": 92.592,
+          "severitytext": "Tropical Depression (maximum wind speed of 93 km/h)",
+          "severityunit": "km/h"
+        },
+        "Class": "Line_Line_16"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": []
+      },
+      "properties": {
+        "eventtype": "TC",
+        "eventid": 1001348,
+        "episodeid": 24,
+        "eventname": "PENA-26",
+        "name": "Tropical Cyclone PENA-26",
+        "description": "Tropical Cyclone PENA-26",
+        "url": {
+          "report": "https://www.gdacs.org/report.aspx?eventid=1001348&episodeid=24&eventtype=TC"
+        },
+        "alertlevel": "Green",
+        "episodealertlevel": "Green",
+        "iscurrent": "true",
+        "country": "",
+        "fromdate": "2026-11-06T21:00:00",
+        "todate": "2026-11-12T15:00:00",
+        "datemodified": "2026-11-12T14:52:09",
+        "affectedcountries": [],
+        "severitydata": {
+          "severity": 92.592,
+          "severitytext": "Tropical Depression (maximum wind speed of 93 km/h)",
+          "severityunit": "km/h"
+        },
+        "Class": "Line_Line_17"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": []
+      },
+      "properties": {
+        "eventtype": "TC",
+        "eventid": 1001348,
+        "episodeid": 24,
+        "eventname": "PENA-26",
+        "name": "Tropical Cyclone PENA-26",
+        "description": "Tropical Cyclone PENA-26",
+        "url": {
+          "report": "https://www.gdacs.org/report.aspx?eventid=1001348&episodeid=24&eventtype=TC"
+        },
+        "alertlevel": "Green",
+        "episodealertlevel": "Green",
+        "iscurrent": "true",
+        "country": "",
+        "fromdate": "2026-11-06T21:00:00",
+        "todate": "2026-11-12T15:00:00",
+        "datemodified": "2026-11-12T14:52:09",
+        "affectedcountries": [],
+        "severitydata": {
+          "severity": 92.592,
+          "severitytext": "Tropical Depression (maximum wind speed of 93 km/h)",
+          "severityunit": "km/h"
+        },
+        "Class": "Line_Line_18"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": []
+      },
+      "properties": {
+        "eventtype": "TC",
+        "eventid": 1001348,
+        "episodeid": 24,
+        "eventname": "PENA-26",
+        "name": "Tropical Cyclone PENA-26",
+        "description": "Tropical Cyclone PENA-26",
+        "url": {
+          "report": "https://www.gdacs.org/report.aspx?eventid=1001348&episodeid=24&eventtype=TC"
+        },
+        "alertlevel": "Green",
+        "episodealertlevel": "Green",
+        "iscurrent": "true",
+        "country": "",
+        "fromdate": "2026-11-06T21:00:00",
+        "todate": "2026-11-12T15:00:00",
+        "datemodified": "2026-11-12T14:52:09",
+        "affectedcountries": [],
+        "severitydata": {
+          "severity": 92.592,
+          "severitytext": "Tropical Depression (maximum wind speed of 93 km/h)",
+          "severityunit": "km/h"
+        },
+        "Class": "Line_Line_19"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": []
+      },
+      "properties": {
+        "eventtype": "TC",
+        "eventid": 1001348,
+        "episodeid": 24,
+        "eventname": "PENA-26",
+        "name": "Tropical Cyclone PENA-26",
+        "description": "Tropical Cyclone PENA-26",
+        "url": {
+          "report": "https://www.gdacs.org/report.aspx?eventid=1001348&episodeid=24&eventtype=TC"
+        },
+        "alertlevel": "Green",
+        "episodealertlevel": "Green",
+        "iscurrent": "true",
+        "country": "",
+        "fromdate": "2026-11-06T21:00:00",
+        "todate": "2026-11-12T15:00:00",
+        "datemodified": "2026-11-12T14:52:09",
+        "affectedcountries": [],
+        "severitydata": {
+          "severity": 92.592,
+          "severitytext": "Tropical Depression (maximum wind speed of 93 km/h)",
+          "severityunit": "km/h"
+        },
+        "Class": "Line_Line_20"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": []
+      },
+      "properties": {
+        "eventtype": "TC",
+        "eventid": 1001348,
+        "episodeid": 24,
+        "eventname": "PENA-26",
+        "name": "Tropical Cyclone PENA-26",
+        "description": "Tropical Cyclone PENA-26",
+        "url": {
+          "report": "https://www.gdacs.org/report.aspx?eventid=1001348&episodeid=24&eventtype=TC"
+        },
+        "alertlevel": "Green",
+        "episodealertlevel": "Green",
+        "iscurrent": "true",
+        "country": "",
+        "fromdate": "2026-11-06T21:00:00",
+        "todate": "2026-11-12T15:00:00",
+        "datemodified": "2026-11-12T14:52:09",
+        "affectedcountries": [],
+        "severitydata": {
+          "severity": 92.592,
+          "severitytext": "Tropical Depression (maximum wind speed of 93 km/h)",
+          "severityunit": "km/h"
+        },
+        "Class": "Line_Line_21"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": []
+      },
+      "properties": {
+        "eventtype": "TC",
+        "eventid": 1001348,
+        "episodeid": 24,
+        "eventname": "PENA-26",
+        "name": "Tropical Cyclone PENA-26",
+        "description": "Tropical Cyclone PENA-26",
+        "url": {
+          "report": "https://www.gdacs.org/report.aspx?eventid=1001348&episodeid=24&eventtype=TC"
+        },
+        "alertlevel": "Green",
+        "episodealertlevel": "Green",
+        "iscurrent": "true",
+        "country": "",
+        "fromdate": "2026-11-06T21:00:00",
+        "todate": "2026-11-12T15:00:00",
+        "datemodified": "2026-11-12T14:52:09",
+        "affectedcountries": [],
+        "severitydata": {
+          "severity": 92.592,
+          "severitytext": "Tropical Depression (maximum wind speed of 93 km/h)",
+          "severityunit": "km/h"
+        },
+        "Class": "Line_Line_22"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": []
+      },
+      "properties": {
+        "eventtype": "TC",
+        "eventid": 1001348,
+        "episodeid": 24,
+        "eventname": "PENA-26",
+        "name": "Tropical Cyclone PENA-26",
+        "description": "Tropical Cyclone PENA-26",
+        "url": {
+          "report": "https://www.gdacs.org/report.aspx?eventid=1001348&episodeid=24&eventtype=TC"
+        },
+        "alertlevel": "Green",
+        "episodealertlevel": "Green",
+        "iscurrent": "true",
+        "country": "",
+        "fromdate": "2026-11-06T21:00:00",
+        "todate": "2026-11-12T15:00:00",
+        "datemodified": "2026-11-12T14:52:09",
+        "affectedcountries": [],
+        "severitydata": {
+          "severity": 92.592,
+          "severitytext": "Tropical Depression (maximum wind speed of 93 km/h)",
+          "severityunit": "km/h"
+        },
+        "Class": "Point_Polygon_Point_0"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": []
+      },
+      "properties": {
+        "eventtype": "TC",
+        "eventid": 1001348,
+        "episodeid": 24,
+        "eventname": "PENA-26",
+        "name": "Tropical Cyclone PENA-26",
+        "description": "Tropical Cyclone PENA-26",
+        "url": {
+          "report": "https://www.gdacs.org/report.aspx?eventid=1001348&episodeid=24&eventtype=TC"
+        },
+        "alertlevel": "Green",
+        "episodealertlevel": "Green",
+        "iscurrent": "true",
+        "country": "",
+        "fromdate": "2026-11-06T21:00:00",
+        "todate": "2026-11-12T15:00:00",
+        "datemodified": "2026-11-12T14:52:09",
+        "affectedcountries": [],
+        "severitydata": {
+          "severity": 92.592,
+          "severitytext": "Tropical Depression (maximum wind speed of 93 km/h)",
+          "severityunit": "km/h"
+        },
+        "Class": "Point_Polygon_Point_1"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": []
+      },
+      "properties": {
+        "eventtype": "TC",
+        "eventid": 1001348,
+        "episodeid": 24,
+        "eventname": "PENA-26",
+        "name": "Tropical Cyclone PENA-26",
+        "description": "Tropical Cyclone PENA-26",
+        "url": {
+          "report": "https://www.gdacs.org/report.aspx?eventid=1001348&episodeid=24&eventtype=TC"
+        },
+        "alertlevel": "Green",
+        "episodealertlevel": "Green",
+        "iscurrent": "true",
+        "country": "",
+        "fromdate": "2026-11-06T21:00:00",
+        "todate": "2026-11-12T15:00:00",
+        "datemodified": "2026-11-12T14:52:09",
+        "affectedcountries": [],
+        "severitydata": {
+          "severity": 92.592,
+          "severitytext": "Tropical Depression (maximum wind speed of 93 km/h)",
+          "severityunit": "km/h"
+        },
+        "Class": "Point_Polygon_Point_2"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": []
+      },
+      "properties": {
+        "eventtype": "TC",
+        "eventid": 1001348,
+        "episodeid": 24,
+        "eventname": "PENA-26",
+        "name": "Tropical Cyclone PENA-26",
+        "description": "Tropical Cyclone PENA-26",
+        "url": {
+          "report": "https://www.gdacs.org/report.aspx?eventid=1001348&episodeid=24&eventtype=TC"
+        },
+        "alertlevel": "Green",
+        "episodealertlevel": "Green",
+        "iscurrent": "true",
+        "country": "",
+        "fromdate": "2026-11-06T21:00:00",
+        "todate": "2026-11-12T15:00:00",
+        "datemodified": "2026-11-12T14:52:09",
+        "affectedcountries": [],
+        "severitydata": {
+          "severity": 92.592,
+          "severitytext": "Tropical Depression (maximum wind speed of 93 km/h)",
+          "severityunit": "km/h"
+        },
+        "Class": "Point_Polygon_Point_3"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": []
+      },
+      "properties": {
+        "eventtype": "TC",
+        "eventid": 1001348,
+        "episodeid": 24,
+        "eventname": "PENA-26",
+        "name": "Tropical Cyclone PENA-26",
+        "description": "Tropical Cyclone PENA-26",
+        "url": {
+          "report": "https://www.gdacs.org/report.aspx?eventid=1001348&episodeid=24&eventtype=TC"
+        },
+        "alertlevel": "Green",
+        "episodealertlevel": "Green",
+        "iscurrent": "true",
+        "country": "",
+        "fromdate": "2026-11-06T21:00:00",
+        "todate": "2026-11-12T15:00:00",
+        "datemodified": "2026-11-12T14:52:09",
+        "affectedcountries": [],
+        "severitydata": {
+          "severity": 92.592,
+          "severitytext": "Tropical Depression (maximum wind speed of 93 km/h)",
+          "severityunit": "km/h"
+        },
+        "Class": "Point_Polygon_Point_4"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": []
+      },
+      "properties": {
+        "eventtype": "TC",
+        "eventid": 1001348,
+        "episodeid": 24,
+        "eventname": "PENA-26",
+        "name": "Tropical Cyclone PENA-26",
+        "description": "Tropical Cyclone PENA-26",
+        "url": {
+          "report": "https://www.gdacs.org/report.aspx?eventid=1001348&episodeid=24&eventtype=TC"
+        },
+        "alertlevel": "Green",
+        "episodealertlevel": "Green",
+        "iscurrent": "true",
+        "country": "",
+        "fromdate": "2026-11-06T21:00:00",
+        "todate": "2026-11-12T15:00:00",
+        "datemodified": "2026-11-12T14:52:09",
+        "affectedcountries": [],
+        "severitydata": {
+          "severity": 92.592,
+          "severitytext": "Tropical Depression (maximum wind speed of 93 km/h)",
+          "severityunit": "km/h"
+        },
+        "Class": "Point_Polygon_Point_5"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": []
+      },
+      "properties": {
+        "eventtype": "TC",
+        "eventid": 1001348,
+        "episodeid": 24,
+        "eventname": "PENA-26",
+        "name": "Tropical Cyclone PENA-26",
+        "description": "Tropical Cyclone PENA-26",
+        "url": {
+          "report": "https://www.gdacs.org/report.aspx?eventid=1001348&episodeid=24&eventtype=TC"
+        },
+        "alertlevel": "Green",
+        "episodealertlevel": "Green",
+        "iscurrent": "true",
+        "country": "",
+        "fromdate": "2026-11-06T21:00:00",
+        "todate": "2026-11-12T15:00:00",
+        "datemodified": "2026-11-12T14:52:09",
+        "affectedcountries": [],
+        "severitydata": {
+          "severity": 92.592,
+          "severitytext": "Tropical Depression (maximum wind speed of 93 km/h)",
+          "severityunit": "km/h"
+        },
+        "Class": "Point_Polygon_Point_6"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": []
+      },
+      "properties": {
+        "eventtype": "TC",
+        "eventid": 1001348,
+        "episodeid": 24,
+        "eventname": "PENA-26",
+        "name": "Tropical Cyclone PENA-26",
+        "description": "Tropical Cyclone PENA-26",
+        "url": {
+          "report": "https://www.gdacs.org/report.aspx?eventid=1001348&episodeid=24&eventtype=TC"
+        },
+        "alertlevel": "Green",
+        "episodealertlevel": "Green",
+        "iscurrent": "true",
+        "country": "",
+        "fromdate": "2026-11-06T21:00:00",
+        "todate": "2026-11-12T15:00:00",
+        "datemodified": "2026-11-12T14:52:09",
+        "affectedcountries": [],
+        "severitydata": {
+          "severity": 92.592,
+          "severitytext": "Tropical Depression (maximum wind speed of 93 km/h)",
+          "severityunit": "km/h"
+        },
+        "Class": "Point_Polygon_Point_7"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": []
+      },
+      "properties": {
+        "eventtype": "TC",
+        "eventid": 1001348,
+        "episodeid": 24,
+        "eventname": "PENA-26",
+        "name": "Tropical Cyclone PENA-26",
+        "description": "Tropical Cyclone PENA-26",
+        "url": {
+          "report": "https://www.gdacs.org/report.aspx?eventid=1001348&episodeid=24&eventtype=TC"
+        },
+        "alertlevel": "Green",
+        "episodealertlevel": "Green",
+        "iscurrent": "true",
+        "country": "",
+        "fromdate": "2026-11-06T21:00:00",
+        "todate": "2026-11-12T15:00:00",
+        "datemodified": "2026-11-12T14:52:09",
+        "affectedcountries": [],
+        "severitydata": {
+          "severity": 92.592,
+          "severitytext": "Tropical Depression (maximum wind speed of 93 km/h)",
+          "severityunit": "km/h"
+        },
+        "Class": "Point_Polygon_Point_8"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": []
+      },
+      "properties": {
+        "eventtype": "TC",
+        "eventid": 1001348,
+        "episodeid": 24,
+        "eventname": "PENA-26",
+        "name": "Tropical Cyclone PENA-26",
+        "description": "Tropical Cyclone PENA-26",
+        "url": {
+          "report": "https://www.gdacs.org/report.aspx?eventid=1001348&episodeid=24&eventtype=TC"
+        },
+        "alertlevel": "Green",
+        "episodealertlevel": "Green",
+        "iscurrent": "true",
+        "country": "",
+        "fromdate": "2026-11-06T21:00:00",
+        "todate": "2026-11-12T15:00:00",
+        "datemodified": "2026-11-12T14:52:09",
+        "affectedcountries": [],
+        "severitydata": {
+          "severity": 92.592,
+          "severitytext": "Tropical Depression (maximum wind speed of 93 km/h)",
+          "severityunit": "km/h"
+        },
+        "Class": "Point_Polygon_Point_9"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": []
+      },
+      "properties": {
+        "eventtype": "TC",
+        "eventid": 1001348,
+        "episodeid": 24,
+        "eventname": "PENA-26",
+        "name": "Tropical Cyclone PENA-26",
+        "description": "Tropical Cyclone PENA-26",
+        "url": {
+          "report": "https://www.gdacs.org/report.aspx?eventid=1001348&episodeid=24&eventtype=TC"
+        },
+        "alertlevel": "Green",
+        "episodealertlevel": "Green",
+        "iscurrent": "true",
+        "country": "",
+        "fromdate": "2026-11-06T21:00:00",
+        "todate": "2026-11-12T15:00:00",
+        "datemodified": "2026-11-12T14:52:09",
+        "affectedcountries": [],
+        "severitydata": {
+          "severity": 92.592,
+          "severitytext": "Tropical Depression (maximum wind speed of 93 km/h)",
+          "severityunit": "km/h"
+        },
+        "Class": "Point_Polygon_Point_10"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": []
+      },
+      "properties": {
+        "eventtype": "TC",
+        "eventid": 1001348,
+        "episodeid": 24,
+        "eventname": "PENA-26",
+        "name": "Tropical Cyclone PENA-26",
+        "description": "Tropical Cyclone PENA-26",
+        "url": {
+          "report": "https://www.gdacs.org/report.aspx?eventid=1001348&episodeid=24&eventtype=TC"
+        },
+        "alertlevel": "Green",
+        "episodealertlevel": "Green",
+        "iscurrent": "true",
+        "country": "",
+        "fromdate": "2026-11-06T21:00:00",
+        "todate": "2026-11-12T15:00:00",
+        "datemodified": "2026-11-12T14:52:09",
+        "affectedcountries": [],
+        "severitydata": {
+          "severity": 92.592,
+          "severitytext": "Tropical Depression (maximum wind speed of 93 km/h)",
+          "severityunit": "km/h"
+        },
+        "Class": "Point_Polygon_Point_11"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": []
+      },
+      "properties": {
+        "eventtype": "TC",
+        "eventid": 1001348,
+        "episodeid": 24,
+        "eventname": "PENA-26",
+        "name": "Tropical Cyclone PENA-26",
+        "description": "Tropical Cyclone PENA-26",
+        "url": {
+          "report": "https://www.gdacs.org/report.aspx?eventid=1001348&episodeid=24&eventtype=TC"
+        },
+        "alertlevel": "Green",
+        "episodealertlevel": "Green",
+        "iscurrent": "true",
+        "country": "",
+        "fromdate": "2026-11-06T21:00:00",
+        "todate": "2026-11-12T15:00:00",
+        "datemodified": "2026-11-12T14:52:09",
+        "affectedcountries": [],
+        "severitydata": {
+          "severity": 92.592,
+          "severitytext": "Tropical Depression (maximum wind speed of 93 km/h)",
+          "severityunit": "km/h"
+        },
+        "Class": "Point_Polygon_Point_12"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": []
+      },
+      "properties": {
+        "eventtype": "TC",
+        "eventid": 1001348,
+        "episodeid": 24,
+        "eventname": "PENA-26",
+        "name": "Tropical Cyclone PENA-26",
+        "description": "Tropical Cyclone PENA-26",
+        "url": {
+          "report": "https://www.gdacs.org/report.aspx?eventid=1001348&episodeid=24&eventtype=TC"
+        },
+        "alertlevel": "Green",
+        "episodealertlevel": "Green",
+        "iscurrent": "true",
+        "country": "",
+        "fromdate": "2026-11-06T21:00:00",
+        "todate": "2026-11-12T15:00:00",
+        "datemodified": "2026-11-12T14:52:09",
+        "affectedcountries": [],
+        "severitydata": {
+          "severity": 92.592,
+          "severitytext": "Tropical Depression (maximum wind speed of 93 km/h)",
+          "severityunit": "km/h"
+        },
+        "Class": "Point_Polygon_Point_13"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": []
+      },
+      "properties": {
+        "eventtype": "TC",
+        "eventid": 1001348,
+        "episodeid": 24,
+        "eventname": "PENA-26",
+        "name": "Tropical Cyclone PENA-26",
+        "description": "Tropical Cyclone PENA-26",
+        "url": {
+          "report": "https://www.gdacs.org/report.aspx?eventid=1001348&episodeid=24&eventtype=TC"
+        },
+        "alertlevel": "Green",
+        "episodealertlevel": "Green",
+        "iscurrent": "true",
+        "country": "",
+        "fromdate": "2026-11-06T21:00:00",
+        "todate": "2026-11-12T15:00:00",
+        "datemodified": "2026-11-12T14:52:09",
+        "affectedcountries": [],
+        "severitydata": {
+          "severity": 92.592,
+          "severitytext": "Tropical Depression (maximum wind speed of 93 km/h)",
+          "severityunit": "km/h"
+        },
+        "Class": "Point_Polygon_Point_14"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": []
+      },
+      "properties": {
+        "eventtype": "TC",
+        "eventid": 1001348,
+        "episodeid": 24,
+        "eventname": "PENA-26",
+        "name": "Tropical Cyclone PENA-26",
+        "description": "Tropical Cyclone PENA-26",
+        "url": {
+          "report": "https://www.gdacs.org/report.aspx?eventid=1001348&episodeid=24&eventtype=TC"
+        },
+        "alertlevel": "Green",
+        "episodealertlevel": "Green",
+        "iscurrent": "true",
+        "country": "",
+        "fromdate": "2026-11-06T21:00:00",
+        "todate": "2026-11-12T15:00:00",
+        "datemodified": "2026-11-12T14:52:09",
+        "affectedcountries": [],
+        "severitydata": {
+          "severity": 92.592,
+          "severitytext": "Tropical Depression (maximum wind speed of 93 km/h)",
+          "severityunit": "km/h"
+        },
+        "Class": "Point_Polygon_Point_15"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": []
+      },
+      "properties": {
+        "eventtype": "TC",
+        "eventid": 1001348,
+        "episodeid": 24,
+        "eventname": "PENA-26",
+        "name": "Tropical Cyclone PENA-26",
+        "description": "Tropical Cyclone PENA-26",
+        "url": {
+          "report": "https://www.gdacs.org/report.aspx?eventid=1001348&episodeid=24&eventtype=TC"
+        },
+        "alertlevel": "Green",
+        "episodealertlevel": "Green",
+        "iscurrent": "true",
+        "country": "",
+        "fromdate": "2026-11-06T21:00:00",
+        "todate": "2026-11-12T15:00:00",
+        "datemodified": "2026-11-12T14:52:09",
+        "affectedcountries": [],
+        "severitydata": {
+          "severity": 92.592,
+          "severitytext": "Tropical Depression (maximum wind speed of 93 km/h)",
+          "severityunit": "km/h"
+        },
+        "Class": "Point_Polygon_Point_16"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": []
+      },
+      "properties": {
+        "eventtype": "TC",
+        "eventid": 1001348,
+        "episodeid": 24,
+        "eventname": "PENA-26",
+        "name": "Tropical Cyclone PENA-26",
+        "description": "Tropical Cyclone PENA-26",
+        "url": {
+          "report": "https://www.gdacs.org/report.aspx?eventid=1001348&episodeid=24&eventtype=TC"
+        },
+        "alertlevel": "Green",
+        "episodealertlevel": "Green",
+        "iscurrent": "true",
+        "country": "",
+        "fromdate": "2026-11-06T21:00:00",
+        "todate": "2026-11-12T15:00:00",
+        "datemodified": "2026-11-12T14:52:09",
+        "affectedcountries": [],
+        "severitydata": {
+          "severity": 92.592,
+          "severitytext": "Tropical Depression (maximum wind speed of 93 km/h)",
+          "severityunit": "km/h"
+        },
+        "Class": "Point_Polygon_Point_17"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": []
+      },
+      "properties": {
+        "eventtype": "TC",
+        "eventid": 1001348,
+        "episodeid": 24,
+        "eventname": "PENA-26",
+        "name": "Tropical Cyclone PENA-26",
+        "description": "Tropical Cyclone PENA-26",
+        "url": {
+          "report": "https://www.gdacs.org/report.aspx?eventid=1001348&episodeid=24&eventtype=TC"
+        },
+        "alertlevel": "Green",
+        "episodealertlevel": "Green",
+        "iscurrent": "true",
+        "country": "",
+        "fromdate": "2026-11-06T21:00:00",
+        "todate": "2026-11-12T15:00:00",
+        "datemodified": "2026-11-12T14:52:09",
+        "affectedcountries": [],
+        "severitydata": {
+          "severity": 92.592,
+          "severitytext": "Tropical Depression (maximum wind speed of 93 km/h)",
+          "severityunit": "km/h"
+        },
+        "Class": "Point_Polygon_Point_18"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": []
+      },
+      "properties": {
+        "eventtype": "TC",
+        "eventid": 1001348,
+        "episodeid": 24,
+        "eventname": "PENA-26",
+        "name": "Tropical Cyclone PENA-26",
+        "description": "Tropical Cyclone PENA-26",
+        "url": {
+          "report": "https://www.gdacs.org/report.aspx?eventid=1001348&episodeid=24&eventtype=TC"
+        },
+        "alertlevel": "Green",
+        "episodealertlevel": "Green",
+        "iscurrent": "true",
+        "country": "",
+        "fromdate": "2026-11-06T21:00:00",
+        "todate": "2026-11-12T15:00:00",
+        "datemodified": "2026-11-12T14:52:09",
+        "affectedcountries": [],
+        "severitydata": {
+          "severity": 92.592,
+          "severitytext": "Tropical Depression (maximum wind speed of 93 km/h)",
+          "severityunit": "km/h"
+        },
+        "Class": "Point_Polygon_Point_19"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": []
+      },
+      "properties": {
+        "eventtype": "TC",
+        "eventid": 1001348,
+        "episodeid": 24,
+        "eventname": "PENA-26",
+        "name": "Tropical Cyclone PENA-26",
+        "description": "Tropical Cyclone PENA-26",
+        "url": {
+          "report": "https://www.gdacs.org/report.aspx?eventid=1001348&episodeid=24&eventtype=TC"
+        },
+        "alertlevel": "Green",
+        "episodealertlevel": "Green",
+        "iscurrent": "true",
+        "country": "",
+        "fromdate": "2026-11-06T21:00:00",
+        "todate": "2026-11-12T15:00:00",
+        "datemodified": "2026-11-12T14:52:09",
+        "affectedcountries": [],
+        "severitydata": {
+          "severity": 92.592,
+          "severitytext": "Tropical Depression (maximum wind speed of 93 km/h)",
+          "severityunit": "km/h"
+        },
+        "Class": "Point_Polygon_Point_20"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": []
+      },
+      "properties": {
+        "eventtype": "TC",
+        "eventid": 1001348,
+        "episodeid": 24,
+        "eventname": "PENA-26",
+        "name": "Tropical Cyclone PENA-26",
+        "description": "Tropical Cyclone PENA-26",
+        "url": {
+          "report": "https://www.gdacs.org/report.aspx?eventid=1001348&episodeid=24&eventtype=TC"
+        },
+        "alertlevel": "Green",
+        "episodealertlevel": "Green",
+        "iscurrent": "true",
+        "country": "",
+        "fromdate": "2026-11-06T21:00:00",
+        "todate": "2026-11-12T15:00:00",
+        "datemodified": "2026-11-12T14:52:09",
+        "affectedcountries": [],
+        "severitydata": {
+          "severity": 92.592,
+          "severitytext": "Tropical Depression (maximum wind speed of 93 km/h)",
+          "severityunit": "km/h"
+        },
+        "Class": "Point_Polygon_Point_21"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": []
+      },
+      "properties": {
+        "eventtype": "TC",
+        "eventid": 1001348,
+        "episodeid": 24,
+        "eventname": "PENA-26",
+        "name": "Tropical Cyclone PENA-26",
+        "description": "Tropical Cyclone PENA-26",
+        "url": {
+          "report": "https://www.gdacs.org/report.aspx?eventid=1001348&episodeid=24&eventtype=TC"
+        },
+        "alertlevel": "Green",
+        "episodealertlevel": "Green",
+        "iscurrent": "true",
+        "country": "",
+        "fromdate": "2026-11-06T21:00:00",
+        "todate": "2026-11-12T15:00:00",
+        "datemodified": "2026-11-12T14:52:09",
+        "affectedcountries": [],
+        "severitydata": {
+          "severity": 92.592,
+          "severitytext": "Tropical Depression (maximum wind speed of 93 km/h)",
+          "severityunit": "km/h"
+        },
+        "Class": "Point_Polygon_Point_22"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": []
+      },
+      "properties": {
+        "eventtype": "TC",
+        "eventid": 1001348,
+        "episodeid": 24,
+        "eventname": "PENA-26",
+        "name": "Tropical Cyclone PENA-26",
+        "description": "Tropical Cyclone PENA-26",
+        "url": {
+          "report": "https://www.gdacs.org/report.aspx?eventid=1001348&episodeid=24&eventtype=TC"
+        },
+        "alertlevel": "Green",
+        "episodealertlevel": "Green",
+        "iscurrent": "true",
+        "country": "",
+        "fromdate": "2026-11-06T21:00:00",
+        "todate": "2026-11-12T15:00:00",
+        "datemodified": "2026-11-12T14:52:09",
+        "affectedcountries": [],
+        "severitydata": {
+          "severity": 92.592,
+          "severitytext": "Tropical Depression (maximum wind speed of 93 km/h)",
+          "severityunit": "km/h"
+        },
+        "Class": "Point_Polygon_Point_23"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": []
+      },
+      "properties": {
+        "eventtype": "TC",
+        "eventid": 1001348,
+        "episodeid": 24,
+        "eventname": "PENA-26",
+        "name": "Tropical Cyclone PENA-26",
+        "description": "Tropical Cyclone PENA-26",
+        "url": {
+          "report": "https://www.gdacs.org/report.aspx?eventid=1001348&episodeid=24&eventtype=TC"
+        },
+        "alertlevel": "Green",
+        "episodealertlevel": "Green",
+        "iscurrent": "true",
+        "country": "",
+        "fromdate": "2026-11-06T21:00:00",
+        "todate": "2026-11-12T15:00:00",
+        "datemodified": "2026-11-12T14:52:09",
+        "affectedcountries": [],
+        "severitydata": {
+          "severity": 92.592,
+          "severitytext": "Tropical Depression (maximum wind speed of 93 km/h)",
+          "severityunit": "km/h"
+        },
+        "Class": "Poly_Cones"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [154.1, 30.2]
+      },
+      "properties": {
+        "eventtype": "TC",
+        "eventid": 1001347,
+        "episodeid": 22,
+        "eventname": "CEMPAKA-26",
+        "name": "Tropical Cyclone CEMPAKA-26",
+        "description": "Tropical Cyclone CEMPAKA-26",
+        "url": {
+          "report": "https://www.gdacs.org/report.aspx?eventid=1001347&episodeid=22&eventtype=TC"
+        },
+        "alertlevel": "Green",
+        "episodealertlevel": "Green",
+        "iscurrent": "true",
+        "country": "Japan",
+        "fromdate": "2026-11-06T06:00:00",
+        "todate": "2026-11-11T12:00:00",
+        "datemodified": "2026-11-13T00:50:32",
+        "Class": "Point_Centroid",
+        "affectedcountries": [
+          {
+            "iso2": "JP",
+            "iso3": "JPN",
+            "countryname": "Japan"
+          }
+        ],
+        "severitydata": {
+          "severity": 175.9248,
+          "severitytext": "Hurricane/Typhoon > 74 mph (maximum wind speed of 176 km/h)",
+          "severityunit": "km/h"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": []
+      },
+      "properties": {
+        "eventtype": "TC",
+        "eventid": 1001347,
+        "episodeid": 22,
+        "eventname": "CEMPAKA-26",
+        "name": "Tropical Cyclone CEMPAKA-26",
+        "description": "Tropical Cyclone CEMPAKA-26",
+        "url": {
+          "report": "https://www.gdacs.org/report.aspx?eventid=1001347&episodeid=22&eventtype=TC"
+        },
+        "alertlevel": "Green",
+        "episodealertlevel": "Green",
+        "iscurrent": "true",
+        "country": "Japan",
+        "fromdate": "2026-11-06T06:00:00",
+        "todate": "2026-11-11T12:00:00",
+        "datemodified": "2026-11-13T00:50:32",
+        "affectedcountries": [
+          {
+            "iso2": "JP",
+            "iso3": "JPN",
+            "countryname": "Japan"
+          }
+        ],
+        "severitydata": {
+          "severity": 175.9248,
+          "severitytext": "Hurricane/Typhoon > 74 mph (maximum wind speed of 176 km/h)",
+          "severityunit": "km/h"
+        },
+        "Class": "Poly_Green"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": []
+      },
+      "properties": {
+        "eventtype": "TC",
+        "eventid": 1001347,
+        "episodeid": 22,
+        "eventname": "CEMPAKA-26",
+        "name": "Tropical Cyclone CEMPAKA-26",
+        "description": "Tropical Cyclone CEMPAKA-26",
+        "url": {
+          "report": "https://www.gdacs.org/report.aspx?eventid=1001347&episodeid=22&eventtype=TC"
+        },
+        "alertlevel": "Green",
+        "episodealertlevel": "Green",
+        "iscurrent": "true",
+        "country": "Japan",
+        "fromdate": "2026-11-06T06:00:00",
+        "todate": "2026-11-11T12:00:00",
+        "datemodified": "2026-11-13T00:50:32",
+        "affectedcountries": [
+          {
+            "iso2": "JP",
+            "iso3": "JPN",
+            "countryname": "Japan"
+          }
+        ],
+        "severitydata": {
+          "severity": 175.9248,
+          "severitytext": "Hurricane/Typhoon > 74 mph (maximum wind speed of 176 km/h)",
+          "severityunit": "km/h"
+        },
+        "Class": "Poly_Orange"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": []
+      },
+      "properties": {
+        "eventtype": "TC",
+        "eventid": 1001347,
+        "episodeid": 22,
+        "eventname": "CEMPAKA-26",
+        "name": "Tropical Cyclone CEMPAKA-26",
+        "description": "Tropical Cyclone CEMPAKA-26",
+        "url": {
+          "report": "https://www.gdacs.org/report.aspx?eventid=1001347&episodeid=22&eventtype=TC"
+        },
+        "alertlevel": "Green",
+        "episodealertlevel": "Green",
+        "iscurrent": "true",
+        "country": "Japan",
+        "fromdate": "2026-11-06T06:00:00",
+        "todate": "2026-11-11T12:00:00",
+        "datemodified": "2026-11-13T00:50:32",
+        "affectedcountries": [
+          {
+            "iso2": "JP",
+            "iso3": "JPN",
+            "countryname": "Japan"
+          }
+        ],
+        "severitydata": {
+          "severity": 175.9248,
+          "severitytext": "Hurricane/Typhoon > 74 mph (maximum wind speed of 176 km/h)",
+          "severityunit": "km/h"
+        },
+        "Class": "Poly_Red"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": []
+      },
+      "properties": {
+        "eventtype": "TC",
+        "eventid": 1001347,
+        "episodeid": 22,
+        "eventname": "CEMPAKA-26",
+        "name": "Tropical Cyclone CEMPAKA-26",
+        "description": "Tropical Cyclone CEMPAKA-26",
+        "url": {
+          "report": "https://www.gdacs.org/report.aspx?eventid=1001347&episodeid=22&eventtype=TC"
+        },
+        "alertlevel": "Green",
+        "episodealertlevel": "Green",
+        "iscurrent": "true",
+        "country": "Japan",
+        "fromdate": "2026-11-06T06:00:00",
+        "todate": "2026-11-11T12:00:00",
+        "datemodified": "2026-11-13T00:50:32",
+        "affectedcountries": [
+          {
+            "iso2": "JP",
+            "iso3": "JPN",
+            "countryname": "Japan"
+          }
+        ],
+        "severitydata": {
+          "severity": 175.9248,
+          "severitytext": "Hurricane/Typhoon > 74 mph (maximum wind speed of 176 km/h)",
+          "severityunit": "km/h"
+        },
+        "Class": "Line_Line_0"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": []
+      },
+      "properties": {
+        "eventtype": "TC",
+        "eventid": 1001347,
+        "episodeid": 22,
+        "eventname": "CEMPAKA-26",
+        "name": "Tropical Cyclone CEMPAKA-26",
+        "description": "Tropical Cyclone CEMPAKA-26",
+        "url": {
+          "report": "https://www.gdacs.org/report.aspx?eventid=1001347&episodeid=22&eventtype=TC"
+        },
+        "alertlevel": "Green",
+        "episodealertlevel": "Green",
+        "iscurrent": "true",
+        "country": "Japan",
+        "fromdate": "2026-11-06T06:00:00",
+        "todate": "2026-11-11T12:00:00",
+        "datemodified": "2026-11-13T00:50:32",
+        "affectedcountries": [
+          {
+            "iso2": "JP",
+            "iso3": "JPN",
+            "countryname": "Japan"
+          }
+        ],
+        "severitydata": {
+          "severity": 175.9248,
+          "severitytext": "Hurricane/Typhoon > 74 mph (maximum wind speed of 176 km/h)",
+          "severityunit": "km/h"
+        },
+        "Class": "Line_Line_1"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": []
+      },
+      "properties": {
+        "eventtype": "TC",
+        "eventid": 1001347,
+        "episodeid": 22,
+        "eventname": "CEMPAKA-26",
+        "name": "Tropical Cyclone CEMPAKA-26",
+        "description": "Tropical Cyclone CEMPAKA-26",
+        "url": {
+          "report": "https://www.gdacs.org/report.aspx?eventid=1001347&episodeid=22&eventtype=TC"
+        },
+        "alertlevel": "Green",
+        "episodealertlevel": "Green",
+        "iscurrent": "true",
+        "country": "Japan",
+        "fromdate": "2026-11-06T06:00:00",
+        "todate": "2026-11-11T12:00:00",
+        "datemodified": "2026-11-13T00:50:32",
+        "affectedcountries": [
+          {
+            "iso2": "JP",
+            "iso3": "JPN",
+            "countryname": "Japan"
+          }
+        ],
+        "severitydata": {
+          "severity": 175.9248,
+          "severitytext": "Hurricane/Typhoon > 74 mph (maximum wind speed of 176 km/h)",
+          "severityunit": "km/h"
+        },
+        "Class": "Line_Line_2"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": []
+      },
+      "properties": {
+        "eventtype": "TC",
+        "eventid": 1001347,
+        "episodeid": 22,
+        "eventname": "CEMPAKA-26",
+        "name": "Tropical Cyclone CEMPAKA-26",
+        "description": "Tropical Cyclone CEMPAKA-26",
+        "url": {
+          "report": "https://www.gdacs.org/report.aspx?eventid=1001347&episodeid=22&eventtype=TC"
+        },
+        "alertlevel": "Green",
+        "episodealertlevel": "Green",
+        "iscurrent": "true",
+        "country": "Japan",
+        "fromdate": "2026-11-06T06:00:00",
+        "todate": "2026-11-11T12:00:00",
+        "datemodified": "2026-11-13T00:50:32",
+        "affectedcountries": [
+          {
+            "iso2": "JP",
+            "iso3": "JPN",
+            "countryname": "Japan"
+          }
+        ],
+        "severitydata": {
+          "severity": 175.9248,
+          "severitytext": "Hurricane/Typhoon > 74 mph (maximum wind speed of 176 km/h)",
+          "severityunit": "km/h"
+        },
+        "Class": "Line_Line_3"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": []
+      },
+      "properties": {
+        "eventtype": "TC",
+        "eventid": 1001347,
+        "episodeid": 22,
+        "eventname": "CEMPAKA-26",
+        "name": "Tropical Cyclone CEMPAKA-26",
+        "description": "Tropical Cyclone CEMPAKA-26",
+        "url": {
+          "report": "https://www.gdacs.org/report.aspx?eventid=1001347&episodeid=22&eventtype=TC"
+        },
+        "alertlevel": "Green",
+        "episodealertlevel": "Green",
+        "iscurrent": "true",
+        "country": "Japan",
+        "fromdate": "2026-11-06T06:00:00",
+        "todate": "2026-11-11T12:00:00",
+        "datemodified": "2026-11-13T00:50:32",
+        "affectedcountries": [
+          {
+            "iso2": "JP",
+            "iso3": "JPN",
+            "countryname": "Japan"
+          }
+        ],
+        "severitydata": {
+          "severity": 175.9248,
+          "severitytext": "Hurricane/Typhoon > 74 mph (maximum wind speed of 176 km/h)",
+          "severityunit": "km/h"
+        },
+        "Class": "Line_Line_4"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": []
+      },
+      "properties": {
+        "eventtype": "TC",
+        "eventid": 1001347,
+        "episodeid": 22,
+        "eventname": "CEMPAKA-26",
+        "name": "Tropical Cyclone CEMPAKA-26",
+        "description": "Tropical Cyclone CEMPAKA-26",
+        "url": {
+          "report": "https://www.gdacs.org/report.aspx?eventid=1001347&episodeid=22&eventtype=TC"
+        },
+        "alertlevel": "Green",
+        "episodealertlevel": "Green",
+        "iscurrent": "true",
+        "country": "Japan",
+        "fromdate": "2026-11-06T06:00:00",
+        "todate": "2026-11-11T12:00:00",
+        "datemodified": "2026-11-13T00:50:32",
+        "affectedcountries": [
+          {
+            "iso2": "JP",
+            "iso3": "JPN",
+            "countryname": "Japan"
+          }
+        ],
+        "severitydata": {
+          "severity": 175.9248,
+          "severitytext": "Hurricane/Typhoon > 74 mph (maximum wind speed of 176 km/h)",
+          "severityunit": "km/h"
+        },
+        "Class": "Line_Line_5"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": []
+      },
+      "properties": {
+        "eventtype": "TC",
+        "eventid": 1001347,
+        "episodeid": 22,
+        "eventname": "CEMPAKA-26",
+        "name": "Tropical Cyclone CEMPAKA-26",
+        "description": "Tropical Cyclone CEMPAKA-26",
+        "url": {
+          "report": "https://www.gdacs.org/report.aspx?eventid=1001347&episodeid=22&eventtype=TC"
+        },
+        "alertlevel": "Green",
+        "episodealertlevel": "Green",
+        "iscurrent": "true",
+        "country": "Japan",
+        "fromdate": "2026-11-06T06:00:00",
+        "todate": "2026-11-11T12:00:00",
+        "datemodified": "2026-11-13T00:50:32",
+        "affectedcountries": [
+          {
+            "iso2": "JP",
+            "iso3": "JPN",
+            "countryname": "Japan"
+          }
+        ],
+        "severitydata": {
+          "severity": 175.9248,
+          "severitytext": "Hurricane/Typhoon > 74 mph (maximum wind speed of 176 km/h)",
+          "severityunit": "km/h"
+        },
+        "Class": "Line_Line_6"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": []
+      },
+      "properties": {
+        "eventtype": "TC",
+        "eventid": 1001347,
+        "episodeid": 22,
+        "eventname": "CEMPAKA-26",
+        "name": "Tropical Cyclone CEMPAKA-26",
+        "description": "Tropical Cyclone CEMPAKA-26",
+        "url": {
+          "report": "https://www.gdacs.org/report.aspx?eventid=1001347&episodeid=22&eventtype=TC"
+        },
+        "alertlevel": "Green",
+        "episodealertlevel": "Green",
+        "iscurrent": "true",
+        "country": "Japan",
+        "fromdate": "2026-11-06T06:00:00",
+        "todate": "2026-11-11T12:00:00",
+        "datemodified": "2026-11-13T00:50:32",
+        "affectedcountries": [
+          {
+            "iso2": "JP",
+            "iso3": "JPN",
+            "countryname": "Japan"
+          }
+        ],
+        "severitydata": {
+          "severity": 175.9248,
+          "severitytext": "Hurricane/Typhoon > 74 mph (maximum wind speed of 176 km/h)",
+          "severityunit": "km/h"
+        },
+        "Class": "Line_Line_7"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": []
+      },
+      "properties": {
+        "eventtype": "TC",
+        "eventid": 1001347,
+        "episodeid": 22,
+        "eventname": "CEMPAKA-26",
+        "name": "Tropical Cyclone CEMPAKA-26",
+        "description": "Tropical Cyclone CEMPAKA-26",
+        "url": {
+          "report": "https://www.gdacs.org/report.aspx?eventid=1001347&episodeid=22&eventtype=TC"
+        },
+        "alertlevel": "Green",
+        "episodealertlevel": "Green",
+        "iscurrent": "true",
+        "country": "Japan",
+        "fromdate": "2026-11-06T06:00:00",
+        "todate": "2026-11-11T12:00:00",
+        "datemodified": "2026-11-13T00:50:32",
+        "affectedcountries": [
+          {
+            "iso2": "JP",
+            "iso3": "JPN",
+            "countryname": "Japan"
+          }
+        ],
+        "severitydata": {
+          "severity": 175.9248,
+          "severitytext": "Hurricane/Typhoon > 74 mph (maximum wind speed of 176 km/h)",
+          "severityunit": "km/h"
+        },
+        "Class": "Line_Line_8"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": []
+      },
+      "properties": {
+        "eventtype": "TC",
+        "eventid": 1001347,
+        "episodeid": 22,
+        "eventname": "CEMPAKA-26",
+        "name": "Tropical Cyclone CEMPAKA-26",
+        "description": "Tropical Cyclone CEMPAKA-26",
+        "url": {
+          "report": "https://www.gdacs.org/report.aspx?eventid=1001347&episodeid=22&eventtype=TC"
+        },
+        "alertlevel": "Green",
+        "episodealertlevel": "Green",
+        "iscurrent": "true",
+        "country": "Japan",
+        "fromdate": "2026-11-06T06:00:00",
+        "todate": "2026-11-11T12:00:00",
+        "datemodified": "2026-11-13T00:50:32",
+        "affectedcountries": [
+          {
+            "iso2": "JP",
+            "iso3": "JPN",
+            "countryname": "Japan"
+          }
+        ],
+        "severitydata": {
+          "severity": 175.9248,
+          "severitytext": "Hurricane/Typhoon > 74 mph (maximum wind speed of 176 km/h)",
+          "severityunit": "km/h"
+        },
+        "Class": "Line_Line_9"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": []
+      },
+      "properties": {
+        "eventtype": "TC",
+        "eventid": 1001347,
+        "episodeid": 22,
+        "eventname": "CEMPAKA-26",
+        "name": "Tropical Cyclone CEMPAKA-26",
+        "description": "Tropical Cyclone CEMPAKA-26",
+        "url": {
+          "report": "https://www.gdacs.org/report.aspx?eventid=1001347&episodeid=22&eventtype=TC"
+        },
+        "alertlevel": "Green",
+        "episodealertlevel": "Green",
+        "iscurrent": "true",
+        "country": "Japan",
+        "fromdate": "2026-11-06T06:00:00",
+        "todate": "2026-11-11T12:00:00",
+        "datemodified": "2026-11-13T00:50:32",
+        "affectedcountries": [
+          {
+            "iso2": "JP",
+            "iso3": "JPN",
+            "countryname": "Japan"
+          }
+        ],
+        "severitydata": {
+          "severity": 175.9248,
+          "severitytext": "Hurricane/Typhoon > 74 mph (maximum wind speed of 176 km/h)",
+          "severityunit": "km/h"
+        },
+        "Class": "Line_Line_10"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": []
+      },
+      "properties": {
+        "eventtype": "TC",
+        "eventid": 1001347,
+        "episodeid": 22,
+        "eventname": "CEMPAKA-26",
+        "name": "Tropical Cyclone CEMPAKA-26",
+        "description": "Tropical Cyclone CEMPAKA-26",
+        "url": {
+          "report": "https://www.gdacs.org/report.aspx?eventid=1001347&episodeid=22&eventtype=TC"
+        },
+        "alertlevel": "Green",
+        "episodealertlevel": "Green",
+        "iscurrent": "true",
+        "country": "Japan",
+        "fromdate": "2026-11-06T06:00:00",
+        "todate": "2026-11-11T12:00:00",
+        "datemodified": "2026-11-13T00:50:32",
+        "affectedcountries": [
+          {
+            "iso2": "JP",
+            "iso3": "JPN",
+            "countryname": "Japan"
+          }
+        ],
+        "severitydata": {
+          "severity": 175.9248,
+          "severitytext": "Hurricane/Typhoon > 74 mph (maximum wind speed of 176 km/h)",
+          "severityunit": "km/h"
+        },
+        "Class": "Line_Line_11"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": []
+      },
+      "properties": {
+        "eventtype": "TC",
+        "eventid": 1001347,
+        "episodeid": 22,
+        "eventname": "CEMPAKA-26",
+        "name": "Tropical Cyclone CEMPAKA-26",
+        "description": "Tropical Cyclone CEMPAKA-26",
+        "url": {
+          "report": "https://www.gdacs.org/report.aspx?eventid=1001347&episodeid=22&eventtype=TC"
+        },
+        "alertlevel": "Green",
+        "episodealertlevel": "Green",
+        "iscurrent": "true",
+        "country": "Japan",
+        "fromdate": "2026-11-06T06:00:00",
+        "todate": "2026-11-11T12:00:00",
+        "datemodified": "2026-11-13T00:50:32",
+        "affectedcountries": [
+          {
+            "iso2": "JP",
+            "iso3": "JPN",
+            "countryname": "Japan"
+          }
+        ],
+        "severitydata": {
+          "severity": 175.9248,
+          "severitytext": "Hurricane/Typhoon > 74 mph (maximum wind speed of 176 km/h)",
+          "severityunit": "km/h"
+        },
+        "Class": "Line_Line_12"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": []
+      },
+      "properties": {
+        "eventtype": "TC",
+        "eventid": 1001347,
+        "episodeid": 22,
+        "eventname": "CEMPAKA-26",
+        "name": "Tropical Cyclone CEMPAKA-26",
+        "description": "Tropical Cyclone CEMPAKA-26",
+        "url": {
+          "report": "https://www.gdacs.org/report.aspx?eventid=1001347&episodeid=22&eventtype=TC"
+        },
+        "alertlevel": "Green",
+        "episodealertlevel": "Green",
+        "iscurrent": "true",
+        "country": "Japan",
+        "fromdate": "2026-11-06T06:00:00",
+        "todate": "2026-11-11T12:00:00",
+        "datemodified": "2026-11-13T00:50:32",
+        "affectedcountries": [
+          {
+            "iso2": "JP",
+            "iso3": "JPN",
+            "countryname": "Japan"
+          }
+        ],
+        "severitydata": {
+          "severity": 175.9248,
+          "severitytext": "Hurricane/Typhoon > 74 mph (maximum wind speed of 176 km/h)",
+          "severityunit": "km/h"
+        },
+        "Class": "Line_Line_13"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": []
+      },
+      "properties": {
+        "eventtype": "TC",
+        "eventid": 1001347,
+        "episodeid": 22,
+        "eventname": "CEMPAKA-26",
+        "name": "Tropical Cyclone CEMPAKA-26",
+        "description": "Tropical Cyclone CEMPAKA-26",
+        "url": {
+          "report": "https://www.gdacs.org/report.aspx?eventid=1001347&episodeid=22&eventtype=TC"
+        },
+        "alertlevel": "Green",
+        "episodealertlevel": "Green",
+        "iscurrent": "true",
+        "country": "Japan",
+        "fromdate": "2026-11-06T06:00:00",
+        "todate": "2026-11-11T12:00:00",
+        "datemodified": "2026-11-13T00:50:32",
+        "affectedcountries": [
+          {
+            "iso2": "JP",
+            "iso3": "JPN",
+            "countryname": "Japan"
+          }
+        ],
+        "severitydata": {
+          "severity": 175.9248,
+          "severitytext": "Hurricane/Typhoon > 74 mph (maximum wind speed of 176 km/h)",
+          "severityunit": "km/h"
+        },
+        "Class": "Line_Line_14"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": []
+      },
+      "properties": {
+        "eventtype": "TC",
+        "eventid": 1001347,
+        "episodeid": 22,
+        "eventname": "CEMPAKA-26",
+        "name": "Tropical Cyclone CEMPAKA-26",
+        "description": "Tropical Cyclone CEMPAKA-26",
+        "url": {
+          "report": "https://www.gdacs.org/report.aspx?eventid=1001347&episodeid=22&eventtype=TC"
+        },
+        "alertlevel": "Green",
+        "episodealertlevel": "Green",
+        "iscurrent": "true",
+        "country": "Japan",
+        "fromdate": "2026-11-06T06:00:00",
+        "todate": "2026-11-11T12:00:00",
+        "datemodified": "2026-11-13T00:50:32",
+        "affectedcountries": [
+          {
+            "iso2": "JP",
+            "iso3": "JPN",
+            "countryname": "Japan"
+          }
+        ],
+        "severitydata": {
+          "severity": 175.9248,
+          "severitytext": "Hurricane/Typhoon > 74 mph (maximum wind speed of 176 km/h)",
+          "severityunit": "km/h"
+        },
+        "Class": "Line_Line_15"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": []
+      },
+      "properties": {
+        "eventtype": "TC",
+        "eventid": 1001347,
+        "episodeid": 22,
+        "eventname": "CEMPAKA-26",
+        "name": "Tropical Cyclone CEMPAKA-26",
+        "description": "Tropical Cyclone CEMPAKA-26",
+        "url": {
+          "report": "https://www.gdacs.org/report.aspx?eventid=1001347&episodeid=22&eventtype=TC"
+        },
+        "alertlevel": "Green",
+        "episodealertlevel": "Green",
+        "iscurrent": "true",
+        "country": "Japan",
+        "fromdate": "2026-11-06T06:00:00",
+        "todate": "2026-11-11T12:00:00",
+        "datemodified": "2026-11-13T00:50:32",
+        "affectedcountries": [
+          {
+            "iso2": "JP",
+            "iso3": "JPN",
+            "countryname": "Japan"
+          }
+        ],
+        "severitydata": {
+          "severity": 175.9248,
+          "severitytext": "Hurricane/Typhoon > 74 mph (maximum wind speed of 176 km/h)",
+          "severityunit": "km/h"
+        },
+        "Class": "Line_Line_16"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": []
+      },
+      "properties": {
+        "eventtype": "TC",
+        "eventid": 1001347,
+        "episodeid": 22,
+        "eventname": "CEMPAKA-26",
+        "name": "Tropical Cyclone CEMPAKA-26",
+        "description": "Tropical Cyclone CEMPAKA-26",
+        "url": {
+          "report": "https://www.gdacs.org/report.aspx?eventid=1001347&episodeid=22&eventtype=TC"
+        },
+        "alertlevel": "Green",
+        "episodealertlevel": "Green",
+        "iscurrent": "true",
+        "country": "Japan",
+        "fromdate": "2026-11-06T06:00:00",
+        "todate": "2026-11-11T12:00:00",
+        "datemodified": "2026-11-13T00:50:32",
+        "affectedcountries": [
+          {
+            "iso2": "JP",
+            "iso3": "JPN",
+            "countryname": "Japan"
+          }
+        ],
+        "severitydata": {
+          "severity": 175.9248,
+          "severitytext": "Hurricane/Typhoon > 74 mph (maximum wind speed of 176 km/h)",
+          "severityunit": "km/h"
+        },
+        "Class": "Line_Line_17"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": []
+      },
+      "properties": {
+        "eventtype": "TC",
+        "eventid": 1001347,
+        "episodeid": 22,
+        "eventname": "CEMPAKA-26",
+        "name": "Tropical Cyclone CEMPAKA-26",
+        "description": "Tropical Cyclone CEMPAKA-26",
+        "url": {
+          "report": "https://www.gdacs.org/report.aspx?eventid=1001347&episodeid=22&eventtype=TC"
+        },
+        "alertlevel": "Green",
+        "episodealertlevel": "Green",
+        "iscurrent": "true",
+        "country": "Japan",
+        "fromdate": "2026-11-06T06:00:00",
+        "todate": "2026-11-11T12:00:00",
+        "datemodified": "2026-11-13T00:50:32",
+        "affectedcountries": [
+          {
+            "iso2": "JP",
+            "iso3": "JPN",
+            "countryname": "Japan"
+          }
+        ],
+        "severitydata": {
+          "severity": 175.9248,
+          "severitytext": "Hurricane/Typhoon > 74 mph (maximum wind speed of 176 km/h)",
+          "severityunit": "km/h"
+        },
+        "Class": "Line_Line_18"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": []
+      },
+      "properties": {
+        "eventtype": "TC",
+        "eventid": 1001347,
+        "episodeid": 22,
+        "eventname": "CEMPAKA-26",
+        "name": "Tropical Cyclone CEMPAKA-26",
+        "description": "Tropical Cyclone CEMPAKA-26",
+        "url": {
+          "report": "https://www.gdacs.org/report.aspx?eventid=1001347&episodeid=22&eventtype=TC"
+        },
+        "alertlevel": "Green",
+        "episodealertlevel": "Green",
+        "iscurrent": "true",
+        "country": "Japan",
+        "fromdate": "2026-11-06T06:00:00",
+        "todate": "2026-11-11T12:00:00",
+        "datemodified": "2026-11-13T00:50:32",
+        "affectedcountries": [
+          {
+            "iso2": "JP",
+            "iso3": "JPN",
+            "countryname": "Japan"
+          }
+        ],
+        "severitydata": {
+          "severity": 175.9248,
+          "severitytext": "Hurricane/Typhoon > 74 mph (maximum wind speed of 176 km/h)",
+          "severityunit": "km/h"
+        },
+        "Class": "Line_Line_19"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": []
+      },
+      "properties": {
+        "eventtype": "TC",
+        "eventid": 1001347,
+        "episodeid": 22,
+        "eventname": "CEMPAKA-26",
+        "name": "Tropical Cyclone CEMPAKA-26",
+        "description": "Tropical Cyclone CEMPAKA-26",
+        "url": {
+          "report": "https://www.gdacs.org/report.aspx?eventid=1001347&episodeid=22&eventtype=TC"
+        },
+        "alertlevel": "Green",
+        "episodealertlevel": "Green",
+        "iscurrent": "true",
+        "country": "Japan",
+        "fromdate": "2026-11-06T06:00:00",
+        "todate": "2026-11-11T12:00:00",
+        "datemodified": "2026-11-13T00:50:32",
+        "affectedcountries": [
+          {
+            "iso2": "JP",
+            "iso3": "JPN",
+            "countryname": "Japan"
+          }
+        ],
+        "severitydata": {
+          "severity": 175.9248,
+          "severitytext": "Hurricane/Typhoon > 74 mph (maximum wind speed of 176 km/h)",
+          "severityunit": "km/h"
+        },
+        "Class": "Line_Line_20"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": []
+      },
+      "properties": {
+        "eventtype": "TC",
+        "eventid": 1001347,
+        "episodeid": 22,
+        "eventname": "CEMPAKA-26",
+        "name": "Tropical Cyclone CEMPAKA-26",
+        "description": "Tropical Cyclone CEMPAKA-26",
+        "url": {
+          "report": "https://www.gdacs.org/report.aspx?eventid=1001347&episodeid=22&eventtype=TC"
+        },
+        "alertlevel": "Green",
+        "episodealertlevel": "Green",
+        "iscurrent": "true",
+        "country": "Japan",
+        "fromdate": "2026-11-06T06:00:00",
+        "todate": "2026-11-11T12:00:00",
+        "datemodified": "2026-11-13T00:50:32",
+        "affectedcountries": [
+          {
+            "iso2": "JP",
+            "iso3": "JPN",
+            "countryname": "Japan"
+          }
+        ],
+        "severitydata": {
+          "severity": 175.9248,
+          "severitytext": "Hurricane/Typhoon > 74 mph (maximum wind speed of 176 km/h)",
+          "severityunit": "km/h"
+        },
+        "Class": "Line_Line_21"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": []
+      },
+      "properties": {
+        "eventtype": "TC",
+        "eventid": 1001347,
+        "episodeid": 22,
+        "eventname": "CEMPAKA-26",
+        "name": "Tropical Cyclone CEMPAKA-26",
+        "description": "Tropical Cyclone CEMPAKA-26",
+        "url": {
+          "report": "https://www.gdacs.org/report.aspx?eventid=1001347&episodeid=22&eventtype=TC"
+        },
+        "alertlevel": "Green",
+        "episodealertlevel": "Green",
+        "iscurrent": "true",
+        "country": "Japan",
+        "fromdate": "2026-11-06T06:00:00",
+        "todate": "2026-11-11T12:00:00",
+        "datemodified": "2026-11-13T00:50:32",
+        "affectedcountries": [
+          {
+            "iso2": "JP",
+            "iso3": "JPN",
+            "countryname": "Japan"
+          }
+        ],
+        "severitydata": {
+          "severity": 175.9248,
+          "severitytext": "Hurricane/Typhoon > 74 mph (maximum wind speed of 176 km/h)",
+          "severityunit": "km/h"
+        },
+        "Class": "Line_Line_22"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": []
+      },
+      "properties": {
+        "eventtype": "TC",
+        "eventid": 1001347,
+        "episodeid": 22,
+        "eventname": "CEMPAKA-26",
+        "name": "Tropical Cyclone CEMPAKA-26",
+        "description": "Tropical Cyclone CEMPAKA-26",
+        "url": {
+          "report": "https://www.gdacs.org/report.aspx?eventid=1001347&episodeid=22&eventtype=TC"
+        },
+        "alertlevel": "Green",
+        "episodealertlevel": "Green",
+        "iscurrent": "true",
+        "country": "Japan",
+        "fromdate": "2026-11-06T06:00:00",
+        "todate": "2026-11-11T12:00:00",
+        "datemodified": "2026-11-13T00:50:32",
+        "affectedcountries": [
+          {
+            "iso2": "JP",
+            "iso3": "JPN",
+            "countryname": "Japan"
+          }
+        ],
+        "severitydata": {
+          "severity": 175.9248,
+          "severitytext": "Hurricane/Typhoon > 74 mph (maximum wind speed of 176 km/h)",
+          "severityunit": "km/h"
+        },
+        "Class": "Point_Polygon_Point_0"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": []
+      },
+      "properties": {
+        "eventtype": "TC",
+        "eventid": 1001347,
+        "episodeid": 22,
+        "eventname": "CEMPAKA-26",
+        "name": "Tropical Cyclone CEMPAKA-26",
+        "description": "Tropical Cyclone CEMPAKA-26",
+        "url": {
+          "report": "https://www.gdacs.org/report.aspx?eventid=1001347&episodeid=22&eventtype=TC"
+        },
+        "alertlevel": "Green",
+        "episodealertlevel": "Green",
+        "iscurrent": "true",
+        "country": "Japan",
+        "fromdate": "2026-11-06T06:00:00",
+        "todate": "2026-11-11T12:00:00",
+        "datemodified": "2026-11-13T00:50:32",
+        "affectedcountries": [
+          {
+            "iso2": "JP",
+            "iso3": "JPN",
+            "countryname": "Japan"
+          }
+        ],
+        "severitydata": {
+          "severity": 175.9248,
+          "severitytext": "Hurricane/Typhoon > 74 mph (maximum wind speed of 176 km/h)",
+          "severityunit": "km/h"
+        },
+        "Class": "Point_Polygon_Point_1"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": []
+      },
+      "properties": {
+        "eventtype": "TC",
+        "eventid": 1001347,
+        "episodeid": 22,
+        "eventname": "CEMPAKA-26",
+        "name": "Tropical Cyclone CEMPAKA-26",
+        "description": "Tropical Cyclone CEMPAKA-26",
+        "url": {
+          "report": "https://www.gdacs.org/report.aspx?eventid=1001347&episodeid=22&eventtype=TC"
+        },
+        "alertlevel": "Green",
+        "episodealertlevel": "Green",
+        "iscurrent": "true",
+        "country": "Japan",
+        "fromdate": "2026-11-06T06:00:00",
+        "todate": "2026-11-11T12:00:00",
+        "datemodified": "2026-11-13T00:50:32",
+        "affectedcountries": [
+          {
+            "iso2": "JP",
+            "iso3": "JPN",
+            "countryname": "Japan"
+          }
+        ],
+        "severitydata": {
+          "severity": 175.9248,
+          "severitytext": "Hurricane/Typhoon > 74 mph (maximum wind speed of 176 km/h)",
+          "severityunit": "km/h"
+        },
+        "Class": "Point_Polygon_Point_2"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": []
+      },
+      "properties": {
+        "eventtype": "TC",
+        "eventid": 1001347,
+        "episodeid": 22,
+        "eventname": "CEMPAKA-26",
+        "name": "Tropical Cyclone CEMPAKA-26",
+        "description": "Tropical Cyclone CEMPAKA-26",
+        "url": {
+          "report": "https://www.gdacs.org/report.aspx?eventid=1001347&episodeid=22&eventtype=TC"
+        },
+        "alertlevel": "Green",
+        "episodealertlevel": "Green",
+        "iscurrent": "true",
+        "country": "Japan",
+        "fromdate": "2026-11-06T06:00:00",
+        "todate": "2026-11-11T12:00:00",
+        "datemodified": "2026-11-13T00:50:32",
+        "affectedcountries": [
+          {
+            "iso2": "JP",
+            "iso3": "JPN",
+            "countryname": "Japan"
+          }
+        ],
+        "severitydata": {
+          "severity": 175.9248,
+          "severitytext": "Hurricane/Typhoon > 74 mph (maximum wind speed of 176 km/h)",
+          "severityunit": "km/h"
+        },
+        "Class": "Point_Polygon_Point_3"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": []
+      },
+      "properties": {
+        "eventtype": "TC",
+        "eventid": 1001347,
+        "episodeid": 22,
+        "eventname": "CEMPAKA-26",
+        "name": "Tropical Cyclone CEMPAKA-26",
+        "description": "Tropical Cyclone CEMPAKA-26",
+        "url": {
+          "report": "https://www.gdacs.org/report.aspx?eventid=1001347&episodeid=22&eventtype=TC"
+        },
+        "alertlevel": "Green",
+        "episodealertlevel": "Green",
+        "iscurrent": "true",
+        "country": "Japan",
+        "fromdate": "2026-11-06T06:00:00",
+        "todate": "2026-11-11T12:00:00",
+        "datemodified": "2026-11-13T00:50:32",
+        "affectedcountries": [
+          {
+            "iso2": "JP",
+            "iso3": "JPN",
+            "countryname": "Japan"
+          }
+        ],
+        "severitydata": {
+          "severity": 175.9248,
+          "severitytext": "Hurricane/Typhoon > 74 mph (maximum wind speed of 176 km/h)",
+          "severityunit": "km/h"
+        },
+        "Class": "Point_Polygon_Point_4"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": []
+      },
+      "properties": {
+        "eventtype": "TC",
+        "eventid": 1001347,
+        "episodeid": 22,
+        "eventname": "CEMPAKA-26",
+        "name": "Tropical Cyclone CEMPAKA-26",
+        "description": "Tropical Cyclone CEMPAKA-26",
+        "url": {
+          "report": "https://www.gdacs.org/report.aspx?eventid=1001347&episodeid=22&eventtype=TC"
+        },
+        "alertlevel": "Green",
+        "episodealertlevel": "Green",
+        "iscurrent": "true",
+        "country": "Japan",
+        "fromdate": "2026-11-06T06:00:00",
+        "todate": "2026-11-11T12:00:00",
+        "datemodified": "2026-11-13T00:50:32",
+        "affectedcountries": [
+          {
+            "iso2": "JP",
+            "iso3": "JPN",
+            "countryname": "Japan"
+          }
+        ],
+        "severitydata": {
+          "severity": 175.9248,
+          "severitytext": "Hurricane/Typhoon > 74 mph (maximum wind speed of 176 km/h)",
+          "severityunit": "km/h"
+        },
+        "Class": "Point_Polygon_Point_5"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": []
+      },
+      "properties": {
+        "eventtype": "TC",
+        "eventid": 1001347,
+        "episodeid": 22,
+        "eventname": "CEMPAKA-26",
+        "name": "Tropical Cyclone CEMPAKA-26",
+        "description": "Tropical Cyclone CEMPAKA-26",
+        "url": {
+          "report": "https://www.gdacs.org/report.aspx?eventid=1001347&episodeid=22&eventtype=TC"
+        },
+        "alertlevel": "Green",
+        "episodealertlevel": "Green",
+        "iscurrent": "true",
+        "country": "Japan",
+        "fromdate": "2026-11-06T06:00:00",
+        "todate": "2026-11-11T12:00:00",
+        "datemodified": "2026-11-13T00:50:32",
+        "affectedcountries": [
+          {
+            "iso2": "JP",
+            "iso3": "JPN",
+            "countryname": "Japan"
+          }
+        ],
+        "severitydata": {
+          "severity": 175.9248,
+          "severitytext": "Hurricane/Typhoon > 74 mph (maximum wind speed of 176 km/h)",
+          "severityunit": "km/h"
+        },
+        "Class": "Point_Polygon_Point_6"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": []
+      },
+      "properties": {
+        "eventtype": "TC",
+        "eventid": 1001347,
+        "episodeid": 22,
+        "eventname": "CEMPAKA-26",
+        "name": "Tropical Cyclone CEMPAKA-26",
+        "description": "Tropical Cyclone CEMPAKA-26",
+        "url": {
+          "report": "https://www.gdacs.org/report.aspx?eventid=1001347&episodeid=22&eventtype=TC"
+        },
+        "alertlevel": "Green",
+        "episodealertlevel": "Green",
+        "iscurrent": "true",
+        "country": "Japan",
+        "fromdate": "2026-11-06T06:00:00",
+        "todate": "2026-11-11T12:00:00",
+        "datemodified": "2026-11-13T00:50:32",
+        "affectedcountries": [
+          {
+            "iso2": "JP",
+            "iso3": "JPN",
+            "countryname": "Japan"
+          }
+        ],
+        "severitydata": {
+          "severity": 175.9248,
+          "severitytext": "Hurricane/Typhoon > 74 mph (maximum wind speed of 176 km/h)",
+          "severityunit": "km/h"
+        },
+        "Class": "Point_Polygon_Point_7"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": []
+      },
+      "properties": {
+        "eventtype": "TC",
+        "eventid": 1001347,
+        "episodeid": 22,
+        "eventname": "CEMPAKA-26",
+        "name": "Tropical Cyclone CEMPAKA-26",
+        "description": "Tropical Cyclone CEMPAKA-26",
+        "url": {
+          "report": "https://www.gdacs.org/report.aspx?eventid=1001347&episodeid=22&eventtype=TC"
+        },
+        "alertlevel": "Green",
+        "episodealertlevel": "Green",
+        "iscurrent": "true",
+        "country": "Japan",
+        "fromdate": "2026-11-06T06:00:00",
+        "todate": "2026-11-11T12:00:00",
+        "datemodified": "2026-11-13T00:50:32",
+        "affectedcountries": [
+          {
+            "iso2": "JP",
+            "iso3": "JPN",
+            "countryname": "Japan"
+          }
+        ],
+        "severitydata": {
+          "severity": 175.9248,
+          "severitytext": "Hurricane/Typhoon > 74 mph (maximum wind speed of 176 km/h)",
+          "severityunit": "km/h"
+        },
+        "Class": "Point_Polygon_Point_8"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": []
+      },
+      "properties": {
+        "eventtype": "TC",
+        "eventid": 1001347,
+        "episodeid": 22,
+        "eventname": "CEMPAKA-26",
+        "name": "Tropical Cyclone CEMPAKA-26",
+        "description": "Tropical Cyclone CEMPAKA-26",
+        "url": {
+          "report": "https://www.gdacs.org/report.aspx?eventid=1001347&episodeid=22&eventtype=TC"
+        },
+        "alertlevel": "Green",
+        "episodealertlevel": "Green",
+        "iscurrent": "true",
+        "country": "Japan",
+        "fromdate": "2026-11-06T06:00:00",
+        "todate": "2026-11-11T12:00:00",
+        "datemodified": "2026-11-13T00:50:32",
+        "affectedcountries": [
+          {
+            "iso2": "JP",
+            "iso3": "JPN",
+            "countryname": "Japan"
+          }
+        ],
+        "severitydata": {
+          "severity": 175.9248,
+          "severitytext": "Hurricane/Typhoon > 74 mph (maximum wind speed of 176 km/h)",
+          "severityunit": "km/h"
+        },
+        "Class": "Point_Polygon_Point_9"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": []
+      },
+      "properties": {
+        "eventtype": "TC",
+        "eventid": 1001347,
+        "episodeid": 22,
+        "eventname": "CEMPAKA-26",
+        "name": "Tropical Cyclone CEMPAKA-26",
+        "description": "Tropical Cyclone CEMPAKA-26",
+        "url": {
+          "report": "https://www.gdacs.org/report.aspx?eventid=1001347&episodeid=22&eventtype=TC"
+        },
+        "alertlevel": "Green",
+        "episodealertlevel": "Green",
+        "iscurrent": "true",
+        "country": "Japan",
+        "fromdate": "2026-11-06T06:00:00",
+        "todate": "2026-11-11T12:00:00",
+        "datemodified": "2026-11-13T00:50:32",
+        "affectedcountries": [
+          {
+            "iso2": "JP",
+            "iso3": "JPN",
+            "countryname": "Japan"
+          }
+        ],
+        "severitydata": {
+          "severity": 175.9248,
+          "severitytext": "Hurricane/Typhoon > 74 mph (maximum wind speed of 176 km/h)",
+          "severityunit": "km/h"
+        },
+        "Class": "Point_Polygon_Point_10"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": []
+      },
+      "properties": {
+        "eventtype": "TC",
+        "eventid": 1001347,
+        "episodeid": 22,
+        "eventname": "CEMPAKA-26",
+        "name": "Tropical Cyclone CEMPAKA-26",
+        "description": "Tropical Cyclone CEMPAKA-26",
+        "url": {
+          "report": "https://www.gdacs.org/report.aspx?eventid=1001347&episodeid=22&eventtype=TC"
+        },
+        "alertlevel": "Green",
+        "episodealertlevel": "Green",
+        "iscurrent": "true",
+        "country": "Japan",
+        "fromdate": "2026-11-06T06:00:00",
+        "todate": "2026-11-11T12:00:00",
+        "datemodified": "2026-11-13T00:50:32",
+        "affectedcountries": [
+          {
+            "iso2": "JP",
+            "iso3": "JPN",
+            "countryname": "Japan"
+          }
+        ],
+        "severitydata": {
+          "severity": 175.9248,
+          "severitytext": "Hurricane/Typhoon > 74 mph (maximum wind speed of 176 km/h)",
+          "severityunit": "km/h"
+        },
+        "Class": "Point_Polygon_Point_11"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": []
+      },
+      "properties": {
+        "eventtype": "TC",
+        "eventid": 1001347,
+        "episodeid": 22,
+        "eventname": "CEMPAKA-26",
+        "name": "Tropical Cyclone CEMPAKA-26",
+        "description": "Tropical Cyclone CEMPAKA-26",
+        "url": {
+          "report": "https://www.gdacs.org/report.aspx?eventid=1001347&episodeid=22&eventtype=TC"
+        },
+        "alertlevel": "Green",
+        "episodealertlevel": "Green",
+        "iscurrent": "true",
+        "country": "Japan",
+        "fromdate": "2026-11-06T06:00:00",
+        "todate": "2026-11-11T12:00:00",
+        "datemodified": "2026-11-13T00:50:32",
+        "affectedcountries": [
+          {
+            "iso2": "JP",
+            "iso3": "JPN",
+            "countryname": "Japan"
+          }
+        ],
+        "severitydata": {
+          "severity": 175.9248,
+          "severitytext": "Hurricane/Typhoon > 74 mph (maximum wind speed of 176 km/h)",
+          "severityunit": "km/h"
+        },
+        "Class": "Point_Polygon_Point_12"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": []
+      },
+      "properties": {
+        "eventtype": "TC",
+        "eventid": 1001347,
+        "episodeid": 22,
+        "eventname": "CEMPAKA-26",
+        "name": "Tropical Cyclone CEMPAKA-26",
+        "description": "Tropical Cyclone CEMPAKA-26",
+        "url": {
+          "report": "https://www.gdacs.org/report.aspx?eventid=1001347&episodeid=22&eventtype=TC"
+        },
+        "alertlevel": "Green",
+        "episodealertlevel": "Green",
+        "iscurrent": "true",
+        "country": "Japan",
+        "fromdate": "2026-11-06T06:00:00",
+        "todate": "2026-11-11T12:00:00",
+        "datemodified": "2026-11-13T00:50:32",
+        "affectedcountries": [
+          {
+            "iso2": "JP",
+            "iso3": "JPN",
+            "countryname": "Japan"
+          }
+        ],
+        "severitydata": {
+          "severity": 175.9248,
+          "severitytext": "Hurricane/Typhoon > 74 mph (maximum wind speed of 176 km/h)",
+          "severityunit": "km/h"
+        },
+        "Class": "Point_Polygon_Point_13"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": []
+      },
+      "properties": {
+        "eventtype": "TC",
+        "eventid": 1001347,
+        "episodeid": 22,
+        "eventname": "CEMPAKA-26",
+        "name": "Tropical Cyclone CEMPAKA-26",
+        "description": "Tropical Cyclone CEMPAKA-26",
+        "url": {
+          "report": "https://www.gdacs.org/report.aspx?eventid=1001347&episodeid=22&eventtype=TC"
+        },
+        "alertlevel": "Green",
+        "episodealertlevel": "Green",
+        "iscurrent": "true",
+        "country": "Japan",
+        "fromdate": "2026-11-06T06:00:00",
+        "todate": "2026-11-11T12:00:00",
+        "datemodified": "2026-11-13T00:50:32",
+        "affectedcountries": [
+          {
+            "iso2": "JP",
+            "iso3": "JPN",
+            "countryname": "Japan"
+          }
+        ],
+        "severitydata": {
+          "severity": 175.9248,
+          "severitytext": "Hurricane/Typhoon > 74 mph (maximum wind speed of 176 km/h)",
+          "severityunit": "km/h"
+        },
+        "Class": "Point_Polygon_Point_14"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": []
+      },
+      "properties": {
+        "eventtype": "TC",
+        "eventid": 1001347,
+        "episodeid": 22,
+        "eventname": "CEMPAKA-26",
+        "name": "Tropical Cyclone CEMPAKA-26",
+        "description": "Tropical Cyclone CEMPAKA-26",
+        "url": {
+          "report": "https://www.gdacs.org/report.aspx?eventid=1001347&episodeid=22&eventtype=TC"
+        },
+        "alertlevel": "Green",
+        "episodealertlevel": "Green",
+        "iscurrent": "true",
+        "country": "Japan",
+        "fromdate": "2026-11-06T06:00:00",
+        "todate": "2026-11-11T12:00:00",
+        "datemodified": "2026-11-13T00:50:32",
+        "affectedcountries": [
+          {
+            "iso2": "JP",
+            "iso3": "JPN",
+            "countryname": "Japan"
+          }
+        ],
+        "severitydata": {
+          "severity": 175.9248,
+          "severitytext": "Hurricane/Typhoon > 74 mph (maximum wind speed of 176 km/h)",
+          "severityunit": "km/h"
+        },
+        "Class": "Point_Polygon_Point_15"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": []
+      },
+      "properties": {
+        "eventtype": "TC",
+        "eventid": 1001347,
+        "episodeid": 22,
+        "eventname": "CEMPAKA-26",
+        "name": "Tropical Cyclone CEMPAKA-26",
+        "description": "Tropical Cyclone CEMPAKA-26",
+        "url": {
+          "report": "https://www.gdacs.org/report.aspx?eventid=1001347&episodeid=22&eventtype=TC"
+        },
+        "alertlevel": "Green",
+        "episodealertlevel": "Green",
+        "iscurrent": "true",
+        "country": "Japan",
+        "fromdate": "2026-11-06T06:00:00",
+        "todate": "2026-11-11T12:00:00",
+        "datemodified": "2026-11-13T00:50:32",
+        "affectedcountries": [
+          {
+            "iso2": "JP",
+            "iso3": "JPN",
+            "countryname": "Japan"
+          }
+        ],
+        "severitydata": {
+          "severity": 175.9248,
+          "severitytext": "Hurricane/Typhoon > 74 mph (maximum wind speed of 176 km/h)",
+          "severityunit": "km/h"
+        },
+        "Class": "Point_Polygon_Point_16"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": []
+      },
+      "properties": {
+        "eventtype": "TC",
+        "eventid": 1001347,
+        "episodeid": 22,
+        "eventname": "CEMPAKA-26",
+        "name": "Tropical Cyclone CEMPAKA-26",
+        "description": "Tropical Cyclone CEMPAKA-26",
+        "url": {
+          "report": "https://www.gdacs.org/report.aspx?eventid=1001347&episodeid=22&eventtype=TC"
+        },
+        "alertlevel": "Green",
+        "episodealertlevel": "Green",
+        "iscurrent": "true",
+        "country": "Japan",
+        "fromdate": "2026-11-06T06:00:00",
+        "todate": "2026-11-11T12:00:00",
+        "datemodified": "2026-11-13T00:50:32",
+        "affectedcountries": [
+          {
+            "iso2": "JP",
+            "iso3": "JPN",
+            "countryname": "Japan"
+          }
+        ],
+        "severitydata": {
+          "severity": 175.9248,
+          "severitytext": "Hurricane/Typhoon > 74 mph (maximum wind speed of 176 km/h)",
+          "severityunit": "km/h"
+        },
+        "Class": "Point_Polygon_Point_17"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": []
+      },
+      "properties": {
+        "eventtype": "TC",
+        "eventid": 1001347,
+        "episodeid": 22,
+        "eventname": "CEMPAKA-26",
+        "name": "Tropical Cyclone CEMPAKA-26",
+        "description": "Tropical Cyclone CEMPAKA-26",
+        "url": {
+          "report": "https://www.gdacs.org/report.aspx?eventid=1001347&episodeid=22&eventtype=TC"
+        },
+        "alertlevel": "Green",
+        "episodealertlevel": "Green",
+        "iscurrent": "true",
+        "country": "Japan",
+        "fromdate": "2026-11-06T06:00:00",
+        "todate": "2026-11-11T12:00:00",
+        "datemodified": "2026-11-13T00:50:32",
+        "affectedcountries": [
+          {
+            "iso2": "JP",
+            "iso3": "JPN",
+            "countryname": "Japan"
+          }
+        ],
+        "severitydata": {
+          "severity": 175.9248,
+          "severitytext": "Hurricane/Typhoon > 74 mph (maximum wind speed of 176 km/h)",
+          "severityunit": "km/h"
+        },
+        "Class": "Point_Polygon_Point_18"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": []
+      },
+      "properties": {
+        "eventtype": "TC",
+        "eventid": 1001347,
+        "episodeid": 22,
+        "eventname": "CEMPAKA-26",
+        "name": "Tropical Cyclone CEMPAKA-26",
+        "description": "Tropical Cyclone CEMPAKA-26",
+        "url": {
+          "report": "https://www.gdacs.org/report.aspx?eventid=1001347&episodeid=22&eventtype=TC"
+        },
+        "alertlevel": "Green",
+        "episodealertlevel": "Green",
+        "iscurrent": "true",
+        "country": "Japan",
+        "fromdate": "2026-11-06T06:00:00",
+        "todate": "2026-11-11T12:00:00",
+        "datemodified": "2026-11-13T00:50:32",
+        "affectedcountries": [
+          {
+            "iso2": "JP",
+            "iso3": "JPN",
+            "countryname": "Japan"
+          }
+        ],
+        "severitydata": {
+          "severity": 175.9248,
+          "severitytext": "Hurricane/Typhoon > 74 mph (maximum wind speed of 176 km/h)",
+          "severityunit": "km/h"
+        },
+        "Class": "Point_Polygon_Point_19"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": []
+      },
+      "properties": {
+        "eventtype": "TC",
+        "eventid": 1001347,
+        "episodeid": 22,
+        "eventname": "CEMPAKA-26",
+        "name": "Tropical Cyclone CEMPAKA-26",
+        "description": "Tropical Cyclone CEMPAKA-26",
+        "url": {
+          "report": "https://www.gdacs.org/report.aspx?eventid=1001347&episodeid=22&eventtype=TC"
+        },
+        "alertlevel": "Green",
+        "episodealertlevel": "Green",
+        "iscurrent": "true",
+        "country": "Japan",
+        "fromdate": "2026-11-06T06:00:00",
+        "todate": "2026-11-11T12:00:00",
+        "datemodified": "2026-11-13T00:50:32",
+        "affectedcountries": [
+          {
+            "iso2": "JP",
+            "iso3": "JPN",
+            "countryname": "Japan"
+          }
+        ],
+        "severitydata": {
+          "severity": 175.9248,
+          "severitytext": "Hurricane/Typhoon > 74 mph (maximum wind speed of 176 km/h)",
+          "severityunit": "km/h"
+        },
+        "Class": "Point_Polygon_Point_20"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": []
+      },
+      "properties": {
+        "eventtype": "TC",
+        "eventid": 1001347,
+        "episodeid": 22,
+        "eventname": "CEMPAKA-26",
+        "name": "Tropical Cyclone CEMPAKA-26",
+        "description": "Tropical Cyclone CEMPAKA-26",
+        "url": {
+          "report": "https://www.gdacs.org/report.aspx?eventid=1001347&episodeid=22&eventtype=TC"
+        },
+        "alertlevel": "Green",
+        "episodealertlevel": "Green",
+        "iscurrent": "true",
+        "country": "Japan",
+        "fromdate": "2026-11-06T06:00:00",
+        "todate": "2026-11-11T12:00:00",
+        "datemodified": "2026-11-13T00:50:32",
+        "affectedcountries": [
+          {
+            "iso2": "JP",
+            "iso3": "JPN",
+            "countryname": "Japan"
+          }
+        ],
+        "severitydata": {
+          "severity": 175.9248,
+          "severitytext": "Hurricane/Typhoon > 74 mph (maximum wind speed of 176 km/h)",
+          "severityunit": "km/h"
+        },
+        "Class": "Point_Polygon_Point_21"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": []
+      },
+      "properties": {
+        "eventtype": "TC",
+        "eventid": 1001347,
+        "episodeid": 22,
+        "eventname": "CEMPAKA-26",
+        "name": "Tropical Cyclone CEMPAKA-26",
+        "description": "Tropical Cyclone CEMPAKA-26",
+        "url": {
+          "report": "https://www.gdacs.org/report.aspx?eventid=1001347&episodeid=22&eventtype=TC"
+        },
+        "alertlevel": "Green",
+        "episodealertlevel": "Green",
+        "iscurrent": "true",
+        "country": "Japan",
+        "fromdate": "2026-11-06T06:00:00",
+        "todate": "2026-11-11T12:00:00",
+        "datemodified": "2026-11-13T00:50:32",
+        "affectedcountries": [
+          {
+            "iso2": "JP",
+            "iso3": "JPN",
+            "countryname": "Japan"
+          }
+        ],
+        "severitydata": {
+          "severity": 175.9248,
+          "severitytext": "Hurricane/Typhoon > 74 mph (maximum wind speed of 176 km/h)",
+          "severityunit": "km/h"
+        },
+        "Class": "Point_Polygon_Point_22"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": []
+      },
+      "properties": {
+        "eventtype": "TC",
+        "eventid": 1001347,
+        "episodeid": 22,
+        "eventname": "CEMPAKA-26",
+        "name": "Tropical Cyclone CEMPAKA-26",
+        "description": "Tropical Cyclone CEMPAKA-26",
+        "url": {
+          "report": "https://www.gdacs.org/report.aspx?eventid=1001347&episodeid=22&eventtype=TC"
+        },
+        "alertlevel": "Green",
+        "episodealertlevel": "Green",
+        "iscurrent": "true",
+        "country": "Japan",
+        "fromdate": "2026-11-06T06:00:00",
+        "todate": "2026-11-11T12:00:00",
+        "datemodified": "2026-11-13T00:50:32",
+        "affectedcountries": [
+          {
+            "iso2": "JP",
+            "iso3": "JPN",
+            "countryname": "Japan"
+          }
+        ],
+        "severitydata": {
+          "severity": 175.9248,
+          "severitytext": "Hurricane/Typhoon > 74 mph (maximum wind speed of 176 km/h)",
+          "severityunit": "km/h"
+        },
+        "Class": "Point_Polygon_Point_23"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": []
+      },
+      "properties": {
+        "eventtype": "TC",
+        "eventid": 1001347,
+        "episodeid": 22,
+        "eventname": "CEMPAKA-26",
+        "name": "Tropical Cyclone CEMPAKA-26",
+        "description": "Tropical Cyclone CEMPAKA-26",
+        "url": {
+          "report": "https://www.gdacs.org/report.aspx?eventid=1001347&episodeid=22&eventtype=TC"
+        },
+        "alertlevel": "Green",
+        "episodealertlevel": "Green",
+        "iscurrent": "true",
+        "country": "Japan",
+        "fromdate": "2026-11-06T06:00:00",
+        "todate": "2026-11-11T12:00:00",
+        "datemodified": "2026-11-13T00:50:32",
+        "affectedcountries": [
+          {
+            "iso2": "JP",
+            "iso3": "JPN",
+            "countryname": "Japan"
+          }
+        ],
+        "severitydata": {
+          "severity": 175.9248,
+          "severitytext": "Hurricane/Typhoon > 74 mph (maximum wind speed of 176 km/h)",
+          "severityunit": "km/h"
+        },
+        "Class": "Poly_Cones"
+      }
+    }
+  ]
+}

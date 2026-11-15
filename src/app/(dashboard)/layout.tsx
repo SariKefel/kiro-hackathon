@@ -8,7 +8,10 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
       <div className="md:pl-[238px]">
         <CommanderHeader />
         <MobileNavigation />
-        <main id="main" className="page-content">
+        <main
+          id="main"
+          className="page-content has-[.disaster-explorer]:max-w-none has-[.disaster-explorer]:p-0"
+        >
           {children}
         </main>
       </div>

@@ -13,7 +13,9 @@ bun run dev
 ```
 
 Open [localhost:3000](http://localhost:3000) and choose a demo identity.
-No credentials or environment variables are required to explore Phase 1.
+No credentials or environment variables are required to explore the organizational demo.
+Disaster Explorer uses public provider feeds; its optional Mapbox basemap requires a public browser token.
+See the [Disaster Explorer guide](docs/disaster-explorer.md) for setup, source semantics, and the demonstration workflow.
 The development and build scripts use Next.js's supported Webpack bundler because Turbopack's worker port is restricted in the development sandbox used for this scaffold.
 TypeScript is pinned to the stable 6.x line because the current Next.js ESLint toolchain does not support TypeScript 7.
 
@@ -70,6 +72,7 @@ Use HTTPS when deployed; localhost also supports service workers and geolocation
 
 - Entry screen and explicit demo identities: Nadia Rahman, incident commander, and Amir Hassan, field responder.
 - Commander overview, incident list and details, priority alerts, sample check-in history, and personnel accountability.
+- Read-only Disaster Explorer with genuine USGS earthquakes and GDACS floods and tropical cyclones, a Mapbox map, source-linked inspection, hazard filters, and independent feed health.
 - Searchable personnel directory with team and safety filters, deep links, expandable reports, and an empty state.
 - Mobile responder home, read-only sample tasks, and safety check-in with an optional message and explicitly requested location or last-known coordinates.
 - Light, dark, and system themes, keyboard focus styles, semantic status labels, accessible form controls, and responsive navigation.
@@ -113,11 +116,13 @@ src/
     (auth)/login/               Demo identity chooser
     (dashboard)/               Shared commander layout
       dashboard/
+      explorer/
       incidents/[incidentId]/
       personnel/
       settings/
     (responder)/responder/      Mobile layout, home, check-in, tasks
-    api/sync/                   Stable versioned HTTP boundary
+    api/sync/                   Stable versioned check-in HTTP boundary
+    api/hazards/                Public read-only hazard snapshot boundary
     layout.tsx                  Theme and foreground queue providers
     manifest.ts                 PWA metadata
     loading.tsx                 Shared loading state
@@ -131,6 +136,7 @@ src/
     shared/                     Branding, badges, theme, connection state
   features/
     incidents/demo-data.ts      Consistent, typed sample records
+    hazards/                    Public hazard retrieval, normalization, map and inspection
     personnel/                  Directory filtering and report disclosure
     check-ins/                  Local queue, form, persistence feedback
     sync/                       Foreground coordinator and server service
@@ -153,7 +159,8 @@ Database access and the sync application service are marked `server-only`.
 The sync service is the future shared entry point for an authenticated Server Action and the HTTP route; there is no Server Action before a real authenticated mutation exists.
 
 The design uses Public Sans, a restrained slate palette, a navy command sidebar, and semantic safety colors.
-The map is an original illustrative SVG schematic, with no live geospatial data or third-party map dependency.
+Managed Incident pages retain their original illustrative SVG schematic.
+Disaster Explorer uses Mapbox GL JS and a separate public hazard-query boundary; it never joins public hazards to personnel, check-ins, or assignments.
 UI primitives were generated with the official shadcn CLI and use the shared local class utility.
 
 ## Offline data and delivery
@@ -202,7 +209,7 @@ PWA install prompts vary by browser.
 
 ## Database and environment
 
-`.env.example` documents the database variables and optional future authentication values:
+`.env.example` documents the database variables, optional future authentication values, and public Mapbox token:
 
 | Variable                | Required                                 | Purpose                                                                                            |
 | ----------------------- | ---------------------------------------- | -------------------------------------------------------------------------------------------------- |
@@ -210,6 +217,11 @@ PWA install prompts vary by browser.
 | `DATABASE_URL_UNPOOLED` | Recommended for migration tooling        | Direct Neon connection to the same branch; Drizzle Kit falls back to `DATABASE_URL` when absent.   |
 | `BETTER_AUTH_SECRET`    | Optional Phase 2 preparation             | High-entropy server secret, generated locally by the wizard if requested; not consumed by Phase 1. |
 | `BETTER_AUTH_URL`       | Optional Phase 2 preparation             | Application origin, such as `http://localhost:3000`; not consumed by Phase 1.                      |
+
+`NEXT_PUBLIC_MAPBOX_ACCESS_TOKEN` is optional for the Disaster Explorer basemap.
+Use only a public `pk.` browser token with `styles:read` and `fonts:read` scopes and suitable origin restrictions.
+The existing `bash scripts/setup-mapbox.sh` wizard saves it locally without printing the value.
+List-based hazard investigation remains available when the basemap cannot load.
 
 Copy `.env.example` to `.env.local` if you need database tooling.
 Do not expose the connection string through a `NEXT_PUBLIC_` variable or commit credentials.
@@ -272,7 +284,8 @@ Deploy this repository as a single Next.js project with the repository root (`./
 The checked-in `vercel.json` selects Next.js, installs locked dependencies with `bun install --frozen-lockfile`, and builds with `bun run build`.
 Keep the Output Directory at the Next.js default.
 No additional backend, workspace, custom server, or static export is required.
-The Phase 1 demonstration needs no environment variables on Vercel.
+The organizational demonstration needs no environment variables on Vercel.
+The optional Disaster Explorer basemap needs its public Mapbox token in the intended environment at build time.
 Local environment files and local agent metadata are excluded from CLI uploads by `.vercelignore`.
 
 ### Deploy from GitHub
