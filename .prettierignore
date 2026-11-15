@@ -1,0 +1,6 @@
+.next
+node_modules
+bun.lock
+src/db/migrations
+next-env.d.ts
+public/sw.js

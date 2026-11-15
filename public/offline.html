@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#142537" />
+    <title>Offline check-in | RescueSync</title>
+    <link rel="stylesheet" href="/offline.css" />
+    <link rel="icon" href="/icon-192.png" />
+    <script src="/offline.js" defer></script>
+  </head>
+  <body>
+    <header><a href="/">RescueSync</a><span>Offline check-in</span></header>
+    <main id="main">
+      <h1>Your check-in can still be saved.</h1>
+      <p>
+        This lightweight form works without a connection after the app has prepared its offline
+        shell.
+      </p>
+      <aside>
+        <strong>Demo Mode · Amir Hassan</strong><br />Alpha team · Klang Valley flood response.<br />Reports
+        save on this device. They are not delivered to command.
+      </aside>
+      <p id="connection" role="status">Checking device connection...</p>
+      <form id="check-in-form">
+        <fieldset>
+          <legend>How are you right now?</legend>
+          <label class="choice"
+            ><input type="radio" name="status" value="safe" required />I'm Safe</label
+          >
+          <label class="choice"
+            ><input type="radio" name="status" value="needs_help" required />I Need Help</label
+          >
+          <label class="choice"
+            ><input type="radio" name="status" value="unable_to_continue" required />Unable to
+            Continue</label
+          >
+        </fieldset>
+        <label for="message">Message (optional)</label
+        ><textarea
+          id="message"
+          maxlength="500"
+          rows="3"
+          placeholder="What should your team know?"
+        ></textarea>
+        <button id="locate" type="button" class="secondary">
+          Share my device location (optional)
+        </button>
+        <p id="location" role="status">No location attached.</p>
+        <button id="save" type="submit">Save check-in on this device</button>
+      </form>
+      <div id="result" role="status" tabindex="-1"></div>
+      <p id="pending"></p>
+      <p>If you need immediate help, use your team's emergency contact channel.</p>
+      <a class="return" href="/responder">Open responder home to review and retry sync</a>
+    </main>
+  </body>
+</html>
