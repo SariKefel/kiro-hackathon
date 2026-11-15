@@ -6,6 +6,9 @@ import { StatusBadge } from "@/components/shared/status-badge";
 import { Button } from "@/components/ui/button";
 import { formatDate, formatTime, initials } from "@/lib/utils";
 
+import { useLocationAssignments } from "@/features/incidents/assignment-store";
+import { responseLocations } from "@/features/incidents/response-locations";
+
 export function PersonnelDirectory({
   initialSearch = "",
   initialTeam = "all",
@@ -15,6 +18,7 @@ export function PersonnelDirectory({
   initialTeam?: string;
   initialStatus?: string;
 }) {
+  const locationAssignments = useLocationAssignments();
   const [search, setSearch] = useState(initialSearch);
   const [team, setTeam] = useState(initialTeam);
   const [status, setStatus] = useState(initialStatus);
@@ -36,7 +40,10 @@ export function PersonnelDirectory({
   const hasFilters = search || team !== "all" || status !== "all";
   return (
     <section className="panel overflow-hidden">
-      <div className="flex flex-wrap items-center gap-3 border-b p-4 sm:p-5">
+      <div
+        data-tour="personnel-filters"
+        className="flex flex-wrap items-center gap-3 border-b p-4 sm:p-5"
+      >
         <div className="relative min-w-48 flex-1">
           <Search className="absolute left-3 top-3 size-4 text-muted-foreground" />
           <input
@@ -95,7 +102,7 @@ export function PersonnelDirectory({
         <span>Last confirmation</span>
         <span className="sr-only">Details</span>
       </div>
-      <div className="divide-y">
+      <div data-tour="personnel-records" className="divide-y">
         {filtered.map((p) => (
           <details className="group" key={p.id}>
             <summary className="grid cursor-pointer list-none items-center gap-3 px-5 py-4 hover:bg-secondary/40 sm:grid-cols-[1.3fr_1fr_auto] lg:grid-cols-[1.4fr_.65fr_1fr_1.1fr_.85fr_20px] [&::-webkit-details-marker]:hidden">
@@ -151,8 +158,11 @@ export function PersonnelDirectory({
                   <dd>{p.email}</dd>
                 </div>
                 <div>
-                  <dt className="text-muted-foreground">Location</dt>
-                  <dd>Not provided</dd>
+                  <dt className="text-muted-foreground">Demo response assignment</dt>
+                  <dd>
+                    {responseLocations.find((place) => place.id === locationAssignments[p.id])
+                      ?.name ?? "Unassigned"}
+                  </dd>
                 </div>
               </dl>
             </div>

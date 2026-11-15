@@ -169,7 +169,7 @@ export function DisasterExplorer() {
 
   return (
     <section className="disaster-explorer flex h-[calc(100dvh-139px)] flex-col md:h-[calc(100dvh-76px)]">
-      <div className="shrink-0 border-b px-5 py-3 md:px-7 md:py-5">
+      <div data-tour="hazard-intro" className="shrink-0 border-b px-5 py-3 md:px-7 md:py-5">
         <div className="flex flex-wrap items-start justify-between gap-4">
           <div>
             <h1 className="page-title">Disaster Explorer</h1>
@@ -260,7 +260,10 @@ export function DisasterExplorer() {
         )}
       </div>
 
-      <div className="flex shrink-0 flex-wrap items-center justify-between gap-3 border-b px-5 py-3 md:px-7">
+      <div
+        data-tour="hazard-filters"
+        className="flex shrink-0 flex-wrap items-center justify-between gap-3 border-b px-5 py-3 md:px-7"
+      >
         <div
           role="group"
           aria-label="Region presets"
@@ -318,6 +321,7 @@ export function DisasterExplorer() {
 
       <div className="relative min-h-0 flex-1 md:grid md:grid-cols-[minmax(0,1fr)_360px]">
         <div
+          data-tour="hazard-map"
           className={cn(
             "relative min-w-0 transition-[height] motion-reduce:transition-none md:!h-full",
             mobile && sheetOpen ? "h-[40%]" : "h-full",

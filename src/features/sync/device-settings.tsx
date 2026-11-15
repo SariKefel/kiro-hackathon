@@ -8,7 +8,7 @@ export function DeviceSettings() {
   const { setTheme } = useTheme();
   const { ready, pending } = useOffline();
   return (
-    <div className="grid gap-5 lg:grid-cols-2">
+    <div data-tour="device-settings" className="grid gap-5 lg:grid-cols-2">
       <section className="panel p-6">
         <h2 className="section-heading">Appearance</h2>
         <p className="mt-2 muted">Choose the most readable view for your environment.</p>

@@ -63,7 +63,7 @@ export function LocalReports() {
   if (storageError) return null;
   if (!reports.length)
     return (
-      <section className="panel p-5">
+      <section data-tour="local-reports" className="panel p-5">
         <h2 className="section-heading">Reports on this device</h2>
         <p className="mt-2 text-xs leading-6 text-muted-foreground">
           No local reports yet. Your next check-in will be saved here before a delivery attempt.
@@ -71,7 +71,7 @@ export function LocalReports() {
       </section>
     );
   return (
-    <section className="panel p-5">
+    <section data-tour="local-reports" className="panel p-5">
       <div className="flex items-center justify-between">
         <h2 className="section-heading">Reports on this device</h2>
         <span className="text-xs text-muted-foreground">{reports.length}</span>
