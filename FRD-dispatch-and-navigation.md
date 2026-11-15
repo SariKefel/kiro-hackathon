@@ -11,9 +11,9 @@ Two linked features:
 
 ## 2. Roles
 
-| Role | Description |
-| --- | --- |
-| Commander | Demo identity (Nadia Rahman). Views incidents, dispatches responders. |
+| Role      | Description                                                                   |
+| --------- | ----------------------------------------------------------------------------- |
+| Commander | Demo identity (Nadia Rahman). Views incidents, dispatches responders.         |
 | Responder | Demo identity (Amir Hassan). Receives assignments, navigates, reports status. |
 
 ## 3. Assumptions and constraints
@@ -28,21 +28,21 @@ Two linked features:
 
 ### Functional requirements
 
-| ID | Requirement | Priority |
-| --- | --- | --- |
-| F1-1 | Each incident has site coordinates (latitude, longitude). | Must |
-| F1-2 | From an incident detail page, the commander can open a "Dispatch" panel. | Must |
-| F1-3 | The panel lists responders ranked by distance from the site, nearest first. | Must |
-| F1-4 | Each row shows name, team, safety status, distance, estimated travel time, and "location last updated X min ago". | Must |
-| F1-5 | Responders with status Unable to Continue, or already on an active assignment, are shown as unavailable and cannot be assigned. | Must |
-| F1-6 | A location older than a stale threshold (default 30 min) is flagged "stale" and ranked below fresh locations at similar distance. | Should |
-| F1-7 | The commander can filter the list by team or skill. | Should |
-| F1-8 | The commander can assign one responder with a single action and an optional note. | Must |
-| F1-9 | The panel highlights a recommended responder (nearest available, fresh location) but the commander may pick any available one. | Must |
-| F1-10 | After assignment, the incident shows the assignee and assignment state: Pending, Accepted, Declined, En route, Arrived. | Must |
-| F1-11 | If the responder declines or does not respond within a timeout (default 5 min), the incident returns to unassigned and the next-nearest responder is suggested. | Should |
-| F1-12 | Missing location data: responders with no known location appear at the bottom, labelled "Location unknown". | Must |
-| F1-13 | Dispatch actions are recorded in an activity log (who, what, when). | Could |
+| ID    | Requirement                                                                                                                                                     | Priority |
+| ----- | --------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- |
+| F1-1  | Each incident has site coordinates (latitude, longitude).                                                                                                       | Must     |
+| F1-2  | From an incident detail page, the commander can open a "Dispatch" panel.                                                                                        | Must     |
+| F1-3  | The panel lists responders ranked by distance from the site, nearest first.                                                                                     | Must     |
+| F1-4  | Each row shows name, team, safety status, distance, estimated travel time, and "location last updated X min ago".                                               | Must     |
+| F1-5  | Responders with status Unable to Continue, or already on an active assignment, are shown as unavailable and cannot be assigned.                                 | Must     |
+| F1-6  | A location older than a stale threshold (default 30 min) is flagged "stale" and ranked below fresh locations at similar distance.                               | Should   |
+| F1-7  | The commander can filter the list by team or skill.                                                                                                             | Should   |
+| F1-8  | The commander can assign one responder with a single action and an optional note.                                                                               | Must     |
+| F1-9  | The panel highlights a recommended responder (nearest available, fresh location) but the commander may pick any available one.                                  | Must     |
+| F1-10 | After assignment, the incident shows the assignee and assignment state: Pending, Accepted, Declined, En route, Arrived.                                         | Must     |
+| F1-11 | If the responder declines or does not respond within a timeout (default 5 min), the incident returns to unassigned and the next-nearest responder is suggested. | Should   |
+| F1-12 | Missing location data: responders with no known location appear at the bottom, labelled "Location unknown".                                                     | Must     |
+| F1-13 | Dispatch actions are recorded in an activity log (who, what, when).                                                                                             | Could    |
 
 ### Acceptance criteria
 
@@ -55,18 +55,18 @@ Two linked features:
 
 ### Functional requirements
 
-| ID | Requirement | Priority |
-| --- | --- | --- |
-| F2-1 | The responder home shows an "Assigned to you" card with incident, site, distance, estimated time, and Accept / Decline. | Must |
-| F2-2 | Accepting changes state to Accepted and enables "Navigate". Decline requires picking a reason (too far, unsafe, already busy, other). | Must |
-| F2-3 | "Navigate" opens the device's maps app with the site as destination via a deep link. | Must |
-| F2-4 | Inside the app, the responder sees a navigation view: site marker, own position, straight-line distance, and bearing. | Should |
-| F2-5 | The app shows the nearest route summary (distance and ETA) when online. When offline it shows the last cached estimate, labelled as such. | Should |
-| F2-6 | The responder can mark state: En route, Arrived. Arrived can be set manually and is suggested when within 100 m of the site. | Must |
-| F2-7 | The responder can flag a blocked route or hazard with a short note. The commander sees the flag on the incident. | Could |
-| F2-8 | Assignment details and site coordinates are cached locally so the card and the Maps link work offline. | Must |
-| F2-9 | Accept, decline and state changes are queued offline and sent on reconnect using stable operation IDs, like check-ins. | Must |
-| F2-10 | Location is requested only when the responder explicitly taps for it. The UI says so. | Must |
+| ID    | Requirement                                                                                                                               | Priority |
+| ----- | ----------------------------------------------------------------------------------------------------------------------------------------- | -------- |
+| F2-1  | The responder home shows an "Assigned to you" card with incident, site, distance, estimated time, and Accept / Decline.                   | Must     |
+| F2-2  | Accepting changes state to Accepted and enables "Navigate". Decline requires picking a reason (too far, unsafe, already busy, other).     | Must     |
+| F2-3  | "Navigate" opens the device's maps app with the site as destination via a deep link.                                                      | Must     |
+| F2-4  | Inside the app, the responder sees a navigation view: site marker, own position, straight-line distance, and bearing.                     | Should   |
+| F2-5  | The app shows the nearest route summary (distance and ETA) when online. When offline it shows the last cached estimate, labelled as such. | Should   |
+| F2-6  | The responder can mark state: En route, Arrived. Arrived can be set manually and is suggested when within 100 m of the site.              | Must     |
+| F2-7  | The responder can flag a blocked route or hazard with a short note. The commander sees the flag on the incident.                          | Could    |
+| F2-8  | Assignment details and site coordinates are cached locally so the card and the Maps link work offline.                                    | Must     |
+| F2-9  | Accept, decline and state changes are queued offline and sent on reconnect using stable operation IDs, like check-ins.                    | Must     |
+| F2-10 | Location is requested only when the responder explicitly taps for it. The UI says so.                                                     | Must     |
 
 ### Acceptance criteria
 
