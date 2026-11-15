@@ -7,6 +7,7 @@ import { ConnectionStatus } from "@/components/shared/connection-status";
 import { StatusBadge } from "@/components/shared/status-badge";
 import { Button } from "@/components/ui/button";
 import { LocalReports } from "@/features/check-ins/report-state";
+import { ActiveDispatch } from "@/features/dispatch/responder";
 
 export const metadata: Metadata = { title: "Responder home" };
 export default function ResponderHome() {
