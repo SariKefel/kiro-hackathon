@@ -182,7 +182,8 @@ describe("Gemini request handling", () => {
     expect(body.store).toBe(false);
     expect(body.response_format.mime_type).toBe("application/json");
     expect(body.system_instruction).toBe("sys");
-    expect(body.model).toBe("gemini-3.8-flash");
+    expect(body.model).toBe("gemini-3.6-flash");
+    expect(body.generation_config.thinking_level).toBe("low");
   });
   test("accepts JSON wrapped in a code fence", async () => {
     const wrapped = {

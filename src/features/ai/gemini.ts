@@ -4,8 +4,10 @@ import { AiError } from "@/features/ai/errors";
 // so a future API change cannot alter responses silently.
 export const GEMINI_ENDPOINT = "https://generativelanguage.googleapis.com/v1beta/interactions";
 export const GEMINI_API_REVISION = "2026-05-20";
-// Stable Gemini Flash model at the time of writing. Override with GEMINI_MODEL.
-export const DEFAULT_GEMINI_MODEL = "gemini-3.8-flash";
+// Stable Gemini Flash model. gemini-3.8-flash was repeatedly overloaded (HTTP 503 and timeouts)
+// when tested on 15 November 2026, while this model answered in about 4 seconds.
+// Override with GEMINI_MODEL.
+export const DEFAULT_GEMINI_MODEL = "gemini-3.6-flash";
 
 export type FetchLike = (input: string, init: RequestInit) => Promise<Response>;
 export interface GeminiRequest {
@@ -67,7 +69,8 @@ export async function generateJson(
         // Do not keep the conversation on the provider side.
         store: false,
         response_format: { type: "text", mime_type: "application/json", schema: request.schema },
-        generation_config: { max_output_tokens: 8192 },
+        // Low thinking keeps the response within the route's time limit.
+        generation_config: { max_output_tokens: 8192, thinking_level: "low" },
       }),
     });
   } catch (error) {

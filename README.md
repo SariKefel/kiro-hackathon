@@ -226,7 +226,7 @@ To analyze real reports later, add a database-backed `ReportSource` in `src/feat
 | `BETTER_AUTH_SECRET`    | Optional Phase 2 preparation             | High-entropy server secret, generated locally by the wizard if requested; not consumed by Phase 1. |
 | `BETTER_AUTH_URL`       | Optional Phase 2 preparation             | Application origin, such as `http://localhost:3000`; not consumed by Phase 1.                      |
 | `GEMINI_API_KEY`        | Optional; enables AI analysis            | Server-only Google AI Studio key for the dashboard's Generate AI Analysis button.                  |
-| `GEMINI_MODEL`          | Optional                                 | Overrides the default stable model, `gemini-3.8-flash`.                                            |
+| `GEMINI_MODEL`          | Optional                                 | Overrides the default stable model, `gemini-3.6-flash`.                                            |
 
 Copy `.env.example` to `.env.local` if you need database tooling.
 Do not expose the connection string through a `NEXT_PUBLIC_` variable or commit credentials.
