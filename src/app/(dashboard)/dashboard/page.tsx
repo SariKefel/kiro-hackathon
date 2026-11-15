@@ -9,6 +9,7 @@ import { IncidentMap } from "@/components/incidents/incident-map";
 import { DemoBanner } from "@/components/shared/demo-banner";
 import { Button } from "@/components/ui/button";
 import { incident } from "@/features/incidents/demo-data";
+import { AiAnalysisPanel } from "@/features/ai/analysis-panel";
 
 export const metadata: Metadata = { title: "Commander overview" };
 export default function Dashboard() {
@@ -75,6 +76,7 @@ export default function Dashboard() {
           <IncidentMap />
         </div>
       </section>
+      <AiAnalysisPanel incidentId={incident.id} />
       <div className="grid items-start gap-5 xl:grid-cols-[1fr_1fr_1.12fr]">
         <Accountability />
         <RecentActivity />
