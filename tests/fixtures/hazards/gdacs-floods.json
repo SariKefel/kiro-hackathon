@@ -1,0 +1,347 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [105.8528684, 21.0110407]
+      },
+      "properties": {
+        "eventtype": "FL",
+        "eventid": 1104271,
+        "episodeid": 6,
+        "eventname": "",
+        "name": "Flood in Vietnam",
+        "description": "Flood in Vietnam",
+        "url": {
+          "report": "https://www.gdacs.org/report.aspx?eventid=1104271&episodeid=6&eventtype=FL"
+        },
+        "alertlevel": "Green",
+        "episodealertlevel": "Green",
+        "iscurrent": "true",
+        "country": "Vietnam",
+        "fromdate": "2026-11-06T01:00:00",
+        "todate": "2026-11-13T01:00:00",
+        "datemodified": "2026-11-14T11:06:12",
+        "Class": "Point_Centroid",
+        "affectedcountries": [
+          {
+            "iso2": "VN",
+            "iso3": "VNM",
+            "countryname": "Vietnam"
+          }
+        ],
+        "severitydata": {
+          "severity": 0.0,
+          "severitytext": "Magnitude 0 ",
+          "severityunit": ""
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [105.85305276290009, 21.01102126903773]
+      },
+      "properties": {
+        "eventtype": "FL",
+        "eventid": 1104271,
+        "episodeid": 6,
+        "eventname": "",
+        "name": "Flood in Vietnam",
+        "description": "Flood in Vietnam",
+        "url": {
+          "report": "https://www.gdacs.org/report.aspx?eventid=1104271&episodeid=6&eventtype=FL"
+        },
+        "alertlevel": "Green",
+        "episodealertlevel": "Green",
+        "iscurrent": "true",
+        "country": "Vietnam",
+        "fromdate": "2026-11-06T01:00:00",
+        "todate": "2026-11-13T01:00:00",
+        "datemodified": "2026-11-14T11:06:12",
+        "affectedcountries": [
+          {
+            "iso2": "VN",
+            "iso3": "VNM",
+            "countryname": "Vietnam"
+          }
+        ],
+        "severitydata": {
+          "severity": 0.0,
+          "severitytext": "Magnitude 0 ",
+          "severityunit": ""
+        },
+        "Class": "Point_Affected"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [106.65964276594083, 17.619018012134422]
+      },
+      "properties": {
+        "eventtype": "FL",
+        "eventid": 1104271,
+        "episodeid": 6,
+        "eventname": "",
+        "name": "Flood in Vietnam",
+        "description": "Flood in Vietnam",
+        "url": {
+          "report": "https://www.gdacs.org/report.aspx?eventid=1104271&episodeid=6&eventtype=FL"
+        },
+        "alertlevel": "Green",
+        "episodealertlevel": "Green",
+        "iscurrent": "true",
+        "country": "Vietnam",
+        "fromdate": "2026-11-06T01:00:00",
+        "todate": "2026-11-13T01:00:00",
+        "datemodified": "2026-11-14T11:06:12",
+        "affectedcountries": [
+          {
+            "iso2": "VN",
+            "iso3": "VNM",
+            "countryname": "Vietnam"
+          }
+        ],
+        "severitydata": {
+          "severity": 0.0,
+          "severitytext": "Magnitude 0 ",
+          "severityunit": ""
+        },
+        "Class": "Point_Global"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [97.0253024, 4.3685491]
+      },
+      "properties": {
+        "eventtype": "FL",
+        "eventid": 1104253,
+        "episodeid": 22,
+        "eventname": "",
+        "name": "Flood in Indonesia",
+        "description": "Flood in Indonesia",
+        "url": {
+          "report": "https://www.gdacs.org/report.aspx?eventid=1104253&episodeid=22&eventtype=FL"
+        },
+        "alertlevel": "Green",
+        "episodealertlevel": "Green",
+        "iscurrent": "true",
+        "country": "Indonesia",
+        "fromdate": "2026-10-24T01:00:00",
+        "todate": "2026-11-14T01:00:00",
+        "datemodified": "2026-11-14T23:21:55",
+        "Class": "Point_Centroid",
+        "affectedcountries": [
+          {
+            "iso2": "ID",
+            "iso3": "IDN",
+            "countryname": "Indonesia"
+          }
+        ],
+        "severitydata": {
+          "severity": 0.0,
+          "severitytext": "Magnitude 0 ",
+          "severityunit": ""
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [96.59161691099905, 3.867542200707555]
+      },
+      "properties": {
+        "eventtype": "FL",
+        "eventid": 1104253,
+        "episodeid": 22,
+        "eventname": "",
+        "name": "Flood in Indonesia",
+        "description": "Flood in Indonesia",
+        "url": {
+          "report": "https://www.gdacs.org/report.aspx?eventid=1104253&episodeid=22&eventtype=FL"
+        },
+        "alertlevel": "Green",
+        "episodealertlevel": "Green",
+        "iscurrent": "true",
+        "country": "Indonesia",
+        "fromdate": "2026-10-24T01:00:00",
+        "todate": "2026-11-14T01:00:00",
+        "datemodified": "2026-11-14T23:21:55",
+        "affectedcountries": [
+          {
+            "iso2": "ID",
+            "iso3": "IDN",
+            "countryname": "Indonesia"
+          }
+        ],
+        "severitydata": {
+          "severity": 0.0,
+          "severitytext": "Magnitude 0 ",
+          "severityunit": ""
+        },
+        "Class": "Point_Affected"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [105.06390857082629, -2.542943430902963]
+      },
+      "properties": {
+        "eventtype": "FL",
+        "eventid": 1104253,
+        "episodeid": 22,
+        "eventname": "",
+        "name": "Flood in Indonesia",
+        "description": "Flood in Indonesia",
+        "url": {
+          "report": "https://www.gdacs.org/report.aspx?eventid=1104253&episodeid=22&eventtype=FL"
+        },
+        "alertlevel": "Green",
+        "episodealertlevel": "Green",
+        "iscurrent": "true",
+        "country": "Indonesia",
+        "fromdate": "2026-10-24T01:00:00",
+        "todate": "2026-11-14T01:00:00",
+        "datemodified": "2026-11-14T23:21:55",
+        "affectedcountries": [
+          {
+            "iso2": "ID",
+            "iso3": "IDN",
+            "countryname": "Indonesia"
+          }
+        ],
+        "severitydata": {
+          "severity": 0.0,
+          "severitytext": "Magnitude 0 ",
+          "severityunit": ""
+        },
+        "Class": "Point_Global"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [6.9359135, 43.5439153]
+      },
+      "properties": {
+        "eventtype": "FL",
+        "eventid": 1104270,
+        "episodeid": 4,
+        "eventname": "",
+        "name": "Flood in France",
+        "description": "Flood in France",
+        "url": {
+          "report": "https://www.gdacs.org/report.aspx?eventid=1104270&episodeid=4&eventtype=FL"
+        },
+        "alertlevel": "Green",
+        "episodealertlevel": "Green",
+        "iscurrent": "true",
+        "country": "France",
+        "fromdate": "2026-11-04T01:00:00",
+        "todate": "2026-11-14T01:00:00",
+        "datemodified": "2026-11-14T10:23:53",
+        "Class": "Point_Centroid",
+        "affectedcountries": [
+          {
+            "iso2": "FR",
+            "iso3": "FRA",
+            "countryname": "France"
+          }
+        ],
+        "severitydata": {
+          "severity": 0.0,
+          "severitytext": "Magnitude 0 ",
+          "severityunit": ""
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [8.262015352553304, 42.857674396200444]
+      },
+      "properties": {
+        "eventtype": "FL",
+        "eventid": 1104270,
+        "episodeid": 4,
+        "eventname": "",
+        "name": "Flood in France",
+        "description": "Flood in France",
+        "url": {
+          "report": "https://www.gdacs.org/report.aspx?eventid=1104270&episodeid=4&eventtype=FL"
+        },
+        "alertlevel": "Green",
+        "episodealertlevel": "Green",
+        "iscurrent": "true",
+        "country": "France",
+        "fromdate": "2026-11-04T01:00:00",
+        "todate": "2026-11-14T01:00:00",
+        "datemodified": "2026-11-14T10:23:53",
+        "affectedcountries": [
+          {
+            "iso2": "FR",
+            "iso3": "FRA",
+            "countryname": "France"
+          }
+        ],
+        "severitydata": {
+          "severity": 0.0,
+          "severitytext": "Magnitude 0 ",
+          "severityunit": ""
+        },
+        "Class": "Point_Affected"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [8.382839292771372, 42.510252124870945]
+      },
+      "properties": {
+        "eventtype": "FL",
+        "eventid": 1104270,
+        "episodeid": 4,
+        "eventname": "",
+        "name": "Flood in France",
+        "description": "Flood in France",
+        "url": {
+          "report": "https://www.gdacs.org/report.aspx?eventid=1104270&episodeid=4&eventtype=FL"
+        },
+        "alertlevel": "Green",
+        "episodealertlevel": "Green",
+        "iscurrent": "true",
+        "country": "France",
+        "fromdate": "2026-11-04T01:00:00",
+        "todate": "2026-11-14T01:00:00",
+        "datemodified": "2026-11-14T10:23:53",
+        "affectedcountries": [
+          {
+            "iso2": "FR",
+            "iso3": "FRA",
+            "countryname": "France"
+          }
+        ],
+        "severitydata": {
+          "severity": 0.0,
+          "severitytext": "Magnitude 0 ",
+          "severityunit": ""
+        },
+        "Class": "Point_Global"
+      }
+    }
+  ]
+}

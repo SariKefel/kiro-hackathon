@@ -50,3 +50,30 @@ For application changes, run `bun run lint`, `bun run typecheck`, `bun run test`
 For documentation-only changes, check formatting, relative links, and command examples without mutating cloud resources.
 Database and deployment work is complete only when the runbook's checks pass for the intended environments.
 Report the changed behavior, verification results, deployment URL when applicable, and remaining limitations.
+
+## Agent skills
+
+### Issue tracker
+
+Issues and specs live in local Markdown under `scratch/`.
+For ticket operations, read [tracker conventions](docs/agents/issue-tracker.md).
+
+### Triage labels
+
+Use the five default triage roles.
+Before triaging issues, read [the label mapping](docs/agents/triage-labels.md).
+
+### Domain docs
+
+Use the single-context layout.
+Before exploring the codebase, read [domain documentation rules](docs/agents/domain.md).
+
+<!-- BEGIN:nextjs-agent-rules -->
+
+## This is NOT the Next.js you know
+
+This version has breaking changes — APIs, conventions, and file structure may all differ from your training data. Read the relevant guide in `node_modules/next/dist/docs/` (resolved from this file's directory; in monorepos the `next` package may not be visible from the repo root) before writing any code. Heed deprecation notices.
+
+This block is written and re-added by `next dev` — verify at `node_modules/next/dist/server/lib/generate-agent-files.js`. Removing it from a diff only re-creates the uncommitted change; committing it with your work keeps the tree clean.
+
+<!-- END:nextjs-agent-rules -->

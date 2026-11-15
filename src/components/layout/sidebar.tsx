@@ -18,6 +18,7 @@ import { cn } from "@/lib/utils";
 const links = [
   { href: "/dashboard", label: "Overview", icon: LayoutDashboard },
   { href: "/incidents", label: "Incidents", icon: Waves },
+  { href: "/explorer", label: "Disaster Explorer", icon: RadioTower },
   { href: "/personnel", label: "Personnel", icon: Users },
   { href: "/settings", label: "Settings", icon: Settings2 },
 ];
