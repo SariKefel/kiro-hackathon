@@ -223,6 +223,21 @@ PWA install prompts vary by browser.
 6. Restore connectivity and open `/responder`; both reports should appear with a matching pending count.
 7. Retry synchronization and confirm that Demo Mode keeps the reports pending.
 
+## Voice dictation and AI analysis
+
+The check-in message field has an optional Dictate message button that uses the browser's speech recognition.
+It appears only in supporting browsers such as Chrome, Edge, and Safari, needs a connection, and only fills the editable field.
+Saving still goes through the normal local queue, and typing works offline as before.
+
+The command center's separate AI Analysis page (`/ai-analysis`) has a Generate AI Analysis button that calls `POST /api/ai/analyze`, which accepts only an incident ID.
+The server selects the incident's reports, sends opaque report IDs, status, team, message, and time to Gemini without names or emails, and validates the JSON reply with Zod.
+One request returns a summary, key observations, uncertainties, and advisory priorities, each citing report IDs; replies citing unknown report IDs are rejected.
+Phase 1 analyzes the fictional sample reports in `demo-data.ts`, and the panel labels results as AI analysis of demo data.
+Recommendations are advisory and never dispatch responders or change any record.
+The route accepts same-origin browser requests only, limits each visitor to 5 requests a minute and the app to 20 model calls an hour per server instance, and reuses identical results for 5 minutes.
+Without `GEMINI_API_KEY`, or when Gemini fails, the panel shows an error and the rest of the application works normally.
+To analyze real reports later, add a database-backed `ReportSource` in `src/features/ai/reports.ts` and select it in `src/features/ai/service.ts` after authorization exists.
+
 ## Database and environment
 
 `.env.example` documents the database variables, optional future authentication values, and public Mapbox token:
@@ -233,6 +248,8 @@ PWA install prompts vary by browser.
 | `DATABASE_URL_UNPOOLED` | Recommended for migration tooling        | Direct Neon connection to the same branch; Drizzle Kit falls back to `DATABASE_URL` when absent.   |
 | `BETTER_AUTH_SECRET`    | Optional Phase 2 preparation             | High-entropy server secret, generated locally by the wizard if requested; not consumed by Phase 1. |
 | `BETTER_AUTH_URL`       | Optional Phase 2 preparation             | Application origin, such as `http://localhost:3000`; not consumed by Phase 1.                      |
+| `GEMINI_API_KEY`        | Optional; enables AI analysis            | Server-only Google AI Studio key for the AI Analysis page (`/ai-analysis`).                        |
+| `GEMINI_MODEL`          | Optional                                 | Overrides the default stable model, `gemini-3.6-flash`.                                            |
 
 `NEXT_PUBLIC_MAPBOX_ACCESS_TOKEN` is optional for the Disaster Explorer basemap.
 Use only a public `pk.` browser token with `styles:read` and `fonts:read` scopes and suitable origin restrictions.
