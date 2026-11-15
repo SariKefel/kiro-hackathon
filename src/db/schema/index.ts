@@ -8,6 +8,7 @@ import {
   pgTable,
   text,
   timestamp,
+  unique,
   uniqueIndex,
   uuid,
 } from "drizzle-orm/pg-core";
@@ -49,7 +50,7 @@ export const organizationMemberships = pgTable(
     role: membershipRole("role").notNull(),
   },
   (t) => [
-    uniqueIndex("membership_org_user_idx").on(t.organizationId, t.userId),
+    unique("membership_org_user_idx").on(t.organizationId, t.userId),
     index("membership_user_idx").on(t.userId),
   ],
 );
@@ -70,7 +71,7 @@ export const incidents = pgTable(
   },
   (t) => [
     index("incidents_org_status_idx").on(t.organizationId, t.status),
-    uniqueIndex("incidents_id_org_idx").on(t.id, t.organizationId),
+    unique("incidents_id_org_idx").on(t.id, t.organizationId),
   ],
 );
 export const incidentAssignments = pgTable(
@@ -86,7 +87,7 @@ export const incidentAssignments = pgTable(
     assignedRole: text("assigned_role").notNull(),
   },
   (t) => [
-    uniqueIndex("assignment_incident_user_idx").on(t.incidentId, t.userId),
+    unique("assignment_incident_user_idx").on(t.incidentId, t.userId),
     index("assignment_user_idx").on(t.userId),
   ],
 );

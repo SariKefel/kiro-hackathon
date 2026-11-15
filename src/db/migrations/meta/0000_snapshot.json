@@ -1,5 +1,5 @@
 {
-  "id": "088dbed3-ebc0-46c3-bc94-0c16a4dab19f",
+  "id": "c9c25cb7-8006-48ea-86e4-2751ab6e07b6",
   "prevId": "00000000-0000-0000-0000-000000000000",
   "version": "7",
   "dialect": "postgresql",
@@ -35,27 +35,6 @@
         }
       },
       "indexes": {
-        "assignment_incident_user_idx": {
-          "name": "assignment_incident_user_idx",
-          "columns": [
-            {
-              "expression": "incident_id",
-              "isExpression": false,
-              "asc": true,
-              "nulls": "last"
-            },
-            {
-              "expression": "user_id",
-              "isExpression": false,
-              "asc": true,
-              "nulls": "last"
-            }
-          ],
-          "isUnique": true,
-          "concurrently": false,
-          "method": "btree",
-          "with": {}
-        },
         "assignment_user_idx": {
           "name": "assignment_user_idx",
           "columns": [
@@ -101,7 +80,16 @@
         }
       },
       "compositePrimaryKeys": {},
-      "uniqueConstraints": {},
+      "uniqueConstraints": {
+        "assignment_incident_user_idx": {
+          "name": "assignment_incident_user_idx",
+          "nullsNotDistinct": false,
+          "columns": [
+            "incident_id",
+            "user_id"
+          ]
+        }
+      },
       "policies": {},
       "checkConstraints": {},
       "isRLSEnabled": false
@@ -191,27 +179,6 @@
           "concurrently": false,
           "method": "btree",
           "with": {}
-        },
-        "incidents_id_org_idx": {
-          "name": "incidents_id_org_idx",
-          "columns": [
-            {
-              "expression": "id",
-              "isExpression": false,
-              "asc": true,
-              "nulls": "last"
-            },
-            {
-              "expression": "organization_id",
-              "isExpression": false,
-              "asc": true,
-              "nulls": "last"
-            }
-          ],
-          "isUnique": true,
-          "concurrently": false,
-          "method": "btree",
-          "with": {}
         }
       },
       "foreignKeys": {
@@ -230,7 +197,16 @@
         }
       },
       "compositePrimaryKeys": {},
-      "uniqueConstraints": {},
+      "uniqueConstraints": {
+        "incidents_id_org_idx": {
+          "name": "incidents_id_org_idx",
+          "nullsNotDistinct": false,
+          "columns": [
+            "id",
+            "organization_id"
+          ]
+        }
+      },
       "policies": {},
       "checkConstraints": {},
       "isRLSEnabled": false
@@ -267,27 +243,6 @@
         }
       },
       "indexes": {
-        "membership_org_user_idx": {
-          "name": "membership_org_user_idx",
-          "columns": [
-            {
-              "expression": "organization_id",
-              "isExpression": false,
-              "asc": true,
-              "nulls": "last"
-            },
-            {
-              "expression": "user_id",
-              "isExpression": false,
-              "asc": true,
-              "nulls": "last"
-            }
-          ],
-          "isUnique": true,
-          "concurrently": false,
-          "method": "btree",
-          "with": {}
-        },
         "membership_user_idx": {
           "name": "membership_user_idx",
           "columns": [
@@ -333,7 +288,16 @@
         }
       },
       "compositePrimaryKeys": {},
-      "uniqueConstraints": {},
+      "uniqueConstraints": {
+        "membership_org_user_idx": {
+          "name": "membership_org_user_idx",
+          "nullsNotDistinct": false,
+          "columns": [
+            "organization_id",
+            "user_id"
+          ]
+        }
+      },
       "policies": {},
       "checkConstraints": {},
       "isRLSEnabled": false

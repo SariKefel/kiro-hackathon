@@ -8,7 +8,8 @@ CREATE TABLE "incident_assignments" (
 	"id" uuid PRIMARY KEY DEFAULT gen_random_uuid() NOT NULL,
 	"incident_id" uuid NOT NULL,
 	"user_id" text NOT NULL,
-	"assigned_role" text NOT NULL
+	"assigned_role" text NOT NULL,
+	CONSTRAINT "assignment_incident_user_idx" UNIQUE("incident_id","user_id")
 );
 --> statement-breakpoint
 CREATE TABLE "incidents" (
@@ -20,14 +21,16 @@ CREATE TABLE "incidents" (
 	"status" "incident_status" DEFAULT 'active' NOT NULL,
 	"location" text NOT NULL,
 	"activated_at" timestamp with time zone NOT NULL,
-	"created_at" timestamp with time zone DEFAULT now() NOT NULL
+	"created_at" timestamp with time zone DEFAULT now() NOT NULL,
+	CONSTRAINT "incidents_id_org_idx" UNIQUE("id","organization_id")
 );
 --> statement-breakpoint
 CREATE TABLE "organization_memberships" (
 	"id" uuid PRIMARY KEY DEFAULT gen_random_uuid() NOT NULL,
 	"organization_id" uuid NOT NULL,
 	"user_id" text NOT NULL,
-	"role" "membership_role" NOT NULL
+	"role" "membership_role" NOT NULL,
+	CONSTRAINT "membership_org_user_idx" UNIQUE("organization_id","user_id")
 );
 --> statement-breakpoint
 CREATE TABLE "organizations" (
@@ -83,11 +86,8 @@ ALTER TABLE "personnel_check_ins" ADD CONSTRAINT "check_in_membership_fk" FOREIG
 ALTER TABLE "tasks" ADD CONSTRAINT "tasks_incident_id_incidents_id_fk" FOREIGN KEY ("incident_id") REFERENCES "public"."incidents"("id") ON DELETE no action ON UPDATE no action;--> statement-breakpoint
 ALTER TABLE "tasks" ADD CONSTRAINT "tasks_assigned_to_users_id_fk" FOREIGN KEY ("assigned_to") REFERENCES "public"."users"("id") ON DELETE no action ON UPDATE no action;--> statement-breakpoint
 ALTER TABLE "tasks" ADD CONSTRAINT "task_assignment_fk" FOREIGN KEY ("incident_id","assigned_to") REFERENCES "public"."incident_assignments"("incident_id","user_id") ON DELETE no action ON UPDATE no action;--> statement-breakpoint
-CREATE UNIQUE INDEX "assignment_incident_user_idx" ON "incident_assignments" USING btree ("incident_id","user_id");--> statement-breakpoint
 CREATE INDEX "assignment_user_idx" ON "incident_assignments" USING btree ("user_id");--> statement-breakpoint
 CREATE INDEX "incidents_org_status_idx" ON "incidents" USING btree ("organization_id","status");--> statement-breakpoint
-CREATE UNIQUE INDEX "incidents_id_org_idx" ON "incidents" USING btree ("id","organization_id");--> statement-breakpoint
-CREATE UNIQUE INDEX "membership_org_user_idx" ON "organization_memberships" USING btree ("organization_id","user_id");--> statement-breakpoint
 CREATE INDEX "membership_user_idx" ON "organization_memberships" USING btree ("user_id");--> statement-breakpoint
 CREATE INDEX "check_ins_incident_user_time_idx" ON "personnel_check_ins" USING btree ("incident_id","user_id","client_recorded_at");--> statement-breakpoint
 CREATE INDEX "check_ins_org_received_idx" ON "personnel_check_ins" USING btree ("organization_id","server_received_at");--> statement-breakpoint

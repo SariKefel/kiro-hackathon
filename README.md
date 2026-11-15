@@ -213,7 +213,12 @@ PWA install prompts vary by browser.
 
 Copy `.env.example` to `.env.local` if you need database tooling.
 Do not expose the connection string through a `NEXT_PUBLIC_` variable or commit credentials.
-No external database has been provisioned or migrated by this scaffold.
+
+See the [operations runbook](docs/operations.md) for cloud targets, environment mapping, and the development-to-production migration and deployment procedure.
+
+Run `bun run db:check` to verify the configured application connection, all table columns, the direct migration connection when configured, migration hashes, and validated constraints without reading personnel records or printing credentials.
+It uses the same `getDb()` function as the application and does not change database state.
+Existing process environment variables take precedence over `.env.local`, so deployment tooling can run the check against the intended branch without replacing local development credentials.
 
 The seven foundational tables cover organizations, users, organization memberships, incidents, incident assignments, personnel check-ins, and tasks.
 Foreign keys, unique membership and assignment indexes, incident-organization consistency constraints, coordinate bounds, and message-length constraints protect the schema.
@@ -226,10 +231,16 @@ bun run db:generate
 
 # Apply reviewed migrations to your configured Neon development branch
 bun run db:migrate
+
+# Verify application connectivity and the applied migration history
+bun run db:check
 ```
 
 Connecting Neon does not seed sample records or switch the UI out of Demo Mode.
 Seed and remote repository wiring should be introduced together with real authorization in Phase 2.
+The original, unapplied initial migration was regenerated through Drizzle after replacing three referenced composite unique indexes with table-level unique constraints.
+The corrected migration was tested on an isolated Neon branch before application to development and production.
+Generated migration files and snapshots must continue to be managed through Drizzle tooling.
 
 ## Development checks
 
@@ -254,11 +265,49 @@ HTTP checks verified malformed JSON and unsupported-version rejection, the 64 Ki
 
 ## Vercel
 
-Import this single repository as a Next.js project, use Bun to install from `bun.lock`, and use `bun run build` as the build command.
-No additional backend or workspace is required.
+The Phase 1 demo is deployed at [rescuesync.vercel.app](https://rescuesync.vercel.app).
+The Vercel project is linked to this GitHub repository.
+
+Deploy this repository as a single Next.js project with the repository root (`./`) as the Root Directory.
+The checked-in `vercel.json` selects Next.js, installs locked dependencies with `bun install --frozen-lockfile`, and builds with `bun run build`.
+Keep the Output Directory at the Next.js default.
+No additional backend, workspace, custom server, or static export is required.
 The Phase 1 demonstration needs no environment variables on Vercel.
+Local environment files and local agent metadata are excluded from CLI uploads by `.vercelignore`.
+
+### Deploy from GitHub
+
+1. Commit and push the application and deployment configuration to [SariKefel/kiro-hackathon](https://github.com/SariKefel/kiro-hackathon).
+2. Open [Vercel's new project page](https://vercel.com/new), import that repository, and select the intended personal account or team.
+3. Confirm the Next.js preset and repository root, keep the checked-in install and build commands, and leave environment variables empty for the demo.
+4. Select Deploy, then open the Production URL when the deployment reports Ready.
+
+The Git integration deploys subsequent pushes to the production branch and creates preview deployments for other branches and pull requests.
+
+### Deploy from the CLI
+
+With the Vercel CLI installed, run these commands from the repository root:
+
+```sh
+vercel login
+vercel link
+vercel deploy --prod
+```
+
+During linking, select the intended account or team and create a new Next.js project or select an existing project for this application.
+The CLI uploads local source and builds it on Vercel; a local `.next` directory is not required.
+When the CLI offers to connect the detected GitHub repository, accept it to enable automatic Git deployments.
+Confirm the repository connection in the project's Git settings after linking.
+
+### Verify the deployment
+
+Open `/login`, `/dashboard`, `/personnel`, `/responder`, and `/responder/check-in` over the deployed HTTPS origin.
+Check that `/manifest.webmanifest` and `/sw.js` load and that the service worker activates after visiting the responder flow.
+Save a demo check-in and confirm that it remains Saved locally or Waiting to sync.
+Demo Mode deliberately does not confirm server delivery, and deploying does not enable authentication or remote database persistence.
+
 Add a private pooled `DATABASE_URL` only when preparing the database integration, and run reviewed migrations with the direct connection against the intended branch separately from the application build.
-The repository is prepared for deployment but has not been published.
+Use separate database credentials for Production and Preview when that integration is implemented.
 
 ## Phase 2
 

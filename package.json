@@ -12,6 +12,7 @@
     "test": "bun test",
     "db:generate": "drizzle-kit generate",
     "db:migrate": "drizzle-kit migrate",
+    "db:check": "bun --conditions=react-server scripts/check-database.ts",
     "format": "prettier --write .",
     "format:check": "prettier --check ."
   },
