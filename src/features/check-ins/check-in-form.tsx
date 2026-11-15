@@ -17,6 +17,8 @@ import { checkInPayloadSchema } from "@/lib/validations/check-in";
 import { enqueueCheckIn } from "@/features/check-ins/queue";
 import { useOffline } from "@/features/sync/offline-provider";
 import { ReportState } from "@/features/check-ins/report-state";
+import { VoiceInput } from "@/features/voice/voice-input";
+import { appendTranscript } from "@/features/voice/speech";
 import { demoResponder, incident, organization } from "@/features/incidents/demo-data";
 import { cn } from "@/lib/utils";
 import type { SafetyStatus } from "@/types/domain";
@@ -51,6 +53,7 @@ const options = [
 export function CheckInForm() {
   const [status, setStatus] = useState<SafetyStatus | "">("");
   const [message, setMessage] = useState("");
+  const [voiceNotice, setVoiceNotice] = useState<string | null>(null);
   const [latitude, setLatitude] = useState("");
   const [longitude, setLongitude] = useState("");
   const [locating, setLocating] = useState(false);
@@ -62,6 +65,15 @@ export function CheckInForm() {
   const { operations, ready, online, sync, storageError } = useOffline();
   const operation = operations.find((op) => op.id === savedId);
 
+  function addTranscript(text: string) {
+    const result = appendTranscript(message, text);
+    setMessage(result.text);
+    setVoiceNotice(
+      result.truncated
+        ? "The dictated text was shortened to fit the 500 character limit. Review it before saving."
+        : null,
+    );
+  }
   function locate() {
     setLocationError(null);
     if (!navigator.geolocation) {
@@ -155,6 +167,7 @@ export function CheckInForm() {
             setSavedId(null);
             setStatus("");
             setMessage("");
+            setVoiceNotice(null);
             setLatitude("");
             setLongitude("");
           }}
@@ -213,12 +226,21 @@ export function CheckInForm() {
             id="message"
             maxLength={500}
             value={message}
-            onChange={(e) => setMessage(e.target.value)}
+            onChange={(e) => {
+              setMessage(e.target.value);
+              setVoiceNotice(null);
+            }}
             placeholder="What should your team know?"
             rows={3}
             className="field mt-2 resize-y"
           />
           <p className="mt-1 text-right text-[10px] text-muted-foreground">{message.length}/500</p>
+          {voiceNotice && (
+            <p role="status" className="mt-1 text-xs leading-5 text-amber-800 dark:text-amber-300">
+              {voiceNotice}
+            </p>
+          )}
+          <VoiceInput onTranscript={addTranscript} online={online} disabled={saving} />
         </div>
         <div className="border-t pt-4">
           <div className="flex items-center justify-between gap-2">
