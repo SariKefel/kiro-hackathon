@@ -4,7 +4,11 @@ import { personnel } from "@/features/incidents/demo-data";
 
 export function PriorityAlerts() {
   return (
-    <section id="priority-alerts" className="panel scroll-mt-6 p-5 sm:p-6">
+    <section
+      id="priority-alerts"
+      data-tour="priority-alerts"
+      className="panel scroll-mt-6 p-5 sm:p-6"
+    >
       <div className="mb-5 flex items-center justify-between">
         <h2 className="section-heading">Needs your attention</h2>
         <span className="rounded-md bg-red-50 px-2 py-1 text-[10px] font-semibold text-red-800 dark:bg-red-950 dark:text-red-300">

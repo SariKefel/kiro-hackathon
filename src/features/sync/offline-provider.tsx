@@ -8,6 +8,7 @@ import {
   useState,
   useSyncExternalStore,
 } from "react";
+import { retireDevelopmentWorker } from "./service-worker";
 import { liveQuery } from "dexie";
 import { offlineDb, type QueuedOperation } from "@/lib/offline/database";
 import { retryPending, synchronizeQueue } from "@/features/check-ins/queue";
@@ -77,10 +78,23 @@ export function OfflineProvider({ children }: { children: React.ReactNode }) {
     });
     if (process.env.NODE_ENV === "production" && "serviceWorker" in navigator) {
       navigator.serviceWorker
-        .register("/sw.js")
+        .register("/sw.js", { updateViaCache: "none" })
         .catch(() =>
           setShellError(
             "Offline page preparation failed. Keep this page open to check in offline.",
+          ),
+        );
+    }
+    if (process.env.NODE_ENV === "development" && "serviceWorker" in navigator) {
+      void retireDevelopmentWorker()
+        .then((wasControlled) => {
+          // Unregistering does not release the current document's controller.
+          // Reload once so its client modules come directly from the dev server.
+          if (wasControlled) window.location.reload();
+        })
+        .catch(() =>
+          setShellError(
+            "Could not reset the development offline cache. Close other RescueSync tabs and reload.",
           ),
         );
     }

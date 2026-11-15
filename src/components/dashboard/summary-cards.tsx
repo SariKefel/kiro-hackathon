@@ -35,7 +35,10 @@ export function SummaryCards() {
     },
   ];
   return (
-    <div className="grid grid-cols-2 gap-3 lg:grid-cols-4 lg:gap-4">
+    <div
+      data-tour="accountability-summary"
+      className="grid grid-cols-2 gap-3 lg:grid-cols-4 lg:gap-4"
+    >
       {cards.map(({ label, value, icon: Icon, detail, color }) => (
         <Card key={label} className="gap-0 px-4 py-5 shadow-none sm:px-5">
           <div className="flex items-center justify-between gap-2">

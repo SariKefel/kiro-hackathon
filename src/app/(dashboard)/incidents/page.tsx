@@ -18,7 +18,7 @@ export default function IncidentsPage() {
         <span className="size-2 rounded-full bg-emerald-600" />
         Active incidents<span className="rounded bg-secondary px-2 py-0.5 text-xs">1</span>
       </div>
-      <article className="panel grid overflow-hidden lg:grid-cols-2">
+      <article className="panel overflow-hidden">
         <div className="p-6 sm:p-8">
           <Waves className="mb-5 size-7 text-primary dark:text-teal-300" />
           <p className="mb-2 text-xs text-muted-foreground">Flood · Active response</p>
@@ -36,12 +36,12 @@ export default function IncidentsPage() {
             <ArrowRight className="size-4" />
           </Link>
         </div>
-        <div className="p-4">
+        <div className="border-t p-4">
           <IncidentMap large />
         </div>
       </article>
       <p className="text-xs text-muted-foreground">
-        Incident creation and command workflows will be available in a later phase.
+        Select a response location to review or adjust its demo responder assignments.
       </p>
     </div>
   );

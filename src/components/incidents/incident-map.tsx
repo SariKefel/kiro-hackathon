@@ -1,102 +1,234 @@
+"use client";
+
+import { useState } from "react";
+import { Check, MapPin, Search, Users, X } from "lucide-react";
+import { GeographicMap } from "@/components/maps/geographic-map";
+import { personnel } from "@/features/incidents/demo-data";
+import { responseLocations } from "@/features/incidents/response-locations";
+import {
+  updateLocationAssignment,
+  useLocationAssignments,
+} from "@/features/incidents/assignment-store";
+import { StatusBadge } from "@/components/shared/status-badge";
+import { initials } from "@/lib/utils";
+import type { CameraRequest } from "@/features/hazards/types";
+
+const BOUNDS: [[number, number], [number, number]] = [
+  [101.472, 3.056],
+  [101.509, 3.085],
+];
+const ignoreViewport = () => {};
+
 export function IncidentMap({ large = false }: { large?: boolean }) {
+  const assignments = useLocationAssignments();
+  const [selected, setSelected] = useState(responseLocations[0].id);
+  const [camera, setCamera] = useState<CameraRequest | null>(null);
+  const [search, setSearch] = useState("");
+  const [editing, setEditing] = useState(false);
+  const [message, setMessage] = useState("");
+  const location = responseLocations.find((place) => place.id === selected)!;
+  const assigned = personnel.filter((person) => assignments[person.id] === selected);
+  const candidates = personnel.filter(
+    (person) =>
+      assignments[person.id] !== selected &&
+      `${person.name} ${person.team} ${person.role}`.toLowerCase().includes(search.toLowerCase()),
+  );
+  function select(id: string) {
+    const place = responseLocations.find((place) => place.id === id);
+    if (!place) return;
+    setSelected(id);
+    setCamera((previous) => ({
+      sequence: (previous?.sequence ?? 0) + 1,
+      coordinates: place.coordinates,
+    }));
+    setEditing(false);
+    setSearch("");
+    setMessage("");
+  }
+  function assign(id: string, target: string | null) {
+    const persisted = updateLocationAssignment(id, target);
+    const person = personnel.find((person) => person.id === id)!;
+    setMessage(
+      `${person.name} ${target ? "assigned to " + location.shortName : "removed from " + location.shortName}. ${persisted ? "Saved in this browser." : "Kept for this session only; browser storage is unavailable."}`,
+    );
+  }
   return (
-    <figure
-      className="relative h-full min-h-56 overflow-hidden rounded-lg border border-[#d7e4e5] bg-[#edf3f0] text-[#425b61] dark:brightness-90"
-      aria-label="Illustrative flood response area around Seksyen 7, Shah Alam. Not a navigation or flood forecast map."
+    <section
+      className="response-map overflow-hidden rounded-xl border bg-card"
+      aria-label="Demo response locations and assignments"
     >
-      <svg
-        viewBox="0 0 620 350"
-        className={`h-full w-full ${large ? "min-h-72" : "min-h-56"}`}
-        role="img"
-        aria-label="Demo response area schematic"
-      >
-        <defs>
-          <pattern id="map-grid" width="50" height="50" patternUnits="userSpaceOnUse">
-            <path d="M50 0H0V50" fill="none" stroke="#dfe8df" strokeWidth="1" />
-          </pattern>
-        </defs>
-        <rect width="620" height="350" fill="url(#map-grid)" />
-        <g fill="none" stroke="#d8e3d5" strokeWidth="1.4">
-          <path d="M-20 40Q120 100 230 35T650 40M-30 65Q120 125 230 60T650 65M-30 90Q120 150 230 85T650 90M-30 280Q100 190 210 240T650 230M-30 305Q100 215 210 265T650 255M-30 330Q100 240 210 290T650 280" />
-        </g>
-        <path
-          d="M-30 170C80 240 150 115 235 175S340 285 430 200 555 170 650 235"
-          fill="none"
-          stroke="#c5e2e7"
-          strokeWidth="75"
-          opacity=".55"
-        />
-        <path
-          d="M-30 170C80 240 150 115 235 175S340 285 430 200 555 170 650 235"
-          fill="none"
-          stroke="#b0d5df"
-          strokeWidth="20"
-        />
-        <g fill="none" stroke="#fff" strokeWidth="7">
-          <path d="M-20 100 205 130 360 70 650 105M90-20 160 160 100 370M350-20 310 165 410 370M-20 285 210 210 390 275 650 300" />
-        </g>
-        <g fill="none" stroke="#d1d9cf" strokeWidth="1.2">
-          <path d="M-20 100 205 130 360 70 650 105M90-20 160 160 100 370M350-20 310 165 410 370M-20 285 210 210 390 275 650 300" />
-        </g>
-        <path
-          d="m210 88 170 37 90 114-130 63-158-95Z"
-          fill="#89c9ba"
-          fillOpacity=".13"
-          stroke="#438c7c"
-          strokeDasharray="5 5"
-          strokeWidth="1.5"
-        />
-        <g fontFamily="Arial, sans-serif" fontSize="11" fill="#5c716b">
-          <text x="59" y="61">
-            Seksyen 8
-          </text>
-          <text x="221" y="67">
-            Seksyen 7
-          </text>
-          <text x="442" y="93">
-            Shah Alam
-          </text>
-          <text x="460" y="269">
-            Seksyen 2
-          </text>
-          <text x="56" y="303">
-            i-City
-          </text>
-          <text x="286" y="247" fill="#365b65" transform="rotate(22 286 247)">
-            Klang River
-          </text>
-        </g>
-        <g transform="translate(240 140)">
-          <circle r="21" fill="#087f72" fillOpacity=".12" />
-          <circle r="8" fill="#087f72" stroke="white" strokeWidth="3" />
-          <rect x="-41" y="-38" width="82" height="23" rx="5" fill="white" />
-          <text y="-23" textAnchor="middle" fontFamily="Arial" fontSize="10" fill="#1c4a40">
-            Alpha team
-          </text>
-        </g>
-        <g transform="translate(391 181)">
-          <circle r="21" fill="#cb4b4b" fillOpacity=".12" />
-          <circle r="8" fill="#cb4b4b" stroke="white" strokeWidth="3" />
-          <rect x="-42" y="-38" width="84" height="23" rx="5" fill="white" />
-          <text y="-23" textAnchor="middle" fontFamily="Arial" fontSize="10" fill="#913232">
-            Boat support
-          </text>
-        </g>
-        <g transform="translate(176 251)">
-          <rect x="-9" y="-9" width="18" height="18" rx="4" fill="#f7fbfa" stroke="#087f72" />
-          <path d="M-4 0H4M0-4V4" stroke="#087f72" strokeWidth="2" />
-          <text x="15" y="4" fontFamily="Arial" fontSize="10" fill="#3c6458">
-            Relief centre
-          </text>
-        </g>
-        <g transform="translate(585 35)" fontFamily="Arial" fontSize="9" textAnchor="middle">
-          <text y="-8">N</text>
-          <path d="M0 0-4 12 0 9 4 12Z" fill="#5c716b" />
-        </g>
-      </svg>
-      <figcaption className="absolute bottom-2 right-2 rounded bg-white/90 px-2 py-1 text-[9px] text-[#425b61]">
-        Demo schematic · Not for navigation
-      </figcaption>
-    </figure>
+      <div className="flex flex-wrap items-center justify-between gap-2 border-b px-4 py-3">
+        <span className="flex items-center gap-2 text-sm font-semibold">
+          <MapPin className="size-4 text-primary" />
+          Response locations
+        </span>
+        <span className="rounded-md bg-secondary px-2 py-1 text-[10px] text-muted-foreground">
+          Demo assignments
+        </span>
+      </div>
+      <div className="response-map-layout">
+        <div
+          data-tour="response-map"
+          className={`response-map-canvas relative ${large ? "h-[380px]" : "h-[300px]"}`}
+        >
+          <GeographicMap
+            events={responseLocations.map((place) => ({
+              id: place.id,
+              coordinates: place.coordinates,
+              type: "response",
+              title: place.shortName,
+              label: String(Object.values(assignments).filter((id) => id === place.id).length),
+            }))}
+            selectedId={selected}
+            cameraRequest={camera}
+            onSelect={select}
+            onViewportChange={ignoreViewport}
+            initialBounds={BOUNDS}
+            ariaLabel="Shah Alam demo response locations. Select a location below to manage responders."
+          />
+          <div className="pointer-events-none absolute bottom-7 left-3 rounded-md border bg-card/95 px-2 py-1 text-[10px] text-muted-foreground">
+            Marker numbers show assigned responders
+          </div>
+        </div>
+        <div className="response-map-details">
+          <div
+            className="grid grid-cols-3 border-y bg-secondary/40"
+            role="group"
+            data-tour="response-locations"
+            aria-label="Select response location"
+          >
+            {responseLocations.map((place) => {
+              const count = Object.values(assignments).filter((id) => id === place.id).length;
+              return (
+                <button
+                  key={place.id}
+                  type="button"
+                  aria-pressed={selected === place.id}
+                  onClick={() => select(place.id)}
+                  className={`min-h-16 border-b-2 px-2 py-3 text-left text-xs transition-colors sm:px-4 ${selected === place.id ? "border-primary bg-card text-primary dark:text-teal-300" : "border-transparent text-muted-foreground hover:bg-secondary"}`}
+                >
+                  <span className="block font-semibold">{place.shortName}</span>
+                  <span className="mt-1 block text-[10px]">{count} assigned</span>
+                </button>
+              );
+            })}
+          </div>
+          <div className="p-4">
+            <p className="text-[10px] text-muted-foreground">{location.kind}</p>
+            <h3 className="mt-1 text-sm font-semibold">{location.name}</h3>
+            <p className="mt-1 text-xs leading-5 text-muted-foreground">{location.description}</p>
+            <div className="mb-3 mt-4 flex flex-wrap items-center justify-between gap-2">
+              <h4 className="flex items-center gap-2 text-xs font-semibold">
+                <Users className="size-3.5" />
+                Assigned responders ({assigned.length})
+              </h4>
+              <button
+                type="button"
+                data-tour="assign-responders"
+                aria-expanded={editing}
+                onClick={() => setEditing(!editing)}
+                className="min-h-10 rounded-lg border px-3 text-xs font-medium hover:bg-secondary"
+              >
+                {editing ? "Done" : "Assign responders"}
+              </button>
+            </div>
+            {assigned.length === 0 && (
+              <p className="rounded-lg border border-dashed p-4 text-xs text-muted-foreground">
+                No responders assigned. Choose Assign responders to staff this location.
+              </p>
+            )}
+            <ul data-tour="response-roster" className="min-h-12 divide-y">
+              {assigned.map((person) => (
+                <li key={person.id} className="flex items-center gap-2 py-2.5">
+                  <span className="flex size-8 shrink-0 items-center justify-center rounded-full bg-primary/10 text-[10px] font-semibold text-primary dark:text-teal-300">
+                    {initials(person.name)}
+                  </span>
+                  <span className="min-w-0 flex-1">
+                    <span className="block text-xs font-medium">{person.name}</span>
+                    <span className="block text-[10px] text-muted-foreground">
+                      {person.team} · {person.role}
+                    </span>
+                  </span>
+                  <button
+                    type="button"
+                    aria-label={`Remove ${person.name} from ${location.shortName}`}
+                    onClick={() => assign(person.id, null)}
+                    className="flex size-10 shrink-0 items-center justify-center rounded-lg text-muted-foreground hover:bg-secondary"
+                  >
+                    <X className="size-3.5" />
+                  </button>
+                </li>
+              ))}
+            </ul>
+            {editing && (
+              <div className="mt-3 rounded-lg border bg-secondary/30 p-3">
+                <label className="relative block">
+                  <Search className="absolute left-3 top-3 size-4 text-muted-foreground" />
+                  <input
+                    type="search"
+                    value={search}
+                    onChange={(event) => setSearch(event.target.value)}
+                    className="field pl-9"
+                    placeholder="Search responders or teams"
+                    aria-label="Search responders to assign"
+                  />
+                </label>
+                <p className="my-3 text-[10px] leading-5 text-muted-foreground">
+                  Assigning someone moves their current location assignment. Only responders with a
+                  Safe report can be assigned in this demo.
+                </p>
+                <ul className="max-h-64 overflow-y-auto divide-y">
+                  {candidates.map((person) => {
+                    const current = responseLocations.find(
+                      (place) => place.id === assignments[person.id],
+                    );
+                    return (
+                      <li key={person.id} className="flex items-center justify-between gap-2 py-3">
+                        <span className="min-w-0">
+                          <span className="block text-xs font-medium">{person.name}</span>
+                          <span className="block text-[10px] text-muted-foreground">
+                            {person.team} · {current?.shortName ?? "Unassigned"}
+                          </span>
+                          <StatusBadge status={person.status} />
+                        </span>
+                        <button
+                          type="button"
+                          disabled={person.status !== "safe"}
+                          onClick={() => assign(person.id, selected)}
+                          className="min-h-10 shrink-0 rounded-lg bg-primary px-3 text-xs font-medium text-white disabled:cursor-not-allowed disabled:opacity-40"
+                          aria-label={`${current ? "Move" : "Assign"} ${person.name} to ${location.shortName}`}
+                        >
+                          {current ? "Move here" : "Assign"}
+                        </button>
+                      </li>
+                    );
+                  })}
+                </ul>
+                {candidates.length === 0 && (
+                  <p className="py-4 text-xs text-muted-foreground">
+                    No matching responders. Try another name or team.
+                  </p>
+                )}
+              </div>
+            )}
+            <p
+              role="status"
+              className="mt-3 flex items-start gap-1 text-xs text-primary dark:text-teal-300"
+            >
+              {message && (
+                <>
+                  <Check className="mt-0.5 size-3 shrink-0" />
+                  {message}
+                </>
+              )}
+            </p>
+            <p className="mt-2 text-[10px] leading-5 text-muted-foreground">
+              Illustrative response positions, not verified field locations. Assignments are local
+              to this browser and are not sent to responders.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
   );
 }

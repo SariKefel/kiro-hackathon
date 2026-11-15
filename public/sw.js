@@ -1,8 +1,8 @@
-const CACHE = "rescuesync-shell-v1";
+const CACHE = "rescuesync-shell-v2";
 const SHELL = ["/offline.html", "/offline.css", "/offline.js", "/icon-192.png", "/icon-512.png", "/icon-maskable.png"];
 
 self.addEventListener("install", (event) => {
-  event.waitUntil(caches.open(CACHE).then((cache) => cache.addAll(SHELL)));
+  event.waitUntil(caches.open(CACHE).then((cache) => cache.addAll(SHELL)).then(() => self.skipWaiting()));
 });
 self.addEventListener("activate", (event) => {
   event.waitUntil((async () => {
@@ -22,14 +22,22 @@ self.addEventListener("fetch", (event) => {
   }
   if (SHELL.includes(url.pathname) || (url.pathname.startsWith("/_next/static/") && /\.(js|css|woff2?)$/.test(url.pathname))) {
     event.respondWith((async () => {
-      const cached = await caches.match(request);
-      if (cached) return cached;
-      const response = await fetch(request);
-      if (response.ok && response.type === "basic") {
-        const cache = await caches.open(CACHE);
-        await cache.put(request, response.clone());
+      // Development chunk URLs and shell files can change without changing their URL.
+      // Never combine current server HTML with stale client code while online.
+      try {
+        const response = await fetch(request);
+        if (response.ok && response.type === "basic" && request.cache !== "no-store" && !/\bno-store\b/i.test(response.headers.get("Cache-Control") || "")) {
+          try {
+            const cache = await caches.open(CACHE);
+            await cache.put(request, response.clone());
+          } catch {
+            // Cache quota or storage failures must not discard a fresh network response.
+          }
+        }
+        return response;
+      } catch {
+        return (await caches.match(request)) || Response.error();
       }
-      return response;
     })());
   }
 });

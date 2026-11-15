@@ -16,7 +16,7 @@ export default function TasksPage() {
       <ConnectionStatus />
       <p className="text-xs text-muted-foreground">2 sample assignments · Alpha team</p>
       {tasks.map((task) => (
-        <article key={task.id} className="panel p-5">
+        <article data-tour="responder-tasks" key={task.id} className="panel p-5">
           <div className="mb-4 flex items-center gap-2">
             <ClipboardList className="size-4 text-muted-foreground" />
             <span className="text-xs font-medium">

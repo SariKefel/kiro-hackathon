@@ -126,7 +126,7 @@ export function CheckInForm() {
   }
   if (savedId)
     return (
-      <section className="panel p-6">
+      <section data-tour="check-in-result" className="panel p-6">
         <span className="mb-5 flex size-12 items-center justify-center rounded-full bg-secondary text-primary dark:text-teal-300">
           <ShieldCheck className="size-6" />
         </span>
@@ -165,7 +165,7 @@ export function CheckInForm() {
     );
   return (
     <form onSubmit={submit} className="space-y-6">
-      <fieldset>
+      <fieldset data-tour="check-in-status">
         <legend className="mb-3 text-sm font-semibold">
           How are you right now? <span className="font-normal text-muted-foreground">Required</span>
         </legend>
@@ -204,7 +204,7 @@ export function CheckInForm() {
           ))}
         </div>
       </fieldset>
-      <section className="panel space-y-4 p-5">
+      <section data-tour="check-in-details" className="panel space-y-4 p-5">
         <div>
           <label htmlFor="message" className="text-sm font-semibold">
             Message <span className="text-xs font-normal text-muted-foreground">Optional</span>
@@ -311,6 +311,7 @@ export function CheckInForm() {
       )}
       <div>
         <Button
+          data-tour="check-in-save"
           type="submit"
           disabled={saving || !ready || Boolean(storageError)}
           className="h-14 w-full text-base"

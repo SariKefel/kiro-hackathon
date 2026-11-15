@@ -32,7 +32,7 @@ export default function ResponderHome() {
         <ConnectionStatus detailed />
       </div>
       <ActiveDispatch />
-      <section className="panel overflow-hidden">
+      <section data-tour="responder-safety" className="panel overflow-hidden">
         <div className="border-b px-5 py-4">
           <p className="text-[10px] font-medium text-muted-foreground">Your active incident</p>
           <h2 className="mt-1.5 text-base font-semibold tracking-tight">{incident.title}</h2>
@@ -62,7 +62,7 @@ export default function ResponderHome() {
           </Button>
         </div>
       </section>
-      <section className="panel p-5">
+      <section data-tour="responder-assignment" className="panel p-5">
         <div className="mb-4 flex items-center justify-between">
           <h2 className="flex items-center gap-2 section-heading">
             <ClipboardList className="size-4 text-muted-foreground" />

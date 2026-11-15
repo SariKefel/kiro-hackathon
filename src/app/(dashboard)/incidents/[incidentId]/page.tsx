@@ -68,7 +68,7 @@ export default async function IncidentPage({
             <IncidentMap large />
             <p className="mt-4 text-xs leading-6 text-muted-foreground">
               Operational focus: Seksyen 7 welfare checks, boat access support, and the SK Seksyen 7
-              relief centre. All map positions are illustrative.
+              relief centre. Select a location to manage its demo responder assignments.
             </p>
           </section>
           <DispatchPanel />

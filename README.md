@@ -132,7 +132,7 @@ src/
     ui/                         shadcn/ui primitives
     layout/                     Navigation and application headers
     dashboard/                  Accountability, alerts, metrics, activity
-    incidents/                  Illustrative response-area map
+    incidents/                  Shared geographic response map and assignment panel
     shared/                     Branding, badges, theme, connection state
   features/
     incidents/demo-data.ts      Consistent, typed sample records
@@ -159,9 +159,22 @@ Database access and the sync application service are marked `server-only`.
 The sync service is the future shared entry point for an authenticated Server Action and the HTTP route; there is no Server Action before a real authenticated mutation exists.
 
 The design uses Public Sans, a restrained slate palette, a navy command sidebar, and semantic safety colors.
-Managed Incident pages retain their original illustrative SVG schematic.
+Managed Incident pages and Disaster Explorer share a Mapbox geographic canvas with street and satellite basemaps.
+Managed Incident locations are illustrative and support demo responder assignments stored under `rescuesync-demo-v1:location-assignments` in browser local storage.
+Each responder has at most one response location; moving an assignment updates the shared map views and personnel details.
+Only responders with a Safe sample status can receive a new location assignment.
+These assignments are browser-local demonstration data, are not sent to responders, and do not change tasks or confirmed check-ins.
 Disaster Explorer uses Mapbox GL JS and a separate public hazard-query boundary; it never joins public hazards to personnel, check-ins, or assignments.
 UI primitives were generated with the official shadcn CLI and use the shared local class utility.
+
+## Guided demo
+
+Select **Start guided demo** on the overview, or **Tour this view** in either workspace header, to launch a Driver.js walkthrough for the current page.
+On smaller screens, the header guide uses a question-mark icon with the same accessible label.
+Tours are opt-in and replayable, support Next, Back, arrow keys, and Escape, and respect reduced-motion preferences.
+They explain the response map, location assignments, personnel filtering, public hazard reports, settings, and the responder check-in workflow without changing assignments or submitting reports.
+A suggested presentation sequence is Overview, Incidents, Disaster Explorer, Personnel, then the field responder view linked from the desktop sidebar or Settings.
+Guides close when navigating to another page and skip controls that are absent from the current view.
 
 ## Offline data and delivery
 
@@ -186,6 +199,9 @@ An IndexedDB transaction claims operations across tabs, with a 45-second lease f
 Retries keep the original UUID and client timestamp.
 
 The service worker caches the generic offline shell and same-origin static assets only.
+Static assets use the network first while online, with cached fallback on network failure; responses marked `no-store` are not retained.
+Development mode unregisters RescueSync's offline worker and clears its asset caches, then reloads once if the page was controlled, so old client bundles cannot conflict with current server markup.
+This cleanup leaves IndexedDB check-ins and browser-local demo assignments intact.
 It does not cache incident HTML, React Server Component responses, API responses, or personnel records in Cache Storage.
 The shell contains a public demo identity and sample incident identifiers only.
 On a full offline navigation it provides a small independent check-in form that writes to the same IndexedDB store using the native IndexedDB API.

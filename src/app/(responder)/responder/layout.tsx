@@ -1,3 +1,4 @@
+import { DemoTourButton } from "@/features/demo-tour/demo-tour";
 import Link from "next/link";
 import { Brand } from "@/components/shared/brand";
 import { ThemeToggle } from "@/components/shared/theme-toggle";
@@ -17,6 +18,7 @@ export default function ResponderLayout({ children }: { children: React.ReactNod
             >
               Demo identity
             </Link>
+            <DemoTourButton />
             <ThemeToggle />
           </div>
         </div>

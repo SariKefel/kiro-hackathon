@@ -1,3 +1,4 @@
+import { DemoTourButton } from "@/features/demo-tour/demo-tour";
 import Link from "next/link";
 import { Bell, ChevronRight, Circle } from "lucide-react";
 import { ThemeToggle } from "@/components/shared/theme-toggle";
@@ -18,6 +19,7 @@ export function CommanderHeader() {
         </span>
       </div>
       <div className="flex shrink-0 items-center gap-1 sm:gap-3">
+        <DemoTourButton />
         <ThemeToggle />
         <Link
           href="/dashboard#priority-alerts"

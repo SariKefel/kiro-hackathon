@@ -33,7 +33,7 @@ export default function SettingsPage() {
         </Link>
       </section>
       <DeviceSettings />
-      <section id="about" className="panel p-6">
+      <section id="about" data-tour="about" className="panel p-6">
         <h2 className="section-heading">About this foundation</h2>
         <p className="mt-3 text-sm leading-7 text-muted-foreground">
           RescueSync brings personnel accountability into one shared response workspace. This Phase

@@ -1,3 +1,4 @@
+import { DemoTourWelcome } from "@/features/demo-tour/demo-tour";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowRight, Clock3, MapPin, Waves } from "lucide-react";
@@ -30,8 +31,9 @@ export default function Dashboard() {
         </Button>
       </div>
       <DemoBanner />
+      <DemoTourWelcome />
       <SummaryCards />
-      <section className="panel grid overflow-hidden lg:grid-cols-[1.05fr_1fr]">
+      <section className="panel overflow-hidden">
         <div className="flex flex-col p-5 sm:p-6">
           <div className="flex items-center gap-2">
             <span className="flex size-7 items-center justify-center rounded-md bg-sky-50 text-sky-700 dark:bg-sky-950 dark:text-sky-300">
@@ -71,7 +73,7 @@ export default function Dashboard() {
             </Link>
           </div>
         </div>
-        <div className="m-3 min-h-56 lg:ml-0">
+        <div className="m-3 mt-0">
           <IncidentMap />
         </div>
       </section>
