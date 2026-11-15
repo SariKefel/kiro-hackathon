@@ -7,6 +7,7 @@ import { ConnectionStatus } from "@/components/shared/connection-status";
 import { StatusBadge } from "@/components/shared/status-badge";
 import { Button } from "@/components/ui/button";
 import { LocalReports } from "@/features/check-ins/report-state";
+import { ActiveDispatch } from "@/features/dispatch/responder";
 
 export const metadata: Metadata = { title: "Responder home" };
 export default function ResponderHome() {
@@ -30,6 +31,7 @@ export default function ResponderHome() {
       <div className="rounded-lg border bg-card px-4 py-2">
         <ConnectionStatus detailed />
       </div>
+      <ActiveDispatch />
       <section className="panel overflow-hidden">
         <div className="border-b px-5 py-4">
           <p className="text-[10px] font-medium text-muted-foreground">Your active incident</p>
