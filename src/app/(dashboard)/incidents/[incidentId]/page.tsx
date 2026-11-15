@@ -9,6 +9,7 @@ import { SummaryCards } from "@/components/dashboard/summary-cards";
 import { PriorityAlerts } from "@/components/dashboard/priority-alerts";
 import { RecentActivity } from "@/components/dashboard/recent-activity";
 import { Button } from "@/components/ui/button";
+import { DispatchPanel } from "@/features/dispatch/dispatch-panel";
 
 export const metadata: Metadata = { title: "Incident details" };
 export default async function IncidentPage({
@@ -70,6 +71,7 @@ export default async function IncidentPage({
               relief centre. All map positions are illustrative.
             </p>
           </section>
+          <DispatchPanel />
           <PriorityAlerts />
         </div>
         <RecentActivity expanded />

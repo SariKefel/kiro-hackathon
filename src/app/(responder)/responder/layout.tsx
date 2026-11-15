@@ -2,6 +2,7 @@ import Link from "next/link";
 import { Brand } from "@/components/shared/brand";
 import { ThemeToggle } from "@/components/shared/theme-toggle";
 import { ResponderNav } from "@/components/layout/responder-nav";
+import { IncomingCall } from "@/features/dispatch/responder";
 
 export default function ResponderLayout({ children }: { children: React.ReactNode }) {
   return (
@@ -24,6 +25,7 @@ export default function ResponderLayout({ children }: { children: React.ReactNod
         {children}
       </main>
       <ResponderNav />
+      <IncomingCall />
     </div>
   );
 }
