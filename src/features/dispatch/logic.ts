@@ -105,11 +105,13 @@ export function rankCandidates(
       person.status === "unable_to_continue" ||
       state.injured.includes(person.id)
         ? "Needs assistance"
-        : busy.has(person.id)
-          ? "On another dispatch"
-          : tried.has(person.id)
-            ? "Already called"
-            : undefined;
+        : person.status === "unknown"
+          ? "Status unknown"
+          : busy.has(person.id)
+            ? "On another dispatch"
+            : tried.has(person.id)
+              ? "Already called"
+              : undefined;
     return {
       person,
       distanceKm: km,

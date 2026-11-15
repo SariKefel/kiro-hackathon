@@ -33,12 +33,19 @@ describe("proximity ranking", () => {
     expect(ranked[0].person.id).toBe(amir);
     expect(ranked[1].person.id).toBe(nur);
     const ids = ranked.map((c) => c.person.id);
-    // Hakim is closest but stale, Jason has no location, Ravi needs help.
-    expect(ids.indexOf("demo-user-9")).toBeGreaterThan(ids.indexOf("demo-user-8"));
-    expect(ids.indexOf("demo-user-7")).toBeGreaterThan(ids.indexOf("demo-user-9"));
-    const ravi = ranked.find((c) => c.person.id === "demo-user-3")!;
-    expect(ravi.available).toBe(false);
-    expect(ids.indexOf("demo-user-3")).toBeGreaterThan(ids.indexOf("demo-user-7"));
+    // Hakim (stale) and Jason (no location) have unknown status, Ravi needs help.
+    const unavailable = ["demo-user-3", "demo-user-7", "demo-user-9"].map((id) =>
+      ranked.find((c) => c.person.id === id)!,
+    );
+    expect(unavailable.map((c) => c.unavailableReason)).toEqual([
+      "Needs assistance",
+      "Status unknown",
+      "Status unknown",
+    ]);
+    const lastAvailable = Math.max(
+      ...ranked.filter((c) => c.available).map((c) => ids.indexOf(c.person.id)),
+    );
+    for (const c of unavailable) expect(ids.indexOf(c.person.id)).toBeGreaterThan(lastAvailable);
   });
 });
 
@@ -52,6 +59,7 @@ describe("call chain", () => {
   });
   test("refuses a manual pick of an unavailable responder", () => {
     expect(start(0, "demo-user-3")).toBe(emptyDispatchState);
+    expect(start(0, "demo-user-7")).toBe(emptyDispatchState);
   });
   test("accepting assigns the call and makes the responder busy elsewhere", () => {
     const s = respondToCall(start(), ctx, {

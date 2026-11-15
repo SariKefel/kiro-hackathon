@@ -1,7 +1,14 @@
 "use client";
 import { useEffect, useSyncExternalStore } from "react";
 import { dispatchContext } from "./data";
-import { emptyDispatchState, expireCalls, type DispatchState } from "./logic";
+import { updateLocationAssignment } from "@/features/incidents/assignment-store";
+import {
+  emptyDispatchState,
+  expireCalls,
+  respondToCall,
+  type DispatchState,
+  type RejectReason,
+} from "./logic";
 
 // shortcut: dispatch state lives in localStorage and syncs across tabs on one device for the demo.
 // Replace with the authenticated sync service and server pushes in Phase 2.
@@ -38,6 +45,18 @@ export function updateDispatch(change: (state: DispatchState) => DispatchState) 
     localStorage.setItem(KEY, JSON.stringify(next));
   } catch {}
   window.dispatchEvent(new Event(EVENT));
+}
+
+/** Answer a ringing call. An accepted call also places the responder on that site's shared assignment list. */
+export function answerCall(
+  input: { callId: string; responderId: string } & (
+    { accept: true } | { accept: false; reason: RejectReason }
+  ),
+) {
+  updateDispatch((s) => respondToCall(s, dispatchContext, { ...input, now: Date.now() }));
+  const call = read().calls.find((c) => c.id === input.callId);
+  if (input.accept && call?.state === "accepted")
+    updateLocationAssignment(input.responderId, call.siteId);
 }
 
 export function resetDispatch() {

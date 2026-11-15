@@ -1,33 +1,28 @@
 import { demoSnapshot, personnel } from "@/features/incidents/demo-data";
+import { responseLocations } from "@/features/incidents/response-locations";
 import type { DispatchContext, DispatchSite, ResponderPosition } from "./logic";
 
-// Sample coordinates around Seksyen 7, Shah Alam. Illustrative, not surveyed.
-export const dispatchSites: DispatchSite[] = [
-  {
-    id: "site-plumbum",
-    name: "Jalan Plumbum boat access",
-    need: "Residents stranded on upper floors. Boat support and evacuation.",
-    priority: "critical",
-    latitude: 3.069,
-    longitude: 101.526,
-  },
-  {
-    id: "site-kristal",
-    name: "Jalan Kristal welfare block",
-    need: "Elderly residents need welfare checks and medication.",
-    priority: "high",
-    latitude: 3.076,
-    longitude: 101.515,
-  },
-  {
-    id: "site-relief",
-    name: "SK Seksyen 7 relief centre",
-    need: "Extra hands for intake and supply distribution.",
-    priority: "normal",
-    latitude: 3.0725,
-    longitude: 101.51,
-  },
-];
+// Dispatch uses the shared response locations so calls and map assignments agree.
+const priorities: Record<string, DispatchSite["priority"]> = {
+  boat: "critical",
+  welfare: "high",
+  relief: "normal",
+};
+const order = ["boat", "welfare", "relief"];
+export const dispatchSites: DispatchSite[] = [...responseLocations]
+  .sort((a, b) => order.indexOf(a.id) - order.indexOf(b.id))
+  .map((location) => ({
+    id: location.id,
+    name: location.name,
+    need: location.description,
+    priority: priorities[location.id] ?? "normal",
+    latitude: location.coordinates[1],
+    longitude: location.coordinates[0],
+  }));
+
+// Sample positions were laid out around the original boat site; shift them onto the shared one.
+const boat = dispatchSites.find((site) => site.id === "boat")!;
+const shift = [boat.latitude - 3.069, boat.longitude - 101.526];
 
 const seeded: Array<[number, number, string] | null> = [
   [3.071, 101.5235, "00:37"], // Amir Hassan
@@ -49,8 +44,8 @@ export const responderPositions: ResponderPosition[] = personnel.flatMap((person
   return [
     {
       userId: person.id,
-      latitude,
-      longitude,
+      latitude: latitude + shift[0],
+      longitude: longitude + shift[1],
       capturedAt: time.includes("T") ? time : `2026-11-15T${time}:00Z`,
     },
   ];

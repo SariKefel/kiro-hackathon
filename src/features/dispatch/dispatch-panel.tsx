@@ -21,14 +21,13 @@ import {
   secondsLeft,
   rankCandidates,
   rejectReasons,
-  respondToCall,
   ringingAttempt,
   setCallState,
   startCall,
   type DispatchCall,
   type RejectReason,
 } from "./logic";
-import { resetDispatch, updateDispatch, useDispatch, useNow } from "./store";
+import { answerCall, resetDispatch, updateDispatch, useDispatch, useNow } from "./store";
 
 const stateLabels: Record<DispatchCall["state"], string> = {
   calling: "Calling",
@@ -232,20 +231,10 @@ function CallTimeline({ call, now }: { call: DispatchCall; now: number }) {
   const seconds = ringing ? secondsLeft(ringing, now) : 0;
   const simulate = (accept: boolean, reason: RejectReason = "too_far") =>
     ringing &&
-    updateDispatch((s) =>
-      respondToCall(
-        s,
-        dispatchContext,
-        accept
-          ? { callId: call.id, responderId: ringing.responderId, now: Date.now(), accept: true }
-          : {
-              callId: call.id,
-              responderId: ringing.responderId,
-              now: Date.now(),
-              accept: false,
-              reason,
-            },
-      ),
+    answerCall(
+      accept
+        ? { callId: call.id, responderId: ringing.responderId, accept: true }
+        : { callId: call.id, responderId: ringing.responderId, accept: false, reason },
     );
   return (
     <div className="mt-5 rounded-lg border bg-muted/40 p-4" aria-live="polite">

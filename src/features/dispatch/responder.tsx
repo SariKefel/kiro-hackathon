@@ -19,13 +19,12 @@ import {
   etaMinutes,
   mapsDirectionsUrl,
   rejectReasons,
-  respondToCall,
   ringingAttempt,
   setCallState,
   type DispatchCall,
   type RejectReason,
 } from "./logic";
-import { updateDispatch, useDispatch, useNow } from "./store";
+import { answerCall, updateDispatch, useDispatch, useNow } from "./store";
 
 const me = demoResponder.id;
 const myPosition = dispatchContext.positions.find((p) => p.userId === me);
@@ -82,14 +81,10 @@ export function IncomingCall() {
   const km = myPosition ? distanceKm(myPosition, site) : null;
   const left = secondsLeft(ringing, now);
   const answer = (accept: boolean, reason?: RejectReason) =>
-    updateDispatch((s) =>
-      respondToCall(
-        s,
-        dispatchContext,
-        accept
-          ? { callId: call.id, responderId: me, now: Date.now(), accept: true }
-          : { callId: call.id, responderId: me, now: Date.now(), accept: false, reason: reason! },
-      ),
+    answerCall(
+      accept
+        ? { callId: call.id, responderId: me, accept: true }
+        : { callId: call.id, responderId: me, accept: false, reason: reason! },
     );
 
   return (
