@@ -38,7 +38,7 @@ export function DeviceSettings() {
         <p className="mb-5 mt-2 muted">
           {ready
             ? `${pending} report${pending === 1 ? "" : "s"} awaiting server confirmation.`
-            : "Reading local reports..."}
+            : "Reading local reports…"}
         </p>
         <ConnectionStatus detailed />
         <p className="mt-4 text-xs leading-6 text-muted-foreground">

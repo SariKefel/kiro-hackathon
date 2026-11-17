@@ -98,43 +98,43 @@ export function IncomingCall() {
       aria-modal="true"
       aria-labelledby="incoming-title"
       aria-describedby="incoming-detail"
-      className="fixed inset-0 z-50 flex flex-col bg-[#0b2a27] px-6 pb-[max(2rem,env(safe-area-inset-bottom))] pt-14 text-white"
+      className="fixed inset-0 z-50 flex flex-col bg-chrome px-6 pb-[max(2rem,env(safe-area-inset-bottom))] pt-14 text-chrome-ink"
     >
       <div className="mx-auto flex w-full max-w-sm flex-1 flex-col items-center text-center">
         <span className="relative flex size-24 items-center justify-center">
-          <span className="absolute inset-0 animate-ping rounded-full bg-red-500/30 motion-reduce:animate-none" />
-          <span className="relative flex size-20 items-center justify-center rounded-full bg-red-600">
+          <span className="absolute inset-0 animate-ping rounded-full bg-help-fill/30 motion-reduce:animate-none" />
+          <span className="relative flex size-20 items-center justify-center rounded-full bg-help-fill text-brand-ink">
             <Siren className="size-9" />
           </span>
         </span>
-        <p className="mt-6 text-xs font-medium uppercase tracking-widest text-teal-200">
-          Incoming dispatch · {site.priority}
+        <p role="status" className="mt-6 text-sm font-medium text-chrome-signal">
+          Incoming {site.priority} dispatch
         </p>
-        <h1 id="incoming-title" className="mt-3 text-2xl font-semibold tracking-tight">
+        <h1 id="incoming-title" className="mt-2 text-3xl">
           {site.name}
         </h1>
-        <p id="incoming-detail" className="mt-3 text-sm leading-6 text-teal-50/80">
+        <p id="incoming-detail" className="mt-3 text-base leading-7 text-chrome-muted">
           {site.need}
         </p>
         <dl className="mt-6 grid w-full grid-cols-3 gap-2 text-center">
-          <div className="rounded-lg bg-white/10 p-3">
-            <dt className="text-[10px] text-teal-100/70">Distance</dt>
-            <dd className="mt-1 font-semibold tabular-nums">
+          <div className="rounded-lg bg-chrome-2 p-3">
+            <dt className="text-xs text-chrome-muted">Distance</dt>
+            <dd className="figure-mono mt-1 text-lg font-medium">
               {km === null ? "?" : `${km.toFixed(1)} km`}
             </dd>
           </div>
-          <div className="rounded-lg bg-white/10 p-3">
-            <dt className="text-[10px] text-teal-100/70">Est. travel</dt>
-            <dd className="mt-1 font-semibold tabular-nums">
+          <div className="rounded-lg bg-chrome-2 p-3">
+            <dt className="text-xs text-chrome-muted">Est. travel</dt>
+            <dd className="figure-mono mt-1 text-lg font-medium">
               {km === null ? "?" : `~${etaMinutes(km)} min`}
             </dd>
           </div>
-          <div className="rounded-lg bg-white/10 p-3">
-            <dt className="flex items-center justify-center gap-1 text-[10px] text-teal-100/70">
+          <div className="rounded-lg bg-chrome-2 p-3">
+            <dt className="flex items-center justify-center gap-1 text-xs text-chrome-muted">
               <Timer className="size-3" />
               Respond in
             </dt>
-            <dd className="mt-1 font-semibold tabular-nums" aria-live="off">
+            <dd className="figure-mono mt-1 text-lg font-medium" aria-live="off">
               {left}s
             </dd>
           </div>
@@ -151,7 +151,7 @@ export function IncomingCall() {
                   key={reason}
                   type="button"
                   onClick={() => answer(false, reason)}
-                  className="min-h-14 rounded-lg border border-white/20 bg-white/5 px-3 text-sm font-medium hover:bg-white/15 focus-visible:outline-none focus-visible:ring-[3px] focus-visible:ring-teal-300"
+                  className="min-h-14 rounded-md border border-chrome-rule bg-chrome-2 px-3 text-sm font-medium hover:bg-chrome-active focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-chrome-signal active:translate-y-px"
                 >
                   {rejectReasons[reason].label}
                 </button>
@@ -160,7 +160,7 @@ export function IncomingCall() {
             <button
               type="button"
               onClick={() => setRejecting(false)}
-              className="mt-4 min-h-10 text-xs text-teal-100 underline-offset-4 hover:underline"
+              className="mt-4 min-h-10 text-sm text-chrome-signal underline-offset-4 hover:underline focus-visible:outline-2 focus-visible:outline-chrome-signal"
             >
               Back
             </button>
@@ -172,11 +172,11 @@ export function IncomingCall() {
                 type="button"
                 onClick={() => setRejecting(true)}
                 aria-label="Reject dispatch"
-                className="flex size-18 items-center justify-center rounded-full bg-red-600 hover:bg-red-700 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-red-300"
+                className="flex size-18 items-center justify-center rounded-full bg-help-fill text-brand-ink hover:bg-help-fill/90 focus-visible:outline-3 focus-visible:outline-offset-3 focus-visible:outline-chrome-ink active:scale-95 motion-reduce:active:scale-100"
               >
                 <PhoneOff className="size-8" />
               </button>
-              <span className="text-xs">Reject</span>
+              <span className="text-sm">Reject</span>
             </div>
             <div className="flex flex-col items-center gap-2">
               <button
@@ -189,15 +189,15 @@ export function IncomingCall() {
                   updateDispatch((s) => setCallState(s, call.id, "en_route"));
                 }}
                 aria-label="Accept dispatch and start navigation"
-                className="flex size-18 items-center justify-center rounded-full bg-emerald-600 hover:bg-emerald-700 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-emerald-300"
+                className="flex size-18 items-center justify-center rounded-full bg-safe-fill text-brand-ink hover:bg-safe-fill/90 focus-visible:outline-3 focus-visible:outline-offset-3 focus-visible:outline-chrome-ink active:scale-95 motion-reduce:active:scale-100"
               >
                 <Phone className="size-8" />
               </button>
-              <span className="text-xs">Accept &amp; navigate</span>
+              <span className="text-sm">Accept &amp; navigate</span>
             </div>
           </div>
         )}
-        <p className="mt-6 text-[10px] text-teal-100/60">Demo dispatch · sample data</p>
+        <p className="mt-6 text-xs text-chrome-muted">Demo dispatch with sample data</p>
       </div>
     </div>
   );
@@ -234,15 +234,14 @@ export function ActiveDispatch() {
   return (
     <section className="panel overflow-hidden border-primary" aria-labelledby="active-dispatch">
       <div className="bg-primary px-5 py-4 text-primary-foreground">
-        <p className="text-[10px] font-medium">
-          Dispatch{" "}
+        <p role="status" className="text-xs font-medium">
           {call.state === "arrived"
-            ? "· on site"
+            ? "Dispatch on site"
             : call.state === "en_route"
-              ? "· en route"
-              : "accepted"}
+              ? "Dispatch en route"
+              : "Dispatch accepted"}
         </p>
-        <h2 id="active-dispatch" className="mt-1 text-base font-semibold tracking-tight">
+        <h2 id="active-dispatch" className="mt-1 text-lg">
           {site.name}
         </h2>
       </div>
@@ -251,7 +250,8 @@ export function ActiveDispatch() {
         {km !== null ? (
           <p className="flex items-center gap-1.5 text-xs">
             <MapPin className="size-3.5 text-muted-foreground" />
-            {km.toFixed(1)} km from your last check-in · ~{etaMinutes(km)} min estimate
+            <span className="figure-mono">{km.toFixed(1)} km</span> from your last check-in, about{" "}
+            <span className="figure-mono">{etaMinutes(km)} min</span> away
           </p>
         ) : null}
         <Button asChild className="h-14 w-full text-base">
@@ -283,7 +283,7 @@ export function ActiveDispatch() {
           <button
             type="button"
             onClick={checkLocation}
-            className="inline-flex min-h-10 items-center gap-2 text-xs font-semibold text-primary dark:text-teal-300"
+            className="inline-flex min-h-10 items-center gap-2 whitespace-nowrap text-sm font-semibold text-signal-text"
           >
             <LocateFixed className="size-3.5" />
             Check my distance with location
@@ -294,7 +294,7 @@ export function ActiveDispatch() {
             {nearby}
           </p>
         ) : null}
-        <p className="text-[11px] leading-5 text-muted-foreground">
+        <p className="text-xs leading-5 text-muted-foreground">
           Navigate opens your maps app for the route. Site details stay on this device if you lose
           signal.
         </p>

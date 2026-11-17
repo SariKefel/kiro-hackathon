@@ -1,0 +1,186 @@
+/* RescueSync tokens. Furrow's field-record material (warm paper, ink rules, Red Hat type) with the
+ * brand teal as the one signal. Status colours are semantic and switch with the mode, so components
+ * never pair a light and a dark palette class. shadcn already owns --color-accent and --color-muted,
+ * so the teal is --color-signal and the third ink is --color-ink-3. */
+@theme static {
+  --text-xs: 0.75rem;
+  --text-sm: 0.875rem;
+  --text-md: 1rem;
+  --text-lg: 1.2rem;
+  --text-xl: 1.44rem;
+  --text-2xl: 1.728rem;
+  --text-3xl: 2.074rem;
+  --text-display-s: 1.44rem;
+  --text-display: 1.728rem;
+  --text-section: 1.2rem;
+  --text-title: 1rem;
+  --text-lead: 1rem;
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in: cubic-bezier(0.7, 0, 0.84, 0);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+
+  /* Paper, ink and rules */
+  --color-paper: oklch(96% 0.011 85);
+  --color-paper-2: oklch(99.5% 0.005 85);
+  --color-paper-3: oklch(92.5% 0.015 85);
+  --color-ink: oklch(19% 0.007 60);
+  --color-ink-2: oklch(30% 0.009 60);
+  --color-ink-3: oklch(45% 0.012 60);
+  --color-rule: oklch(88% 0.013 85);
+  --color-rule-2: oklch(60% 0.012 60);
+
+  /* The brand teal: a fill with paper on it, a text teal deep enough to read on paper */
+  --color-signal: oklch(51% 0.088 183);
+  --color-signal-hover: oklch(45% 0.08 183);
+  --color-signal-ink: oklch(99.5% 0.005 85);
+  --color-signal-text: oklch(44% 0.08 183);
+  --color-signal-soft: oklch(93% 0.03 183);
+  --color-focus: oklch(51% 0.088 183);
+
+  /* Accountability statuses: text, a tinted surface, an edge, and a solid fill for marks */
+  --color-safe: oklch(43% 0.1 150);
+  --color-safe-soft: oklch(93.5% 0.035 150);
+  --color-safe-line: oklch(80% 0.07 150);
+  --color-safe-fill: oklch(50% 0.12 150);
+  --color-help: oklch(47% 0.17 27);
+  --color-help-soft: oklch(94% 0.03 27);
+  --color-help-line: oklch(82% 0.07 27);
+  --color-help-fill: oklch(54% 0.19 27);
+  --color-caution: oklch(46% 0.11 62);
+  --color-caution-soft: oklch(94% 0.045 80);
+  --color-caution-line: oklch(82% 0.09 75);
+  --color-caution-fill: oklch(74% 0.15 70);
+  --color-info: oklch(43% 0.06 232);
+  --color-info-soft: oklch(94% 0.018 232);
+  --color-info-line: oklch(84% 0.03 232);
+  --color-info-fill: oklch(50% 0.08 232);
+
+  /* Hazard kinds on the explorer: survey sienna, water slate, and a violet for storms.
+   * Marker fills carry light text, so they keep one value in both modes. */
+  --color-quake: oklch(55% 0.14 50);
+  --color-flood: oklch(50% 0.09 232);
+  --color-cyclone: oklch(48% 0.15 305);
+
+  /* The logo tile keeps one teal in both modes */
+  --color-brand: oklch(51% 0.088 183);
+  --color-brand-ink: oklch(99.5% 0.005 85);
+
+  /* The command chrome (sidebar, dispatch call): an ink ground in both modes */
+  --color-chrome: oklch(21% 0.008 60);
+  --color-chrome-2: oklch(27% 0.01 60);
+  --color-chrome-active: oklch(31% 0.035 183);
+  --color-chrome-ink: oklch(94% 0.008 85);
+  --color-chrome-muted: oklch(74% 0.012 85);
+  --color-chrome-rule: oklch(34% 0.01 60);
+  --color-chrome-signal: oklch(82% 0.085 183);
+
+  --color-error: var(--color-help);
+  --color-success: var(--color-safe);
+
+  --font-display: var(--font-rh-display), "Red Hat Display", ui-sans-serif, system-ui, sans-serif;
+  --font-body: var(--font-rh-text), "Red Hat Text", ui-sans-serif, system-ui, sans-serif;
+  --font-outlier: var(--font-rh-mono), "Red Hat Mono", ui-monospace, monospace;
+
+  --radius-key: 6px;
+  --radius-card: 10px;
+  --radius-entry: 14px;
+  --radius-pill: 6px;
+  --shadow-card: none;
+  --shadow-sheet: 0 -6px 20px oklch(19% 0.007 60 / 0.1);
+  --shadow-key: inset 0 1px 0 var(--color-paper-2), 0 1px 0 var(--color-rule);
+  --shadow-key-lit:
+    inset 0 1px 0 color-mix(in oklab, var(--color-paper-2) 24%, transparent),
+    inset 0 -1px 0 color-mix(in oklab, var(--color-ink) 14%, transparent);
+  --shadow-lift:
+    0 1px 1px oklch(19% 0.007 60 / 0.1), 0 2px 4px -1px oklch(19% 0.007 60 / 0.1),
+    0 24px 44px -20px oklch(19% 0.007 60 / 0.42);
+  --tracking-display: -0.03em;
+}
+:root {
+  --display-weight: 600;
+  --space-3xs: 2px;
+  --space-2xs: 4px;
+  --space-xs: 8px;
+  --space-sm: 12px;
+  --space-md: 16px;
+  --space-lg: 24px;
+  --space-xl: 40px;
+  --space-2xl: 64px;
+  --space-3xl: 96px;
+  --space-4xl: 144px;
+  --dur-micro: 120ms;
+  --dur-short: 220ms;
+  --dur-long: 420ms;
+  --container: 1440px;
+  --gutter: 64px;
+  --gap-columns: 32px;
+  --section-gap-s: 120px;
+  --section-gap: 144px;
+  --section-gap-l: 176px;
+  --z-base: 1;
+  --z-raised: 10;
+  --z-dropdown: 100;
+  --z-sticky: 200;
+  --z-sticky-nav: 300;
+  --z-modal: 400;
+  --z-toast: 500;
+  --z-tooltip: 600;
+  --rule-hair: 1px;
+  color-scheme: light;
+}
+/* Dark is a second rendering of the same system: the same hues, paper lighter with elevation,
+ * accents lifted and calmed, shadows replaced by hairline rings. next-themes sets .dark on <html>. */
+.dark {
+  --color-paper: oklch(16% 0.008 60);
+  --color-paper-2: oklch(19.5% 0.009 60);
+  --color-paper-3: oklch(23.5% 0.01 60);
+  --color-ink: oklch(94% 0.008 85);
+  --color-ink-2: oklch(86% 0.01 85);
+  --color-ink-3: oklch(73% 0.012 85);
+  --color-rule: oklch(30% 0.01 60);
+  --color-rule-2: oklch(52% 0.012 60);
+
+  --color-signal: oklch(62% 0.085 183);
+  --color-signal-hover: oklch(68% 0.08 183);
+  --color-signal-ink: oklch(16% 0.008 60);
+  --color-signal-text: oklch(80% 0.08 183);
+  --color-signal-soft: oklch(28% 0.035 183);
+  --color-focus: oklch(72% 0.08 183);
+
+  --color-safe: oklch(80% 0.11 150);
+  --color-safe-soft: oklch(27% 0.045 150);
+  --color-safe-line: oklch(42% 0.07 150);
+  --color-help: oklch(78% 0.12 27);
+  --color-help-soft: oklch(27% 0.055 27);
+  --color-help-line: oklch(45% 0.1 27);
+  --color-caution: oklch(83% 0.11 78);
+  --color-caution-soft: oklch(28% 0.045 70);
+  --color-caution-line: oklch(46% 0.08 70);
+  --color-info: oklch(80% 0.05 232);
+  --color-info-soft: oklch(26% 0.025 232);
+  --color-info-line: oklch(42% 0.04 232);
+
+  --color-chrome: oklch(12.5% 0.007 60);
+  --color-chrome-2: oklch(18% 0.009 60);
+  --color-chrome-rule: oklch(26% 0.01 60);
+
+  --shadow-lift: 0 0 0 1px var(--color-rule);
+  color-scheme: dark;
+}
+@media (max-width: 60rem) {
+  :root {
+    --gutter: 24px;
+    --section-gap-s: 80px;
+    --section-gap: 96px;
+    --section-gap-l: 120px;
+  }
+}
+@media (max-width: 40rem) {
+  :root {
+    --gutter: 16px;
+    --section-gap-s: 56px;
+    --section-gap: 72px;
+    --section-gap-l: 96px;
+    --gap-columns: 16px;
+  }
+}

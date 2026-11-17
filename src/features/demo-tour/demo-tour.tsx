@@ -82,7 +82,7 @@ export function DemoTourButton({ prominent = false }: { prominent?: boolean }) {
         onClick={(event) => void start(event.currentTarget)}
         className={
           prominent
-            ? "inline-flex min-h-11 items-center gap-2 rounded-lg bg-primary px-4 text-xs font-semibold text-white disabled:opacity-60"
+            ? "inline-flex min-h-11 items-center gap-2 rounded-lg bg-primary px-4 text-xs font-semibold text-primary-foreground disabled:opacity-60"
             : "inline-flex min-h-10 min-w-10 items-center justify-center gap-2 rounded-lg px-2 text-xs font-medium hover:bg-secondary disabled:opacity-60"
         }
       >

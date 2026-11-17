@@ -1,11 +1,33 @@
+/* Standalone offline shell. It cannot load the app's stylesheet, so it mirrors the app tokens. */
 :root {
-  font-family: Arial, sans-serif;
-  color: #192a3c;
-  background: #f6f8fa;
+  --paper: oklch(96% 0.011 85);
+  --paper-2: oklch(99.5% 0.005 85);
+  --paper-3: oklch(92.5% 0.015 85);
+  --ink: oklch(19% 0.007 60);
+  --ink-3: oklch(45% 0.012 60);
+  --rule: oklch(88% 0.013 85);
+  --rule-2: oklch(60% 0.012 60);
+  --signal: oklch(51% 0.088 183);
+  --signal-ink: oklch(99.5% 0.005 85);
+  --signal-text: oklch(44% 0.08 183);
+  --signal-soft: oklch(93% 0.03 183);
+  --info: oklch(43% 0.06 232);
+  --chrome: oklch(21% 0.008 60);
+  --chrome-ink: oklch(94% 0.008 85);
+  --chrome-signal: oklch(82% 0.085 183);
+  --font: "Red Hat Text", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Red Hat Display", ui-sans-serif, system-ui, sans-serif;
+  font-family: var(--font);
+  color: var(--ink);
+  background: var(--paper);
   color-scheme: light;
 }
 * {
   box-sizing: border-box;
+}
+html,
+body {
+  overflow-x: clip;
 }
 body {
   margin: 0;
@@ -14,53 +36,55 @@ header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 22px;
-  background: #142537;
-  color: white;
-  font-size: 12px;
+  padding: 20px 24px;
+  background: var(--chrome);
+  color: var(--chrome-ink);
+  font-size: 14px;
 }
 header a {
-  color: white;
+  color: var(--chrome-ink);
+  font-family: var(--font-display);
   font-size: 20px;
-  font-weight: 700;
+  font-weight: 600;
+  letter-spacing: -0.03em;
   text-decoration: none;
 }
 main {
   max-width: 540px;
   margin: auto;
-  padding: 28px 22px 50px;
+  padding: 32px 24px 48px;
 }
 h1 {
-  font-size: 30px;
-  line-height: 1.2;
-  letter-spacing: -1px;
+  font-family: var(--font-display);
+  font-size: 32px;
+  font-weight: 600;
+  line-height: 1.1;
+  letter-spacing: -0.03em;
 }
 p {
-  font-size: 13px;
-  line-height: 1.8;
-  color: #5e6f80;
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--ink-3);
 }
 aside {
-  padding: 16px;
-  border: 1px solid #bad8ef;
-  border-radius: 10px;
-  background: #ecf6fd;
-  font-size: 12px;
-  line-height: 1.9;
+  padding: 12px 0;
+  border-block: 1px solid var(--rule-2);
+  font-size: 14px;
+  line-height: 1.6;
 }
 fieldset {
-  margin: 25px 0;
+  margin: 24px 0;
   padding: 0;
   border: 0;
 }
 legend {
   margin-bottom: 12px;
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 600;
 }
 label {
   display: block;
-  font-size: 14px;
+  font-size: 16px;
 }
 .choice {
   display: flex;
@@ -68,102 +92,94 @@ label {
   gap: 16px;
   min-height: 76px;
   margin-bottom: 12px;
-  padding: 18px;
-  background: white;
-  border: 1px solid #d3dfe7;
-  border-radius: 12px;
+  padding: 16px;
+  background: var(--paper-2);
+  border: 1px solid var(--rule-2);
+  border-radius: 10px;
   font-weight: 600;
   cursor: pointer;
 }
 .choice:has(:checked) {
-  border: 2px solid #087f72;
-  background: #ecf8f3;
-  padding: 17px;
+  outline: 2px solid var(--signal);
+  outline-offset: -2px;
+  background: var(--signal-soft);
 }
 input {
   width: 20px;
   height: 20px;
-  accent-color: #087f72;
+  accent-color: var(--signal);
 }
 textarea {
   width: 100%;
   margin: 12px 0;
-  padding: 14px;
-  border: 1px solid #d3dfe7;
-  border-radius: 8px;
+  padding: 12px;
+  border: 1px solid var(--rule-2);
+  border-radius: 6px;
   font: inherit;
-  background: white;
-  color: #192a3c;
+  background: var(--paper-2);
+  color: var(--ink);
 }
 button {
   width: 100%;
-  min-height: 54px;
+  min-height: 52px;
   padding: 12px;
-  border: 0;
-  border-radius: 8px;
-  color: white;
-  background: #087f72;
-  font-size: 14px;
-  font-weight: 600;
+  border: 1px solid var(--signal);
+  border-radius: 6px;
+  color: var(--signal-ink);
+  background: var(--signal);
+  font: 600 16px var(--font);
   cursor: pointer;
 }
+button:active {
+  transform: translateY(1px);
+}
 button.secondary {
-  background: white;
-  color: #192a3c;
-  border: 1px solid #d3dfe7;
-  font-size: 12px;
+  background: var(--paper-2);
+  color: var(--ink);
+  border-color: var(--rule-2);
+  font-size: 14px;
 }
 button:disabled {
-  opacity: 0.6;
+  opacity: 0.55;
   cursor: wait;
 }
 :focus-visible {
-  outline: 3px solid #087f72;
-  outline-offset: 4px;
+  outline: 2px solid var(--signal);
+  outline-offset: 2px;
 }
 #result:not(:empty) {
   margin-top: 20px;
-  padding: 16px;
-  border: 1px solid #94c7bb;
-  border-radius: 8px;
-  background: #ecf8f3;
-  font-size: 14px;
-  line-height: 1.8;
+  padding: 16px 0;
+  border-top: 2px solid var(--signal);
+  font-size: 16px;
+  line-height: 1.6;
 }
 .return {
   display: block;
   padding: 14px 0;
-  color: #076e63;
-  font-size: 13px;
-  line-height: 1.7;
+  color: var(--signal-text);
+  font-size: 16px;
+  line-height: 1.6;
 }
 @media (prefers-color-scheme: dark) {
   :root {
-    background: #0e1925;
-    color: #e8eff6;
+    --paper: oklch(16% 0.008 60);
+    --paper-2: oklch(19.5% 0.009 60);
+    --paper-3: oklch(23.5% 0.01 60);
+    --ink: oklch(94% 0.008 85);
+    --ink-3: oklch(73% 0.012 85);
+    --rule: oklch(30% 0.01 60);
+    --rule-2: oklch(52% 0.012 60);
+    --signal: oklch(62% 0.085 183);
+    --signal-ink: oklch(16% 0.008 60);
+    --signal-text: oklch(80% 0.08 183);
+    --signal-soft: oklch(28% 0.035 183);
+    --chrome: oklch(12.5% 0.007 60);
     color-scheme: dark;
   }
-  p {
-    color: #a5b5c4;
-  }
-  aside {
-    background: #142c42;
-    color: #c0e6ff;
-    border-color: #295375;
-  }
-  .choice,
-  textarea,
-  button.secondary {
-    background: #152333;
-    color: #e8eff6;
-    border-color: #2b3d4e;
-  }
-  .choice:has(:checked),
-  #result:not(:empty) {
-    background: #123b36;
-    color: #e8eff6;
-  }
-  .return {
-    color: #9de7d4;
+}
+@media (prefers-reduced-motion: reduce) {
+  button:active {
+    transform: none;
   }
 }

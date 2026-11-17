@@ -23,7 +23,7 @@ export function ConnectionStatus({ detailed = false }: { detailed?: boolean }) {
               type="button"
               disabled={!online || syncing || !ready || Boolean(storageError)}
               onClick={() => void sync(true)}
-              className="inline-flex min-h-8 items-center gap-1 font-medium text-primary disabled:opacity-50 dark:text-teal-300"
+              className="inline-flex min-h-8 items-center gap-1 font-medium text-primary disabled:opacity-50"
             >
               <RefreshCw className={`size-3.5 ${syncing ? "animate-spin" : ""}`} />
               {syncing ? "Synchronizing" : "Retry sync"}
@@ -32,12 +32,12 @@ export function ConnectionStatus({ detailed = false }: { detailed?: boolean }) {
         )}
       </div>
       {detailed && storageError && (
-        <p role="alert" className="text-red-700 dark:text-red-300">
+        <p role="alert" className="text-help">
           {storageError}
         </p>
       )}
       {detailed && shellError && (
-        <p role="alert" className="text-amber-800 dark:text-amber-300">
+        <p role="alert" className="text-caution">
           {shellError}
         </p>
       )}

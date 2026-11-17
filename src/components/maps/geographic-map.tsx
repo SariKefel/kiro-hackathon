@@ -8,6 +8,7 @@ import type { FeatureCollection, Point } from "geojson";
 import "mapbox-gl/dist/mapbox-gl.css";
 import type { CameraRequest, ViewportBounds } from "@/features/hazards/types";
 import { REGION_BOUNDS } from "@/features/hazards/map/regions";
+import { tokenColor } from "@/components/maps/token-color";
 
 const TOKEN = process.env.NEXT_PUBLIC_MAPBOX_ACCESS_TOKEN;
 const SOURCE_ID = "external-hazards";
@@ -79,6 +80,10 @@ function navigate(map: MapboxMap, request: CameraRequest) {
 }
 
 function addHazardLayers(map: MapboxMap, events: MapPoint[], selectedId: string | null) {
+  // Constant tokens: the markers sit on light map tiles in both colour modes.
+  const ground = tokenColor("--color-chrome-active");
+  const mark = tokenColor("--color-brand-ink");
+  const brand = tokenColor("--color-brand");
   map.addSource(SOURCE_ID, {
     type: "geojson",
     data: collection(events),
@@ -92,10 +97,10 @@ function addHazardLayers(map: MapboxMap, events: MapPoint[], selectedId: string 
     source: SOURCE_ID,
     filter: ["has", "point_count"],
     paint: {
-      "circle-color": "#254244",
+      "circle-color": ground,
       "circle-radius": ["step", ["get", "point_count"], 19, 10, 23, 50, 28],
       "circle-stroke-width": 2,
-      "circle-stroke-color": "#ffffff",
+      "circle-stroke-color": mark,
     },
   });
   map.addLayer({
@@ -109,7 +114,7 @@ function addHazardLayers(map: MapboxMap, events: MapPoint[], selectedId: string 
       "text-size": 12,
       "text-allow-overlap": true,
     },
-    paint: { "text-color": "#ffffff" },
+    paint: { "text-color": mark },
   });
   map.addLayer({
     id: "hazard-points",
@@ -121,18 +126,18 @@ function addHazardLayers(map: MapboxMap, events: MapPoint[], selectedId: string 
         "match",
         ["get", "hazardType"],
         "earthquake",
-        "#b45309",
+        tokenColor("--color-quake"),
         "flood",
-        "#0369a1",
+        tokenColor("--color-flood"),
         "cyclone",
-        "#7e22ce",
+        tokenColor("--color-cyclone"),
         "response",
-        "#087f72",
-        "#254244",
+        brand,
+        ground,
       ],
       "circle-radius": 13,
       "circle-stroke-width": 2,
-      "circle-stroke-color": "#ffffff",
+      "circle-stroke-color": mark,
     },
   });
   map.addLayer({
@@ -151,7 +156,7 @@ function addHazardLayers(map: MapboxMap, events: MapPoint[], selectedId: string 
       "text-allow-overlap": true,
       "text-ignore-placement": true,
     },
-    paint: { "text-color": "#ffffff" },
+    paint: { "text-color": mark },
   });
   map.addLayer({
     id: "location-names",
@@ -166,7 +171,7 @@ function addHazardLayers(map: MapboxMap, events: MapPoint[], selectedId: string 
       "text-anchor": "top",
       "text-max-width": 14,
     },
-    paint: { "text-color": "#174e46", "text-halo-color": "#ffffff", "text-halo-width": 2 },
+    paint: { "text-color": ground, "text-halo-color": mark, "text-halo-width": 2 },
   });
   map.addSource(SELECTED_SOURCE_ID, {
     type: "geojson",
@@ -178,9 +183,9 @@ function addHazardLayers(map: MapboxMap, events: MapPoint[], selectedId: string 
     source: SELECTED_SOURCE_ID,
     paint: {
       "circle-radius": 19,
-      "circle-color": "#087f72",
+      "circle-color": brand,
       "circle-opacity": 0.12,
-      "circle-stroke-color": "#087f72",
+      "circle-stroke-color": brand,
       "circle-stroke-width": 3,
     },
   });
@@ -432,7 +437,7 @@ export function GeographicMap({
                   setAttempt((value) => value + 1);
                 }
               }}
-              className={`min-h-9 rounded-md px-3 text-xs font-medium ${basemap === style ? "bg-primary text-white" : "hover:bg-secondary"}`}
+              className={`min-h-9 rounded-md px-3 text-xs font-medium ${basemap === style ? "bg-primary text-primary-foreground" : "hover:bg-secondary"}`}
             >
               {style === "streets" ? "Streets" : "Satellite"}
             </button>

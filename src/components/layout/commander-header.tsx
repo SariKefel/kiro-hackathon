@@ -6,7 +6,7 @@ import { commander } from "@/features/incidents/demo-data";
 
 export function CommanderHeader() {
   return (
-    <header className="flex h-[76px] items-center justify-between gap-3 border-b bg-card px-4 sm:px-5 md:px-8 lg:px-9">
+    <header className="flex h-[72px] items-center justify-between gap-3 border-b border-rule bg-paper px-4 sm:px-6 md:px-10">
       <div className="min-w-0">
         <p className="mb-1 text-xs text-muted-foreground">
           <span className="sm:hidden">Demo workspace</span>
@@ -14,7 +14,7 @@ export function CommanderHeader() {
         </p>
         <Link
           href="/incidents"
-          className="block text-sm font-semibold sm:truncate"
+          className="block font-display text-base font-semibold tracking-[-0.01em] hover:underline truncate"
           title="Klang Valley flood response"
         >
           <span className="sm:hidden">Command center</span>
@@ -27,12 +27,12 @@ export function CommanderHeader() {
         <Link
           href="/dashboard#priority-alerts"
           aria-label="View 4 personnel requiring attention"
-          className="relative flex size-11 items-center justify-center rounded-lg hover:bg-secondary"
+          className="relative flex size-11 items-center justify-center rounded-md hover:bg-secondary active:bg-paper-3"
         >
           <Bell aria-hidden="true" className="size-[18px]" />
           <span
             aria-hidden="true"
-            className="absolute right-0.5 top-0.5 flex size-4 items-center justify-center rounded-full bg-amber-100 text-[10px] font-semibold text-amber-900 dark:bg-amber-900 dark:text-amber-100"
+            className="figure-mono absolute right-0 top-0.5 flex h-4 min-w-4 items-center justify-center rounded-sm bg-help-fill px-0.5 text-xs leading-none font-medium text-brand-ink"
           >
             4
           </span>
@@ -41,7 +41,7 @@ export function CommanderHeader() {
         <Link
           href="/settings"
           aria-label={`${commander.name}, demo commander settings`}
-          className="flex size-10 items-center justify-center rounded-full border bg-secondary text-xs font-semibold"
+          className="flex size-10 items-center justify-center rounded-full border border-rule-2 bg-paper-2 text-xs font-semibold hover:bg-paper-3 active:bg-paper-3"
         >
           NR
         </Link>

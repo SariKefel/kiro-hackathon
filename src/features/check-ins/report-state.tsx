@@ -44,7 +44,7 @@ export function ReportState({
                 : "Your report is saved on this device. The command center has not confirmed receipt."}
           </p>
           {operation.error && operation.status !== "failed" && (
-            <p className="text-[11px] leading-5 text-muted-foreground">{operation.error}</p>
+            <p className="text-xs leading-5 text-muted-foreground">{operation.error}</p>
           )}
         </>
       )}
@@ -59,7 +59,7 @@ export function LocalReports() {
       op.incidentId === incident.id &&
       op.organizationId === organization.id,
   );
-  if (!ready) return <p className="muted">Reading reports on this device...</p>;
+  if (!ready) return <p className="muted">Reading reports on this device…</p>;
   if (storageError) return null;
   if (!reports.length)
     return (
@@ -81,7 +81,7 @@ export function LocalReports() {
           <li key={op.id} className="space-y-3 py-4">
             <div className="flex items-center justify-between gap-2">
               <StatusBadge status={op.payload.safetyStatus} />
-              <time className="text-[10px] text-muted-foreground" dateTime={op.clientRecordedAt}>
+              <time className="text-xs text-muted-foreground" dateTime={op.clientRecordedAt}>
                 {formatDate(op.clientRecordedAt)}, {formatTime(op.clientRecordedAt)} MYT
               </time>
             </div>
@@ -93,7 +93,7 @@ export function LocalReports() {
         ))}
       </ul>
       {reports.length > 5 && (
-        <p className="mt-2 text-[10px] text-muted-foreground">
+        <p className="mt-2 text-xs text-muted-foreground">
           Showing the latest 5 reports. All {reports.length} remain saved on this device.
         </p>
       )}

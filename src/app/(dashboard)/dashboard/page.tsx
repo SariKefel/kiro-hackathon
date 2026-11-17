@@ -39,19 +39,15 @@ export default function Dashboard() {
           <section className="panel overflow-hidden">
             <div className="p-5 sm:p-6">
               <div className="flex flex-wrap items-center justify-between gap-3">
-                <span className="flex items-center gap-2 text-sm font-medium text-muted-foreground">
-                  <Waves
-                    aria-hidden="true"
-                    className="size-[18px] text-sky-700 dark:text-sky-300"
-                  />
-                  Active incident
-                </span>
-                <span className="flex items-center gap-1.5 rounded-full bg-emerald-50 px-2.5 py-1 text-xs font-medium text-emerald-800 dark:bg-emerald-950 dark:text-emerald-300">
-                  <span className="size-1.5 rounded-full bg-emerald-600" />
-                  Response active
-                </span>
+                <h2 className="text-2xl">{incident.title}</h2>
+                <p
+                  role="status"
+                  className="inline-flex items-center gap-1.5 rounded-pill border border-safe-line bg-safe-soft px-2 py-0.5 text-sm font-medium text-safe"
+                >
+                  <Waves aria-hidden="true" className="size-4" />
+                  Active incident, response active
+                </p>
               </div>
-              <h2 className="mt-4 text-xl font-semibold tracking-tight">{incident.title}</h2>
               <p className="mt-2 max-w-xl text-sm leading-6 text-muted-foreground">
                 Evacuation, rescue support, and welfare checks across flood-affected communities.
               </p>
@@ -71,7 +67,7 @@ export default function Dashboard() {
                 </span>
                 <Link
                   href={`/incidents/${incident.id}`}
-                  className="inline-flex min-h-10 items-center gap-2 text-sm font-semibold text-primary dark:text-teal-300"
+                  className="inline-flex min-h-10 items-center gap-2 text-sm font-semibold text-signal-text"
                 >
                   Incident details
                   <ArrowRight aria-hidden="true" className="size-4" />

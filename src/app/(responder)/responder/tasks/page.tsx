@@ -14,7 +14,7 @@ export default function TasksPage() {
       </div>
       <DemoBanner responder />
       <ConnectionStatus />
-      <p className="text-xs text-muted-foreground">2 sample assignments · Alpha team</p>
+      <p className="text-xs text-muted-foreground">2 sample assignments for Alpha team</p>
       {tasks.map((task) => (
         <article data-tour="responder-tasks" key={task.id} className="panel p-5">
           <div className="mb-4 flex items-center gap-2">
@@ -22,7 +22,7 @@ export default function TasksPage() {
             <span className="text-xs font-medium">
               {task.status === "in_progress" ? "In progress" : "Assigned"}
             </span>
-            <span className="ml-auto rounded bg-secondary px-2 py-1 text-[10px]">
+            <span className="ml-auto rounded bg-secondary px-2 py-1 text-xs">
               {task.priority === "high" ? "High priority" : "Normal priority"}
             </span>
           </div>

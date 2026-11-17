@@ -52,7 +52,7 @@ export function PersonnelDirectory({
           <input
             type="search"
             aria-label="Search personnel by name, team, or role"
-            placeholder="Search name, team, or role..."
+            placeholder="Search name, team, or role…"
             autoComplete="off"
             value={search}
             onChange={(event) => setSearch(event.target.value)}
@@ -93,13 +93,13 @@ export function PersonnelDirectory({
           </Button>
         )}
       </div>
-      <div className="flex flex-wrap items-center justify-between gap-2 border-b bg-secondary/40 px-5 py-3 text-xs text-muted-foreground">
+      <div className="flex flex-wrap items-center justify-between gap-2 border-b px-5 py-3 text-sm text-muted-foreground">
         <span role="status">
           {filtered.length} of {personnel.length} personnel
         </span>
         <span>Klang Valley flood response</span>
       </div>
-      <div className="hidden grid-cols-[1.4fr_.65fr_1fr_1.1fr_.85fr_20px] gap-3 border-b px-5 py-3 text-xs font-medium text-muted-foreground lg:grid">
+      <div className="hidden grid-cols-[1.4fr_.65fr_1fr_1.1fr_.85fr_20px] gap-3 border-b border-b-ink px-5 py-2.5 text-sm font-medium text-ink-2 lg:grid">
         <span>Personnel</span>
         <span>Team</span>
         <span>Assigned role</span>
@@ -110,33 +110,33 @@ export function PersonnelDirectory({
       <div data-tour="personnel-records" className="divide-y">
         {filtered.map((p) => (
           <details className="group" key={p.id}>
-            <summary className="grid cursor-pointer list-none items-center gap-3 px-5 py-4 hover:bg-secondary/40 sm:grid-cols-[1.3fr_1fr_auto] lg:grid-cols-[1.4fr_.65fr_1fr_1.1fr_.85fr_20px] [&::-webkit-details-marker]:hidden">
+            <summary className="grid cursor-pointer list-none items-center gap-3 px-5 py-3.5 transition-colors duration-[var(--dur-micro)] hover:bg-paper-3/60 sm:grid-cols-[1.3fr_1fr_auto] lg:grid-cols-[1.4fr_.65fr_1fr_1.1fr_.85fr_20px] [&::-webkit-details-marker]:hidden">
               <span className="flex items-center gap-3">
                 <span className="flex size-9 shrink-0 items-center justify-center rounded-full bg-secondary text-xs font-semibold text-muted-foreground">
                   {initials(p.name)}
                 </span>
                 <span>
-                  <span className="block text-xs font-semibold">{p.name}</span>
-                  <span className="mt-1 block text-xs text-muted-foreground lg:hidden">
-                    {p.team} team · {p.role}
+                  <span className="block text-sm font-semibold">{p.name}</span>
+                  <span className="mt-0.5 block text-sm text-muted-foreground lg:hidden">
+                    {p.team} team, {p.role}
                   </span>
-                  <span className="mt-1 hidden text-xs text-muted-foreground lg:block">
+                  <span className="mt-0.5 hidden text-xs text-muted-foreground lg:block">
                     Demo responder
                   </span>
                 </span>
               </span>
-              <span className="hidden text-xs text-muted-foreground lg:block">{p.team}</span>
-              <span className="hidden text-xs text-muted-foreground lg:block">{p.role}</span>
+              <span className="hidden text-sm text-ink-2 lg:block">{p.team}</span>
+              <span className="hidden text-sm text-ink-2 lg:block">{p.role}</span>
               <span>
                 <StatusBadge status={p.status} />
               </span>
-              <span className="flex items-center gap-2 text-xs text-muted-foreground">
+              <span className="figure-mono flex items-center gap-2 text-sm text-ink-2">
                 {p.lastCheckIn ? `${formatTime(p.lastCheckIn)} MYT` : "No check-in"}
                 <ChevronDown className="ml-auto size-3.5 transition-transform group-open:rotate-180 lg:hidden" />
               </span>
               <ChevronDown className="hidden size-3.5 text-muted-foreground transition-transform group-open:rotate-180 lg:block" />
             </summary>
-            <div className="mx-5 mb-5 rounded-lg border bg-secondary/30 p-4 text-xs leading-6">
+            <div className="mx-5 mb-4 border-t border-rule pt-3 text-sm leading-6 lg:ml-[4.25rem]">
               <p className="font-medium">Latest report</p>
               <p className="text-muted-foreground">
                 {p.status === "unknown"
@@ -184,7 +184,7 @@ export function PersonnelDirectory({
           </Button>
         </div>
       )}
-      <p className="border-t px-5 py-3 text-xs leading-5 text-muted-foreground">
+      <p className="border-t px-5 py-3 text-sm leading-6 text-muted-foreground">
         Select a person to review their latest report. Unknown means missing or outdated
         confirmation, not a submitted status.
       </p>

@@ -15,7 +15,7 @@ export default function Loading() {
         ))}
       </div>
       <Skeleton className="h-72" />
-      <span className="sr-only">Loading RescueSync...</span>
+      <span className="sr-only">Loading RescueSync…</span>
     </div>
   );
 }

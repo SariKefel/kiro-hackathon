@@ -1,4 +1,4 @@
-const CACHE = "rescuesync-shell-v2";
+const CACHE = "rescuesync-shell-v3";
 const SHELL = ["/offline.html", "/offline.css", "/offline.js", "/icon-192.png", "/icon-512.png", "/icon-maskable.png"];
 
 self.addEventListener("install", (event) => {

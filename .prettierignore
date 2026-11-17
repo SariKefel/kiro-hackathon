@@ -4,3 +4,6 @@ bun.lock
 src/db/migrations
 next-env.d.ts
 public/sw.js
+
+# Hallmark design-run artefacts (screenshots, lint records)
+.hallmark/

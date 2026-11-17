@@ -15,8 +15,8 @@ export default function ResponderHome() {
     <>
       <div className="flex items-start justify-between gap-3">
         <div>
-          <p className="mb-1 text-xs text-muted-foreground">Alpha team · Field responder</p>
           <h1 className="page-title">Hello, Amir.</h1>
+          <p className="mt-1 text-sm font-medium text-ink-2">Field responder, Alpha team</p>
           <p className="mt-2 text-sm text-muted-foreground">
             Review your assignment or save a safety check-in.
           </p>
@@ -46,7 +46,7 @@ export default function ResponderHome() {
         <div className="p-5">
           <div className="flex items-center justify-between gap-3">
             <span className="flex items-center gap-2 text-xs font-medium">
-              <ShieldCheck className="size-4 text-emerald-700 dark:text-emerald-300" />
+              <ShieldCheck className="size-4 text-safe" />
               Last confirmed status
             </span>
             <StatusBadge status="safe" />
@@ -70,7 +70,7 @@ export default function ResponderHome() {
             <ClipboardList className="size-4 text-muted-foreground" />
             Current assignment
           </h2>
-          <span className="rounded bg-amber-50 px-2 py-1 text-xs font-medium text-amber-800 dark:bg-amber-950 dark:text-amber-300">
+          <span className="rounded bg-caution-soft px-2 py-1 text-xs font-medium text-caution">
             High priority
           </span>
         </div>
@@ -78,7 +78,7 @@ export default function ResponderHome() {
         <p className="mt-2 text-xs leading-6 text-muted-foreground">{tasks[0].description}</p>
         <Link
           href="/responder/tasks"
-          className="mt-4 inline-flex min-h-10 items-center gap-2 text-xs font-semibold text-primary dark:text-teal-300"
+          className="mt-4 inline-flex min-h-10 items-center gap-2 text-xs font-semibold text-signal-text"
         >
           View my 2 tasks
           <ArrowRight className="size-3.5" />

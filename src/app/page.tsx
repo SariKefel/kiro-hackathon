@@ -66,7 +66,7 @@ export default function EntryPage() {
                     href={href}
                     className="group flex items-start gap-3 p-4 transition-colors hover:bg-secondary/60 focus-visible:relative focus-visible:z-10 sm:gap-4 sm:p-5"
                   >
-                    <span className="flex size-10 shrink-0 items-center justify-center rounded-lg bg-secondary text-primary dark:text-teal-300">
+                    <span className="flex size-10 shrink-0 items-center justify-center rounded-lg bg-secondary text-signal-text">
                       <Icon aria-hidden="true" className="size-5" />
                     </span>
                     <span className="min-w-0 flex-1">
@@ -78,7 +78,7 @@ export default function EntryPage() {
                     </span>
                     <ArrowRight
                       aria-hidden="true"
-                      className="mt-3 size-4 shrink-0 text-muted-foreground group-hover:text-primary dark:group-hover:text-teal-300"
+                      className="mt-3 size-4 shrink-0 text-muted-foreground group-hover:text-primary dark:group-hover:text-signal-text"
                     />
                   </Link>
                 ))}
@@ -91,8 +91,8 @@ export default function EntryPage() {
           >
             <div className="flex flex-wrap items-center justify-between gap-3 border-b px-5 py-4">
               <span className="flex items-center gap-2 text-sm font-medium">
-                <RadioTower aria-hidden="true" className="size-4 text-primary dark:text-teal-300" />
-                A shared view of the response
+                <RadioTower aria-hidden="true" className="size-4 text-signal-text" />A shared view
+                of the response
               </span>
               <span className="text-xs text-muted-foreground">Sample incident</span>
             </div>
@@ -110,9 +110,7 @@ export default function EntryPage() {
                 </div>
                 <div className="px-4">
                   <dt className="text-xs text-muted-foreground">Confirmed safe</dt>
-                  <dd className="mt-1 text-2xl font-semibold tabular-nums text-emerald-700 dark:text-emerald-300">
-                    6
-                  </dd>
+                  <dd className="mt-1 text-2xl font-semibold tabular-nums text-safe">6</dd>
                 </div>
                 <div className="pl-4">
                   <dt className="text-xs text-muted-foreground">Response teams</dt>
@@ -128,10 +126,7 @@ export default function EntryPage() {
         </div>
         <div className="mt-10 grid gap-6 border-t pt-7 sm:grid-cols-2 lg:mt-12">
           <div className="flex items-start gap-3">
-            <CloudOff
-              aria-hidden="true"
-              className="mt-0.5 size-5 shrink-0 text-primary dark:text-teal-300"
-            />
+            <CloudOff aria-hidden="true" className="mt-0.5 size-5 shrink-0 text-signal-text" />
             <div>
               <h2 className="text-sm font-semibold">Keep checking in offline</h2>
               <p className="mt-1 max-w-md text-sm leading-6 text-muted-foreground">
@@ -140,10 +135,7 @@ export default function EntryPage() {
             </div>
           </div>
           <div className="flex items-start gap-3">
-            <ShieldCheck
-              aria-hidden="true"
-              className="mt-0.5 size-5 shrink-0 text-primary dark:text-teal-300"
-            />
+            <ShieldCheck aria-hidden="true" className="mt-0.5 size-5 shrink-0 text-signal-text" />
             <div>
               <h2 className="text-sm font-semibold">See what is saved locally</h2>
               <p className="mt-1 max-w-md text-sm leading-6 text-muted-foreground">

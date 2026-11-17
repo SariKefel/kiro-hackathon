@@ -33,9 +33,7 @@ export default async function IncidentPage({
           <div className="mb-2 flex items-center gap-2 text-xs text-muted-foreground">
             <Waves className="size-4" />
             Flood response
-            <span className="rounded bg-emerald-50 px-2 py-1 text-emerald-800 dark:bg-emerald-950 dark:text-emerald-300">
-              Active
-            </span>
+            <span className="rounded bg-safe-soft px-2 py-1 text-safe">Active</span>
           </div>
           <h1 className="page-title">{incident.title}</h1>
           <div className="mt-3 flex flex-wrap gap-4 text-xs text-muted-foreground">

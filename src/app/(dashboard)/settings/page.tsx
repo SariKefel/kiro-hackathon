@@ -16,17 +16,17 @@ export default function SettingsPage() {
       <DemoBanner />
       <section className="panel flex flex-wrap items-center gap-5 p-6">
         <span className="flex size-12 items-center justify-center rounded-xl bg-secondary">
-          <ShieldCheck className="size-6 text-primary dark:text-teal-300" />
+          <ShieldCheck className="size-6 text-signal-text" />
         </span>
         <div className="flex-1">
           <h2 className="section-heading">{organization.name}</h2>
           <p className="mt-1 text-xs text-muted-foreground">
-            {commander.name} · Demo incident commander
+            {commander.name}, demo incident commander
           </p>
         </div>
         <Link
           href="/login"
-          className="inline-flex min-h-10 items-center gap-2 text-xs font-medium text-primary dark:text-teal-300"
+          className="inline-flex min-h-10 items-center gap-2 text-xs font-medium text-signal-text"
         >
           Switch demo identity
           <ArrowUpRight className="size-3.5" />
@@ -47,7 +47,7 @@ export default function SettingsPage() {
         </p>
         <Link
           href="/responder"
-          className="mt-5 inline-flex min-h-10 items-center gap-2 text-xs font-medium text-primary dark:text-teal-300"
+          className="mt-5 inline-flex min-h-10 items-center gap-2 text-xs font-medium text-signal-text"
         >
           Explore the field responder view
           <ArrowUpRight className="size-3.5" />

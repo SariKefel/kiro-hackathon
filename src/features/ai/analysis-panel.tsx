@@ -14,15 +14,15 @@ type State =
 const priorityStyle: Record<PriorityLevel, { label: string; className: string }> = {
   critical: {
     label: "Critical",
-    className: "bg-red-100 text-red-900 dark:bg-red-950 dark:text-red-200",
+    className: "bg-help-soft text-help",
   },
   high: {
     label: "High",
-    className: "bg-orange-100 text-orange-900 dark:bg-orange-950 dark:text-orange-200",
+    className: "bg-caution-soft text-caution",
   },
   medium: {
     label: "Medium",
-    className: "bg-amber-100 text-amber-900 dark:bg-amber-950 dark:text-amber-200",
+    className: "bg-caution-soft text-caution",
   },
   low: { label: "Low", className: "bg-secondary text-secondary-foreground" },
 };
@@ -35,13 +35,13 @@ const statusLabel = {
 function ReportRefs({ ids }: { ids: string[] }) {
   if (!ids.length) return null;
   return (
-    <span className="mt-1.5 flex flex-wrap items-center gap-1.5 text-[10px] text-muted-foreground">
+    <span className="mt-1.5 flex flex-wrap items-center gap-1.5 text-xs text-muted-foreground">
       Source reports:
       {ids.map((id) => (
         <a
           key={id}
           href={`#ai-report-${id}`}
-          className="rounded bg-secondary px-1.5 py-0.5 font-mono text-primary underline-offset-2 hover:underline dark:text-teal-300"
+          className="rounded bg-secondary px-1.5 py-0.5 font-mono text-primary underline-offset-2 hover:underline"
         >
           {id}
         </a>
@@ -102,28 +102,28 @@ export function AiAnalysisPanel({ incidentId }: { incidentId: string }) {
             <Sparkles className="size-4" />
             AI situation analysis
           </h2>
-          <p className="mt-1 max-w-xl text-xs leading-6 text-muted-foreground">
+          <p className="mt-1 max-w-xl text-sm leading-6 text-muted-foreground">
             Summarizes the incident reports and suggests where to look first. It only advises. You
             decide, and nothing is dispatched or changed.
           </p>
         </div>
         <Button onClick={generate} disabled={loading} className="min-h-11">
           {loading ? <LoaderCircle className="size-4 animate-spin" /> : <Sparkles />}
-          {loading ? "Analyzing..." : "Generate AI Analysis"}
+          {loading ? "Analyzing…" : "Generate AI Analysis"}
         </Button>
       </div>
-      <p className="mt-3 rounded-md bg-amber-50 px-3 py-2 text-[11px] leading-5 text-amber-950 dark:bg-amber-950/40 dark:text-amber-200">
+      <p className="mt-3 rounded-md bg-caution-soft px-3 py-2 text-sm leading-5 text-caution">
         AI-generated analysis of fictional demonstration data. It is not verified live incident
         information.
       </p>
       <div role="status" aria-live="polite" aria-busy={loading} className="mt-4">
         {loading && (
-          <p className="text-xs text-muted-foreground">
+          <p className="text-sm text-muted-foreground">
             Reading the reports. This takes a few seconds.
           </p>
         )}
         {state.status === "idle" && (
-          <p className="text-xs text-muted-foreground">
+          <p className="text-sm text-muted-foreground">
             Select Generate AI Analysis to analyze the sample reports.
           </p>
         )}
@@ -131,7 +131,7 @@ export function AiAnalysisPanel({ incidentId }: { incidentId: string }) {
       {state.status === "error" && (
         <p
           role="alert"
-          className="mt-4 rounded-lg border border-red-200 bg-red-50 p-4 text-sm leading-6 text-red-800 dark:border-red-900 dark:bg-red-950 dark:text-red-200"
+          className="mt-4 rounded-lg border border-help-line bg-help-soft p-4 text-sm leading-6 text-help"
         >
           {state.message}
         </p>
@@ -144,18 +144,18 @@ export function AiAnalysisPanel({ incidentId }: { incidentId: string }) {
 function AnalysisResultView({ result }: { result: AnalysisResult }) {
   return (
     <div className="mt-2 space-y-6">
-      <p className="text-[11px] leading-5 text-muted-foreground">
+      <p className="text-sm leading-5 text-muted-foreground">
         {result.reportsAnalyzed} {result.reportsAnalyzed === 1 ? "report" : "reports"} analyzed
-        {result.demo ? " (sample data)" : ""} · Generated {formatDate(result.generatedAt)},{" "}
-        {formatTime(result.generatedAt)} MYT{result.cached ? " · Reused recent analysis" : ""}
+        {result.demo ? " (sample data)" : ""}, generated {formatDate(result.generatedAt)},{" "}
+        {formatTime(result.generatedAt)} MYT.{result.cached ? " Reused a recent analysis." : ""}
       </p>
       <div>
-        <h3 className="text-xs font-semibold">Situation summary</h3>
+        <h3 className="font-display text-base font-semibold">Situation summary</h3>
         <p className="mt-2 text-sm leading-7">{result.summary}</p>
       </div>
       {result.priorities.length > 0 && (
         <div>
-          <h3 className="flex items-center gap-2 text-xs font-semibold">
+          <h3 className="flex items-center gap-2 font-display text-base font-semibold">
             <ShieldAlert className="size-4" />
             Suggested attention order
           </h3>
@@ -165,21 +165,19 @@ function AnalysisResultView({ result }: { result: AnalysisResult }) {
               return (
                 <li key={index} className="rounded-lg border p-4">
                   <div className="flex flex-wrap items-center gap-2">
-                    <span
-                      className={`rounded px-2 py-1 text-[11px] font-semibold ${style.className}`}
-                    >
+                    <span className={`rounded px-2 py-1 text-xs font-semibold ${style.className}`}>
                       {style.label} priority
                     </span>
                     {item.uncertain && (
-                      <span className="flex items-center gap-1 rounded border border-amber-600 px-2 py-1 text-[11px] font-medium text-amber-900 dark:text-amber-200">
+                      <span className="flex items-center gap-1 rounded border border-caution px-2 py-1 text-xs font-medium text-caution">
                         <AlertTriangle className="size-3" />
                         Uncertain
                       </span>
                     )}
                     <h4 className="text-sm font-semibold">{item.title}</h4>
                   </div>
-                  <p className="mt-2 text-xs leading-6">{item.reason}</p>
-                  <p className="mt-2 text-xs leading-6">
+                  <p className="mt-2 text-sm leading-6">{item.reason}</p>
+                  <p className="mt-2 text-sm leading-6">
                     <span className="font-semibold">Suggested next step for you to consider: </span>
                     {item.suggestedAction}
                   </p>
@@ -192,8 +190,8 @@ function AnalysisResultView({ result }: { result: AnalysisResult }) {
       )}
       {result.keyObservations.length > 0 && (
         <div>
-          <h3 className="text-xs font-semibold">Key observations</h3>
-          <ul className="mt-2 list-disc space-y-2 pl-5 text-xs leading-6">
+          <h3 className="font-display text-base font-semibold">Key observations</h3>
+          <ul className="mt-2 list-disc space-y-2 pl-5 text-sm leading-6">
             {result.keyObservations.map((item, index) => (
               <li key={index}>
                 {item.text}
@@ -205,11 +203,11 @@ function AnalysisResultView({ result }: { result: AnalysisResult }) {
       )}
       {result.uncertainties.length > 0 && (
         <div>
-          <h3 className="flex items-center gap-2 text-xs font-semibold">
+          <h3 className="flex items-center gap-2 font-display text-base font-semibold">
             <OctagonAlert className="size-4" />
             Uncertainties and conflicts
           </h3>
-          <ul className="mt-2 list-disc space-y-2 pl-5 text-xs leading-6">
+          <ul className="mt-2 list-disc space-y-2 pl-5 text-sm leading-6">
             {result.uncertainties.map((item, index) => (
               <li key={index}>
                 {item.text}
@@ -220,16 +218,16 @@ function AnalysisResultView({ result }: { result: AnalysisResult }) {
         </div>
       )}
       <div>
-        <h3 className="text-xs font-semibold">Original reports analyzed</h3>
+        <h3 className="font-display text-base font-semibold">Original reports analyzed</h3>
         <ul className="mt-2 divide-y rounded-lg border">
           {result.reports.map((report) => (
-            <li key={report.id} id={`ai-report-${report.id}`} className="scroll-mt-24 p-3 text-xs">
+            <li key={report.id} id={`ai-report-${report.id}`} className="scroll-mt-24 p-3 text-sm">
               <div className="flex flex-wrap items-center gap-x-3 gap-y-1">
-                <span className="font-mono text-[10px] text-muted-foreground">{report.id}</span>
+                <span className="figure-mono text-xs text-muted-foreground">{report.id}</span>
                 <span className="font-semibold">{statusLabel[report.status]}</span>
                 <span className="text-muted-foreground">{report.team} team</span>
                 <time
-                  className="ml-auto text-[10px] text-muted-foreground"
+                  className="ml-auto text-xs text-muted-foreground"
                   dateTime={report.recordedAt}
                 >
                   {formatTime(report.recordedAt)} MYT
@@ -240,7 +238,7 @@ function AnalysisResultView({ result }: { result: AnalysisResult }) {
           ))}
         </ul>
       </div>
-      <p className="text-[10px] leading-5 text-muted-foreground">
+      <p className="text-sm leading-5 text-muted-foreground">
         Generated by {result.model}. AI can make mistakes and the reports are unverified. Check the
         original reports before acting.
       </p>
