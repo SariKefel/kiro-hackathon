@@ -14,26 +14,26 @@ export default function SettingsPage() {
         <p className="mt-2 muted">Your workspace, appearance, and device status.</p>
       </div>
       <DemoBanner />
-      <section className="panel flex flex-wrap items-center gap-5 p-6">
-        <span className="flex size-12 items-center justify-center rounded-xl bg-secondary">
+      <section className="ruled flex flex-wrap items-center gap-5 pt-5">
+        <span className="flex size-12 items-center justify-center rounded-lg bg-paper-3">
           <ShieldCheck className="size-6 text-signal-text" />
         </span>
         <div className="flex-1">
           <h2 className="section-heading">{organization.name}</h2>
-          <p className="mt-1 text-xs text-muted-foreground">
+          <p className="mt-1 text-sm text-muted-foreground">
             {commander.name}, demo incident commander
           </p>
         </div>
         <Link
           href="/login"
-          className="inline-flex min-h-10 items-center gap-2 text-xs font-medium text-signal-text"
+          className="inline-flex min-h-11 items-center gap-2 text-sm font-medium text-signal-text hover:underline"
         >
           Switch demo identity
           <ArrowUpRight className="size-3.5" />
         </Link>
       </section>
       <DeviceSettings />
-      <section id="about" data-tour="about" className="panel p-6">
+      <section id="about" data-tour="about" className="ruled pt-5">
         <h2 className="section-heading">About this foundation</h2>
         <p className="mt-3 text-sm leading-7 text-muted-foreground">
           RescueSync brings personnel accountability into one shared response workspace. This Phase
@@ -47,7 +47,7 @@ export default function SettingsPage() {
         </p>
         <Link
           href="/responder"
-          className="mt-5 inline-flex min-h-10 items-center gap-2 text-xs font-medium text-signal-text"
+          className="mt-5 inline-flex min-h-11 items-center gap-2 text-sm font-medium text-signal-text hover:underline"
         >
           Explore the field responder view
           <ArrowUpRight className="size-3.5" />

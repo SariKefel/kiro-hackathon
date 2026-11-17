@@ -168,7 +168,7 @@ export function DisasterExplorer() {
   );
 
   return (
-    <section className="disaster-explorer flex h-[calc(100dvh-140px)] flex-col md:h-[calc(100dvh-76px)]">
+    <section className="disaster-explorer flex h-[calc(100dvh-136px)] flex-col md:h-[calc(100dvh-72px)]">
       <div data-tour="hazard-intro" className="shrink-0 border-b px-5 py-3 md:px-7 md:py-5">
         <div className="flex flex-wrap items-start justify-between gap-4">
           <div>
@@ -324,7 +324,7 @@ export function DisasterExplorer() {
         </fieldset>
       </div>
 
-      <div className="relative min-h-0 flex-1 md:grid md:grid-cols-[minmax(0,1fr)_360px]">
+      <div className="relative min-h-0 flex-1 md:grid md:grid-cols-[minmax(0,1fr)_360px] md:grid-rows-[minmax(0,1fr)]">
         <div
           data-tour="hazard-map"
           className={cn("relative min-w-0 md:!h-full", mobile && sheetOpen ? "h-[40%]" : "h-full")}

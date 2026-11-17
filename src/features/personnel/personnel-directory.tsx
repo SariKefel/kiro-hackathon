@@ -41,6 +41,21 @@ export function PersonnelDirectory({
     setStatus("all");
   }
   const hasFilters = search || team !== "all" || status !== "all";
+  // People who need follow-up come first; confirmed-safe people follow. Filters still apply.
+  const groups = [
+    {
+      key: "follow-up",
+      title: "Needs follow-up",
+      rule: "border-b-help-fill",
+      items: filtered.filter((p) => p.status !== "safe"),
+    },
+    {
+      key: "safe",
+      title: "Confirmed safe",
+      rule: "border-b-safe-fill",
+      items: filtered.filter((p) => p.status === "safe"),
+    },
+  ];
   return (
     <section className="panel overflow-hidden">
       <div
@@ -107,72 +122,91 @@ export function PersonnelDirectory({
         <span>Last confirmation</span>
         <span className="sr-only">Details</span>
       </div>
-      <div data-tour="personnel-records" className="divide-y">
-        {filtered.map((p) => (
-          <details className="group" key={p.id}>
-            <summary className="grid cursor-pointer list-none items-center gap-3 px-5 py-3.5 transition-colors duration-[var(--dur-micro)] hover:bg-paper-3/60 sm:grid-cols-[1.3fr_1fr_auto] lg:grid-cols-[1.4fr_.65fr_1fr_1.1fr_.85fr_20px] [&::-webkit-details-marker]:hidden">
-              <span className="flex items-center gap-3">
-                <span className="flex size-9 shrink-0 items-center justify-center rounded-full bg-secondary text-xs font-semibold text-muted-foreground">
-                  {initials(p.name)}
-                </span>
-                <span>
-                  <span className="block text-sm font-semibold">{p.name}</span>
-                  <span className="mt-0.5 block text-sm text-muted-foreground lg:hidden">
-                    {p.team} team, {p.role}
+      <div data-tour="personnel-records">
+        {groups.map(
+          (group) =>
+            group.items.length > 0 && (
+              <div key={group.key} role="group" aria-labelledby={`group-${group.key}`}>
+                <h2
+                  id={`group-${group.key}`}
+                  className={`flex items-baseline gap-2 border-b px-5 pt-5 pb-2 font-display text-base font-semibold ${group.rule}`}
+                >
+                  {group.title}
+                  <span className="figure-mono text-sm font-normal text-ink-3">
+                    {group.items.length}
                   </span>
-                  <span className="mt-0.5 hidden text-xs text-muted-foreground lg:block">
-                    Demo responder
-                  </span>
-                </span>
-              </span>
-              <span className="hidden text-sm text-ink-2 lg:block">{p.team}</span>
-              <span className="hidden text-sm text-ink-2 lg:block">{p.role}</span>
-              <span>
-                <StatusBadge status={p.status} />
-              </span>
-              <span className="figure-mono flex items-center gap-2 text-sm text-ink-2">
-                {p.lastCheckIn ? `${formatTime(p.lastCheckIn)} MYT` : "No check-in"}
-                <ChevronDown className="ml-auto size-3.5 transition-transform group-open:rotate-180 lg:hidden" />
-              </span>
-              <ChevronDown className="hidden size-3.5 text-muted-foreground transition-transform group-open:rotate-180 lg:block" />
-            </summary>
-            <div className="mx-5 mb-4 border-t border-rule pt-3 text-sm leading-6 lg:ml-[4.25rem]">
-              <p className="font-medium">Latest report</p>
-              <p className="text-muted-foreground">
-                {p.status === "unknown"
-                  ? p.lastCheckIn
-                    ? "Previous confirmation is outdated. A new safety check-in is needed."
-                    : "No safety report received for this incident."
-                  : (p.message ?? "No additional message provided.")}
-              </p>
-              <dl className="mt-3 grid gap-x-8 gap-y-2 sm:grid-cols-2">
-                <div>
-                  <dt className="text-muted-foreground">Incident</dt>
-                  <dd>{incident.title}</dd>
+                </h2>
+                <div className="divide-y">
+                  {group.items.map((p) => (
+                    <details className="group" key={p.id}>
+                      <summary className="grid cursor-pointer list-none items-center gap-3 px-5 py-3.5 transition-colors duration-[var(--dur-micro)] hover:bg-paper-3/60 sm:grid-cols-[1.3fr_1fr_auto] lg:grid-cols-[1.4fr_.65fr_1fr_1.1fr_.85fr_20px] [&::-webkit-details-marker]:hidden">
+                        <span className="flex items-center gap-3">
+                          <span className="flex size-9 shrink-0 items-center justify-center rounded-full bg-secondary text-xs font-semibold text-muted-foreground">
+                            {initials(p.name)}
+                          </span>
+                          <span>
+                            <span className="block text-sm font-semibold">{p.name}</span>
+                            <span className="mt-0.5 block text-sm text-muted-foreground lg:hidden">
+                              {p.team} team, {p.role}
+                            </span>
+                            <span className="mt-0.5 hidden text-xs text-muted-foreground lg:block">
+                              Demo responder
+                            </span>
+                          </span>
+                        </span>
+                        <span className="hidden text-sm text-ink-2 lg:block">{p.team}</span>
+                        <span className="hidden text-sm text-ink-2 lg:block">{p.role}</span>
+                        <span>
+                          <StatusBadge status={p.status} />
+                        </span>
+                        <span className="figure-mono flex items-center gap-2 text-sm text-ink-2">
+                          {p.lastCheckIn ? `${formatTime(p.lastCheckIn)} MYT` : "No check-in"}
+                          <ChevronDown className="ml-auto size-3.5 transition-transform group-open:rotate-180 lg:hidden" />
+                        </span>
+                        <ChevronDown className="hidden size-3.5 text-muted-foreground transition-transform group-open:rotate-180 lg:block" />
+                      </summary>
+                      <div className="mx-5 mb-4 border-t border-rule pt-3 text-sm leading-6 lg:ml-[4.25rem]">
+                        <p className="font-medium">Latest report</p>
+                        <p className="text-muted-foreground">
+                          {p.status === "unknown"
+                            ? p.lastCheckIn
+                              ? "Previous confirmation is outdated. A new safety check-in is needed."
+                              : "No safety report received for this incident."
+                            : (p.message ?? "No additional message provided.")}
+                        </p>
+                        <dl className="mt-3 grid gap-x-8 gap-y-2 sm:grid-cols-2">
+                          <div>
+                            <dt className="text-muted-foreground">Incident</dt>
+                            <dd>{incident.title}</dd>
+                          </div>
+                          <div>
+                            <dt className="text-muted-foreground">Last confirmed check-in</dt>
+                            <dd>
+                              {p.lastCheckIn
+                                ? `${formatDate(p.lastCheckIn)}, ${formatTime(p.lastCheckIn)} MYT (sample)`
+                                : "Never confirmed"}
+                            </dd>
+                          </div>
+                          <div>
+                            <dt className="text-muted-foreground">Demo contact</dt>
+                            <dd>{p.email}</dd>
+                          </div>
+                          <div>
+                            <dt className="text-muted-foreground">Demo response assignment</dt>
+                            <dd>
+                              {responseLocations.find(
+                                (place) => place.id === locationAssignments[p.id],
+                              )?.name ?? "Unassigned"}
+                            </dd>
+                          </div>
+                        </dl>
+                      </div>
+                    </details>
+                  ))}
                 </div>
-                <div>
-                  <dt className="text-muted-foreground">Last confirmed check-in</dt>
-                  <dd>
-                    {p.lastCheckIn
-                      ? `${formatDate(p.lastCheckIn)}, ${formatTime(p.lastCheckIn)} MYT (sample)`
-                      : "Never confirmed"}
-                  </dd>
-                </div>
-                <div>
-                  <dt className="text-muted-foreground">Demo contact</dt>
-                  <dd>{p.email}</dd>
-                </div>
-                <div>
-                  <dt className="text-muted-foreground">Demo response assignment</dt>
-                  <dd>
-                    {responseLocations.find((place) => place.id === locationAssignments[p.id])
-                      ?.name ?? "Unassigned"}
-                  </dd>
-                </div>
-              </dl>
-            </div>
-          </details>
-        ))}
+              </div>
+            ),
+        )}
       </div>
       {filtered.length === 0 && (
         <div className="px-5 py-16 text-center">

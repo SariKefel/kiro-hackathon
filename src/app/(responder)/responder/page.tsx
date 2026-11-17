@@ -30,58 +30,79 @@ export default function ResponderHome() {
         </span>
       </div>
       <DemoBanner responder />
-      <div className="rounded-lg border bg-card px-4 py-2">
+      <div className="border-b border-rule pb-2">
         <ConnectionStatus detailed />
       </div>
       <ActiveDispatch />
-      <section data-tour="responder-safety" className="panel overflow-hidden">
-        <div className="border-b px-5 py-4">
-          <p className="text-xs font-medium text-muted-foreground">Your active incident</p>
-          <h2 className="mt-1.5 text-base font-semibold tracking-tight">{incident.title}</h2>
-          <p className="mt-2 flex items-center gap-1.5 text-xs text-muted-foreground">
-            <MapPin className="size-3.5" />
-            {incident.location}
-          </p>
-        </div>
-        <div className="p-5">
-          <div className="flex items-center justify-between gap-3">
-            <span className="flex items-center gap-2 text-xs font-medium">
-              <ShieldCheck className="size-4 text-safe" />
+      {/* The waterproof notebook entry: an ink head with the last confirmed time, then cells. */}
+      <section
+        data-tour="responder-safety"
+        aria-labelledby="last-confirmed"
+        className="overflow-hidden rounded-2xl bg-card shadow-[0_0_0_1px_var(--color-ink),var(--shadow-lift)]"
+      >
+        <div className="flex items-end justify-between gap-3 bg-chrome px-5 py-4 text-chrome-ink">
+          <div>
+            <h2 id="last-confirmed" className="flex items-center gap-2 text-sm font-medium">
+              <ShieldCheck aria-hidden="true" className="size-4 text-chrome-signal" />
               Last confirmed status
-            </span>
-            <StatusBadge status="safe" />
+            </h2>
+            <p className="figure-mono mt-1 text-4xl leading-none">08:37</p>
           </div>
-          <p className="mt-3 text-xs leading-6 text-muted-foreground">
-            Sample server check-in: 15 Nov 2026, 08:37 MYT.
-            <br />A new local report does not change this confirmation.
-          </p>
-          <Button asChild className="mt-5 h-14 w-full text-base">
+          <span className="text-sm text-chrome-muted">15 Nov 2026, MYT</span>
+        </div>
+        <dl className="grid grid-cols-2 divide-x divide-ink border-b border-ink text-sm">
+          <div className="px-5 py-3">
+            <dt className="text-ink-3">Status</dt>
+            <dd className="mt-1">
+              <StatusBadge status="safe" />
+            </dd>
+          </div>
+          <div className="px-5 py-3">
+            <dt className="text-ink-3">Source</dt>
+            <dd className="mt-1 font-medium">Sample server check-in</dd>
+          </div>
+          <div className="col-span-2 border-t border-ink px-5 py-3">
+            <dt className="text-ink-3">Your active incident</dt>
+            <dd className="mt-1">
+              <h3 className="text-base">{incident.title}</h3>
+            </dd>
+            <dd className="mt-1 flex items-center gap-1.5 text-ink-2">
+              <MapPin aria-hidden="true" className="size-3.5" />
+              {incident.location}
+            </dd>
+          </div>
+        </dl>
+        <div className="p-4">
+          <Button asChild className="h-14 w-full text-base">
             <Link href="/responder/check-in">
-              <Radio className="size-5" />
+              <Radio aria-hidden="true" className="size-5" />
               Report my safety
-              <ArrowRight className="ml-auto size-4" />
+              <ArrowRight aria-hidden="true" className="ml-auto size-4" />
             </Link>
           </Button>
+          <p className="mt-3 text-sm leading-6 text-muted-foreground">
+            A new local report does not change this confirmation.
+          </p>
         </div>
       </section>
-      <section data-tour="responder-assignment" className="panel p-5">
-        <div className="mb-4 flex items-center justify-between">
-          <h2 className="flex items-center gap-2 section-heading">
-            <ClipboardList className="size-4 text-muted-foreground" />
+      <section data-tour="responder-assignment" aria-labelledby="assignment" className="ruled pt-4">
+        <div className="flex flex-wrap items-center justify-between gap-2">
+          <h2 id="assignment" className="flex items-center gap-2 section-heading">
+            <ClipboardList aria-hidden="true" className="size-4 text-muted-foreground" />
             Current assignment
           </h2>
-          <span className="rounded bg-caution-soft px-2 py-1 text-xs font-medium text-caution">
+          <span className="rounded-pill border border-caution-line bg-caution-soft px-2 py-0.5 text-sm font-medium text-caution">
             High priority
           </span>
         </div>
-        <h3 className="text-sm font-semibold">{tasks[0].title}</h3>
-        <p className="mt-2 text-xs leading-6 text-muted-foreground">{tasks[0].description}</p>
+        <h3 className="mt-3 text-lg">{tasks[0].title}</h3>
+        <p className="mt-1.5 text-base leading-7 text-ink-2">{tasks[0].description}</p>
         <Link
           href="/responder/tasks"
-          className="mt-4 inline-flex min-h-10 items-center gap-2 text-xs font-semibold text-signal-text"
+          className="mt-2 inline-flex min-h-11 items-center gap-2 text-sm font-semibold text-signal-text hover:underline"
         >
           View my 2 tasks
-          <ArrowRight className="size-3.5" />
+          <ArrowRight aria-hidden="true" className="size-3.5" />
         </Link>
       </section>
       <LocalReports />
