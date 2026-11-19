@@ -10,7 +10,7 @@ export default function ErrorPage({
 }) {
   return (
     <main id="main" className="mx-auto max-w-md px-6 py-24">
-      <TriangleAlert className="mb-5 size-9 text-amber-700 dark:text-amber-300" />
+      <TriangleAlert className="mb-5 size-9 text-caution" />
       <h1 className="text-2xl font-semibold tracking-tight">This view could not load</h1>
       <p className="my-5 text-sm leading-7 text-muted-foreground">
         Retry this view. If you are offline, keep any open check-in form available. Reports already

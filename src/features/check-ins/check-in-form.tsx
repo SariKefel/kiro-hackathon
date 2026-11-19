@@ -29,24 +29,24 @@ const options = [
     title: "I'm safe",
     description: "I am safe and able to continue.",
     icon: Check,
-    color: "text-emerald-700 dark:text-emerald-300",
-    selected: "border-emerald-600 bg-emerald-50/70 dark:bg-emerald-950/30",
+    color: "text-safe",
+    selected: "border-safe bg-safe-soft",
   },
   {
     value: "needs_help",
     title: "I need help",
     description: "I need assistance from my team.",
     icon: Hand,
-    color: "text-red-700 dark:text-red-300",
-    selected: "border-red-600 bg-red-50/70 dark:bg-red-950/30",
+    color: "text-help",
+    selected: "border-help bg-help-soft",
   },
   {
     value: "unable_to_continue",
     title: "Unable to continue",
     description: "I cannot continue my assignment.",
     icon: TriangleAlert,
-    color: "text-orange-800 dark:text-orange-300",
-    selected: "border-orange-600 bg-orange-50/70 dark:bg-orange-950/30",
+    color: "text-caution",
+    selected: "border-caution bg-caution-soft",
   },
 ] as const;
 
@@ -139,7 +139,7 @@ export function CheckInForm() {
   if (savedId)
     return (
       <section data-tour="check-in-result" className="panel p-6">
-        <span className="mb-5 flex size-12 items-center justify-center rounded-full bg-secondary text-primary dark:text-teal-300">
+        <span className="mb-5 flex size-12 items-center justify-center rounded-full bg-secondary text-signal-text">
           <ShieldCheck className="size-6" />
         </span>
         <h2 className="mb-4 text-xl font-semibold tracking-tight">Check-in saved on this device</h2>
@@ -217,7 +217,7 @@ export function CheckInForm() {
                 value={value}
                 checked={status === value}
                 onChange={() => setStatus(value)}
-                className="size-5 shrink-0 accent-teal-700"
+                className="size-5 shrink-0 accent-signal"
               />
             </label>
           ))}
@@ -247,10 +247,7 @@ export function CheckInForm() {
             />
             <p className="mt-1 text-right text-xs text-muted-foreground">{message.length}/500</p>
             {voiceNotice && (
-              <p
-                role="status"
-                className="mt-1 text-xs leading-5 text-amber-800 dark:text-amber-300"
-              >
+              <p role="status" className="mt-1 text-xs leading-5 text-caution">
                 {voiceNotice}
               </p>
             )}
@@ -291,10 +288,10 @@ export function CheckInForm() {
               ) : (
                 <Navigation className="size-4" />
               )}
-              {locating ? "Getting location..." : "Use my current location"}
+              {locating ? "Getting location…" : "Use my current location"}
             </Button>
             {locationError && (
-              <p role="alert" className="mt-2 text-xs leading-5 text-amber-800 dark:text-amber-300">
+              <p role="alert" className="mt-2 text-xs leading-5 text-caution">
                 {locationError}
               </p>
             )}
@@ -341,7 +338,7 @@ export function CheckInForm() {
         <p
           id="check-in-error"
           role="alert"
-          className="rounded-lg border border-red-200 bg-red-50 p-4 text-sm leading-6 text-red-800 dark:border-red-900 dark:bg-red-950 dark:text-red-200"
+          className="rounded-lg border border-help-line bg-help-soft p-4 text-sm leading-6 text-help"
         >
           {error ?? storageError}
         </p>
@@ -358,7 +355,7 @@ export function CheckInForm() {
           ) : (
             <ShieldCheck className="size-5" />
           )}
-          {saving ? "Saving on this device..." : "Save check-in"}
+          {saving ? "Saving on this device…" : "Save check-in"}
         </Button>
         <p className="mt-3 text-center text-xs leading-6 text-muted-foreground">
           Demo check-ins stay on this device. Command will not receive them.

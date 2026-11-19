@@ -26,59 +26,59 @@ const links = [
 export function Sidebar() {
   const pathname = usePathname();
   return (
-    <aside className="hidden w-[238px] shrink-0 flex-col bg-[#142537] text-[#adbdcd] md:fixed md:inset-y-0 md:flex">
-      <div className="px-6 pb-7 pt-7">
+    <aside className="hidden w-60 shrink-0 flex-col bg-chrome text-chrome-muted md:fixed md:inset-y-0 md:flex">
+      <div className="px-6 pb-6 pt-7">
         <Brand light />
       </div>
-      <div className="mx-4 flex items-center gap-3 rounded-lg border border-white/10 bg-white/[0.035] p-3">
-        <span className="flex size-8 shrink-0 items-center justify-center rounded-md bg-white/10 text-white">
-          <ShieldCheck className="size-4" />
-        </span>
+      <div className="mx-6 flex items-center gap-3 border-y border-chrome-rule py-3">
+        <ShieldCheck aria-hidden="true" className="size-4 shrink-0 text-chrome-signal" />
         <div className="min-w-0 flex-1">
-          <p className="truncate text-xs font-medium text-slate-100">Selangor Response</p>
-          <p className="mt-1 text-[10px]">Demo organization</p>
+          <p className="truncate text-sm font-medium text-chrome-ink">Selangor Response</p>
+          <p className="text-xs">Demo organization</p>
         </div>
       </div>
-      <p className="px-7 pb-3 pt-8 text-[11px] font-medium text-slate-400">Command center</p>
-      <nav aria-label="Commander navigation" className="space-y-1 px-3">
+      <p className="px-6 pb-2 pt-7 text-xs font-medium">Command center</p>
+      <nav aria-label="Commander navigation" className="space-y-0.5 px-3">
         {links.map(({ href, label, icon: Icon }) => (
           <Link
             key={href}
             href={href}
             aria-current={pathname.startsWith(href) ? "page" : undefined}
             className={cn(
-              "flex items-center gap-3 rounded-lg px-4 py-3 text-[13px] font-medium transition-colors hover:bg-white/5 hover:text-white",
+              "flex min-h-10 items-center gap-3 rounded-md px-3 text-sm font-medium transition-colors duration-[var(--dur-micro)] hover:bg-chrome-2 hover:text-chrome-ink focus-visible:outline-chrome-signal active:bg-chrome-active",
               pathname.startsWith(href) &&
-                "bg-[#254244] text-[#9de7d4] hover:bg-[#254244] hover:text-[#9de7d4]",
+                "bg-chrome-active text-chrome-ink hover:bg-chrome-active [&>svg]:text-chrome-signal",
             )}
           >
-            <Icon className="size-[18px]" />
+            <Icon aria-hidden="true" className="size-[18px]" />
             {label}
             {label === "Incidents" && (
-              <span className="ml-auto rounded bg-white/10 px-1.5 py-0.5 text-[10px]">1</span>
+              <span className="figure-mono ml-auto text-xs text-chrome-ink">1</span>
             )}
           </Link>
         ))}
       </nav>
-      <div className="mx-5 mt-auto mb-5 rounded-lg border border-white/10 p-4">
-        <RadioTower className="mb-2 size-5 text-teal-300" />
-        <p className="text-xs font-medium text-slate-100">Built for the field</p>
-        <p className="mt-1.5 text-[11px] leading-relaxed">
+      <div className="mx-6 mt-auto mb-5 border-t border-chrome-rule pt-4">
+        <p className="flex items-center gap-2 text-sm font-medium text-chrome-ink">
+          <RadioTower aria-hidden="true" className="size-4 text-chrome-signal" />
+          Built for the field
+        </p>
+        <p className="mt-1.5 text-xs leading-5">
           Keep check-ins moving, even when the connection stops.
         </p>
         <Link
           href="/responder"
-          className="mt-3 flex min-h-8 items-center gap-2 text-xs font-medium text-teal-200"
+          className="mt-2 inline-flex min-h-10 items-center gap-2 text-sm font-medium text-chrome-signal underline-offset-4 hover:underline focus-visible:outline-chrome-signal"
         >
           Open responder view
-          <ArrowUpRight className="size-3.5" />
+          <ArrowUpRight aria-hidden="true" className="size-3.5" />
         </Link>
       </div>
       <Link
         href="/settings#about"
-        className="flex items-center gap-2 border-t border-white/10 px-7 py-5 text-xs hover:text-white"
+        className="flex min-h-12 items-center gap-2 border-t border-chrome-rule px-6 text-xs hover:text-chrome-ink focus-visible:outline-chrome-signal"
       >
-        <LifeBuoy className="size-4" />
+        <LifeBuoy aria-hidden="true" className="size-4" />
         Help & platform info
       </Link>
     </aside>
@@ -99,9 +99,8 @@ export function MobileNavigation() {
           aria-label={label}
           aria-current={pathname.startsWith(href) ? "page" : undefined}
           className={cn(
-            "flex min-w-0 flex-col items-center justify-center gap-1 border-b-2 border-transparent px-1 text-center text-[11px] font-medium leading-tight text-muted-foreground transition-colors hover:bg-secondary",
-            pathname.startsWith(href) &&
-              "border-primary bg-primary/5 font-semibold text-primary dark:text-teal-300",
+            "flex min-w-0 flex-col items-center justify-center gap-1 border-b-2 border-transparent px-1 text-center text-xs font-medium leading-tight text-muted-foreground transition-colors hover:bg-secondary active:bg-signal-soft",
+            pathname.startsWith(href) && "border-signal bg-signal-soft text-signal-text",
           )}
         >
           <Icon aria-hidden="true" className="size-[18px]" />

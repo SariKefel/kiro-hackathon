@@ -28,49 +28,65 @@ export default async function IncidentPage({
         <ArrowLeft className="size-3.5" />
         All incidents
       </Link>
-      <div className="flex flex-wrap items-start justify-between gap-4">
+      <div className="flex flex-wrap items-end justify-between gap-4">
         <div>
-          <div className="mb-2 flex items-center gap-2 text-xs text-muted-foreground">
-            <Waves className="size-4" />
-            Flood response
-            <span className="rounded bg-emerald-50 px-2 py-1 text-emerald-800 dark:bg-emerald-950 dark:text-emerald-300">
-              Active
-            </span>
-          </div>
           <h1 className="page-title">{incident.title}</h1>
-          <div className="mt-3 flex flex-wrap gap-4 text-xs text-muted-foreground">
-            <span className="flex items-center gap-1.5">
-              <MapPin className="size-3.5" />
-              {incident.location}
-            </span>
-            <span className="flex items-center gap-1.5">
-              <Clock3 className="size-3.5" />
-              Activated 14 Nov 2026, 22:00 MYT
-            </span>
-          </div>
+          <p
+            role="status"
+            className="mt-3 inline-flex items-center gap-1.5 rounded-pill border border-safe-line bg-safe-soft px-2 py-0.5 text-sm font-medium text-safe"
+          >
+            <Waves aria-hidden="true" className="size-4" />
+            Flood response, active
+          </p>
         </div>
         <Button asChild>
           <Link href={`/personnel?incident=${incident.id}`}>
-            <Users className="size-4" />
+            <Users aria-hidden="true" className="size-4" />
             Incident personnel
           </Link>
         </Button>
       </div>
+      <dl className="grid grid-cols-2 border-y-2 border-ink text-sm sm:grid-cols-4 sm:divide-x sm:divide-rule">
+        <div className="py-3 sm:px-4 sm:first:pl-0">
+          <dt className="flex items-center gap-1.5 text-ink-3">
+            <MapPin aria-hidden="true" className="size-3.5" />
+            Location
+          </dt>
+          <dd className="mt-0.5 font-medium">{incident.location}</dd>
+        </div>
+        <div className="py-3 sm:px-4">
+          <dt className="flex items-center gap-1.5 text-ink-3">
+            <Clock3 aria-hidden="true" className="size-3.5" />
+            Activated
+          </dt>
+          <dd className="figure-mono mt-0.5">14 Nov 2026, 22:00 MYT</dd>
+        </div>
+        <div className="py-3 sm:px-4">
+          <dt className="text-ink-3">Teams</dt>
+          <dd className="figure-mono mt-0.5">3</dd>
+        </div>
+        <div className="py-3 sm:px-4">
+          <dt className="text-ink-3">Personnel</dt>
+          <dd className="figure-mono mt-0.5">10</dd>
+        </div>
+      </dl>
       <DemoBanner />
+      <section aria-labelledby="response-area" className="space-y-4">
+        <div className="max-w-3xl">
+          <h2 id="response-area" className="text-xl">
+            Response area
+          </h2>
+          <p className="mt-2 text-base leading-7 text-ink-2">{incident.description}</p>
+        </div>
+        <IncidentMap large />
+        <p className="max-w-3xl text-sm leading-6 text-muted-foreground">
+          Operational focus: Seksyen 7 welfare checks, boat access support, and the SK Seksyen 7
+          relief centre. Select a location to manage its demo responder assignments.
+        </p>
+      </section>
       <SummaryCards />
-      <div className="grid gap-5 xl:grid-cols-[1.5fr_1fr]">
-        <div className="space-y-5">
-          <section className="panel p-6">
-            <h2 className="section-heading">Response area</h2>
-            <p className="mb-5 mt-2 text-sm leading-7 text-muted-foreground">
-              {incident.description}
-            </p>
-            <IncidentMap large />
-            <p className="mt-4 text-xs leading-6 text-muted-foreground">
-              Operational focus: Seksyen 7 welfare checks, boat access support, and the SK Seksyen 7
-              relief centre. Select a location to manage its demo responder assignments.
-            </p>
-          </section>
+      <div className="grid items-start gap-6 xl:grid-cols-[minmax(0,1.5fr)_minmax(0,1fr)]">
+        <div className="min-w-0 space-y-6">
           <DispatchPanel />
           <PriorityAlerts />
         </div>

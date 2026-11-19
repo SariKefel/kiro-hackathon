@@ -37,10 +37,10 @@ export function VoiceInput({
       </Button>
       <div role="status" aria-live="polite" className="mt-2 text-xs leading-5">
         {listening && (
-          <p className="font-semibold text-red-800 dark:text-red-300">
+          <p className="font-semibold text-help">
             <span
               aria-hidden="true"
-              className="mr-2 inline-block size-2 rounded-full bg-red-600 motion-safe:animate-pulse"
+              className="mr-2 inline-block size-2 rounded-full bg-help-fill motion-safe:animate-pulse"
             />
             Recording. Speak now, then tap Stop.
           </p>
@@ -53,11 +53,11 @@ export function VoiceInput({
         </p>
       )}
       {error && (
-        <p role="alert" className="mt-2 text-xs leading-5 text-amber-800 dark:text-amber-300">
+        <p role="alert" className="mt-2 text-xs leading-5 text-caution">
           {error}
         </p>
       )}
-      <p className="mt-2 text-[11px] leading-5 text-muted-foreground">
+      <p className="mt-2 text-xs leading-5 text-muted-foreground">
         Your browser&apos;s speech service may process the audio online. The text is added above for
         you to review. Nothing is saved until you save the check-in.
       </p>

@@ -40,3 +40,6 @@ next-env.d.ts
 
 # local issue tracker
 /scratch/
+
+# Hallmark design-run artefacts (screenshots, lint records)
+/.hallmark/

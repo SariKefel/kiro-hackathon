@@ -35,7 +35,7 @@ export function EventDetails({
       {notice && (
         <p
           role="status"
-          className="rounded-lg border border-amber-300 bg-amber-50 p-3 text-xs leading-relaxed text-amber-950 dark:border-amber-800 dark:bg-amber-950 dark:text-amber-100"
+          className="rounded-lg border border-caution-line bg-caution-soft p-3 text-xs leading-relaxed text-caution"
         >
           {notice}
         </p>

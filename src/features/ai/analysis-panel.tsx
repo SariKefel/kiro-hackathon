@@ -14,15 +14,15 @@ type State =
 const priorityStyle: Record<PriorityLevel, { label: string; className: string }> = {
   critical: {
     label: "Critical",
-    className: "bg-red-100 text-red-900 dark:bg-red-950 dark:text-red-200",
+    className: "bg-help-soft text-help",
   },
   high: {
     label: "High",
-    className: "bg-orange-100 text-orange-900 dark:bg-orange-950 dark:text-orange-200",
+    className: "bg-caution-soft text-caution",
   },
   medium: {
     label: "Medium",
-    className: "bg-amber-100 text-amber-900 dark:bg-amber-950 dark:text-amber-200",
+    className: "bg-info-soft text-info",
   },
   low: { label: "Low", className: "bg-secondary text-secondary-foreground" },
 };
@@ -35,13 +35,13 @@ const statusLabel = {
 function ReportRefs({ ids }: { ids: string[] }) {
   if (!ids.length) return null;
   return (
-    <span className="mt-1.5 flex flex-wrap items-center gap-1.5 text-[10px] text-muted-foreground">
+    <span className="mt-2 flex flex-wrap items-center gap-1.5 text-sm text-muted-foreground">
       Source reports:
       {ids.map((id) => (
         <a
           key={id}
           href={`#ai-report-${id}`}
-          className="rounded bg-secondary px-1.5 py-0.5 font-mono text-primary underline-offset-2 hover:underline dark:text-teal-300"
+          className="figure-mono inline-flex min-h-8 items-center rounded-sm border border-rule-2 px-1.5 text-xs text-signal-text underline-offset-2 hover:underline active:bg-paper-3"
         >
           {id}
         </a>
@@ -95,35 +95,46 @@ export function AiAnalysisPanel({ incidentId }: { incidentId: string }) {
 
   const loading = state.status === "loading";
   return (
-    <section className="panel p-5 sm:p-6" aria-labelledby="ai-analysis-heading">
-      <div className="flex flex-wrap items-start justify-between gap-3">
-        <div>
-          <h2 id="ai-analysis-heading" className="section-heading flex items-center gap-2">
-            <Sparkles className="size-4" />
+    <section className="min-w-0" aria-labelledby="ai-analysis-heading">
+      <div className="ruled flex flex-wrap items-start justify-between gap-4 pt-4">
+        <div className="max-w-2xl">
+          <h2 id="ai-analysis-heading" className="flex items-center gap-2 text-xl">
+            <Sparkles aria-hidden="true" className="size-5 text-signal-text" />
             AI situation analysis
           </h2>
-          <p className="mt-1 max-w-xl text-xs leading-6 text-muted-foreground">
+          <p className="mt-2 text-base leading-7 text-ink-2">
             Summarizes the incident reports and suggests where to look first. It only advises. You
             decide, and nothing is dispatched or changed.
           </p>
+          <p className="mt-3 border-l-2 border-caution-fill pl-3 text-sm leading-6 text-caution">
+            AI-generated analysis of fictional demonstration data. It is not verified live incident
+            information.
+          </p>
         </div>
-        <Button onClick={generate} disabled={loading} className="min-h-11">
-          {loading ? <LoaderCircle className="size-4 animate-spin" /> : <Sparkles />}
-          {loading ? "Analyzing..." : "Generate AI Analysis"}
+        <Button onClick={generate} disabled={loading} size="lg">
+          {loading ? (
+            <LoaderCircle aria-hidden="true" className="size-4 animate-spin" />
+          ) : (
+            <Sparkles aria-hidden="true" />
+          )}
+          {loading ? "Analyzing…" : "Generate AI Analysis"}
         </Button>
       </div>
-      <p className="mt-3 rounded-md bg-amber-50 px-3 py-2 text-[11px] leading-5 text-amber-950 dark:bg-amber-950/40 dark:text-amber-200">
-        AI-generated analysis of fictional demonstration data. It is not verified live incident
-        information.
-      </p>
-      <div role="status" aria-live="polite" aria-busy={loading} className="mt-4">
+      <div role="status" aria-live="polite" aria-busy={loading} className="mt-6">
         {loading && (
-          <p className="text-xs text-muted-foreground">
+          <div className="space-y-3" aria-hidden="true">
+            <div className="h-5 w-3/4 animate-pulse rounded-sm bg-paper-3" />
+            <div className="h-5 w-2/3 animate-pulse rounded-sm bg-paper-3" />
+            <div className="h-24 animate-pulse rounded-sm bg-paper-3" />
+          </div>
+        )}
+        {loading && (
+          <p className="mt-3 text-sm text-muted-foreground">
             Reading the reports. This takes a few seconds.
           </p>
         )}
         {state.status === "idle" && (
-          <p className="text-xs text-muted-foreground">
+          <p className="text-sm text-muted-foreground">
             Select Generate AI Analysis to analyze the sample reports.
           </p>
         )}
@@ -131,7 +142,7 @@ export function AiAnalysisPanel({ incidentId }: { incidentId: string }) {
       {state.status === "error" && (
         <p
           role="alert"
-          className="mt-4 rounded-lg border border-red-200 bg-red-50 p-4 text-sm leading-6 text-red-800 dark:border-red-900 dark:bg-red-950 dark:text-red-200"
+          className="mt-4 border-l-2 border-help-fill bg-help-soft px-4 py-3 text-sm leading-6 text-help"
         >
           {state.message}
         </p>
@@ -141,108 +152,150 @@ export function AiAnalysisPanel({ incidentId }: { incidentId: string }) {
   );
 }
 
+// A briefing: the summary and the ranked priorities lead, the observations and doubts sit
+// beside them, and the original reports close as a table the commander can check.
 function AnalysisResultView({ result }: { result: AnalysisResult }) {
   return (
-    <div className="mt-2 space-y-6">
-      <p className="text-[11px] leading-5 text-muted-foreground">
+    <div className="space-y-10">
+      <p className="text-sm leading-6 text-muted-foreground">
         {result.reportsAnalyzed} {result.reportsAnalyzed === 1 ? "report" : "reports"} analyzed
-        {result.demo ? " (sample data)" : ""} · Generated {formatDate(result.generatedAt)},{" "}
-        {formatTime(result.generatedAt)} MYT{result.cached ? " · Reused recent analysis" : ""}
+        {result.demo ? " (sample data)" : ""}, generated {formatDate(result.generatedAt)},{" "}
+        {formatTime(result.generatedAt)} MYT.{result.cached ? " Reused a recent analysis." : ""}
       </p>
-      <div>
-        <h3 className="text-xs font-semibold">Situation summary</h3>
-        <p className="mt-2 text-sm leading-7">{result.summary}</p>
-      </div>
-      {result.priorities.length > 0 && (
-        <div>
-          <h3 className="flex items-center gap-2 text-xs font-semibold">
-            <ShieldAlert className="size-4" />
-            Suggested attention order
-          </h3>
-          <ol className="mt-3 space-y-3">
-            {result.priorities.map((item, index) => {
-              const style = priorityStyle[item.priority];
-              return (
-                <li key={index} className="rounded-lg border p-4">
-                  <div className="flex flex-wrap items-center gap-2">
-                    <span
-                      className={`rounded px-2 py-1 text-[11px] font-semibold ${style.className}`}
+      <div className="grid gap-10 xl:grid-cols-[minmax(0,7fr)_minmax(0,5fr)]">
+        <div className="min-w-0 space-y-10">
+          <div>
+            <h3 className="text-lg">Situation summary</h3>
+            <p className="mt-3 max-w-[65ch] text-lg leading-8 text-ink">{result.summary}</p>
+          </div>
+          {result.priorities.length > 0 && (
+            <div>
+              <h3 className="flex items-center gap-2 text-lg">
+                <ShieldAlert aria-hidden="true" className="size-5" />
+                Suggested attention order
+              </h3>
+              <ol className="ruled mt-3 divide-y divide-rule">
+                {result.priorities.map((item, index) => {
+                  const style = priorityStyle[item.priority];
+                  return (
+                    <li
+                      key={index}
+                      className="grid gap-x-5 gap-y-2 py-4 sm:grid-cols-[2.5rem_minmax(0,1fr)]"
                     >
-                      {style.label} priority
-                    </span>
-                    {item.uncertain && (
-                      <span className="flex items-center gap-1 rounded border border-amber-600 px-2 py-1 text-[11px] font-medium text-amber-900 dark:text-amber-200">
-                        <AlertTriangle className="size-3" />
-                        Uncertain
-                      </span>
-                    )}
-                    <h4 className="text-sm font-semibold">{item.title}</h4>
-                  </div>
-                  <p className="mt-2 text-xs leading-6">{item.reason}</p>
-                  <p className="mt-2 text-xs leading-6">
-                    <span className="font-semibold">Suggested next step for you to consider: </span>
-                    {item.suggestedAction}
-                  </p>
-                  <ReportRefs ids={item.reportIds} />
-                </li>
-              );
-            })}
-          </ol>
+                      <span className="figure-mono pt-0.5 text-lg text-ink-3">{index + 1}</span>
+                      <div className="min-w-0">
+                        <div className="flex flex-wrap items-center gap-2">
+                          <span
+                            className={`rounded-pill px-2 py-0.5 text-sm font-medium ${style.className}`}
+                          >
+                            {style.label} priority
+                          </span>
+                          {item.uncertain && (
+                            <span className="flex items-center gap-1 rounded-pill border border-dashed border-caution px-2 py-0.5 text-sm font-medium text-caution">
+                              <AlertTriangle aria-hidden="true" className="size-3.5" />
+                              Uncertain
+                            </span>
+                          )}
+                        </div>
+                        <h4 className="mt-2 font-display text-base font-semibold">{item.title}</h4>
+                        <p className="mt-1 text-base leading-7 text-ink-2">{item.reason}</p>
+                        <p className="mt-2 text-base leading-7">
+                          <span className="font-semibold">
+                            Suggested next step for you to consider:{" "}
+                          </span>
+                          {item.suggestedAction}
+                        </p>
+                        <ReportRefs ids={item.reportIds} />
+                      </div>
+                    </li>
+                  );
+                })}
+              </ol>
+            </div>
+          )}
         </div>
-      )}
-      {result.keyObservations.length > 0 && (
-        <div>
-          <h3 className="text-xs font-semibold">Key observations</h3>
-          <ul className="mt-2 list-disc space-y-2 pl-5 text-xs leading-6">
-            {result.keyObservations.map((item, index) => (
-              <li key={index}>
-                {item.text}
-                <ReportRefs ids={item.reportIds} />
-              </li>
-            ))}
-          </ul>
+        <div className="min-w-0 space-y-10">
+          {result.keyObservations.length > 0 && (
+            <div>
+              <h3 className="text-lg">Key observations</h3>
+              <ul className="ruled mt-3 divide-y divide-rule text-base leading-7">
+                {result.keyObservations.map((item, index) => (
+                  <li key={index} className="py-3">
+                    {item.text}
+                    <ReportRefs ids={item.reportIds} />
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
+          {result.uncertainties.length > 0 && (
+            <div>
+              <h3 className="flex items-center gap-2 text-lg">
+                <OctagonAlert aria-hidden="true" className="size-5 text-caution" />
+                Uncertainties and conflicts
+              </h3>
+              <ul className="mt-3 divide-y divide-rule border-t-2 border-dashed border-caution-fill text-base leading-7">
+                {result.uncertainties.map((item, index) => (
+                  <li key={index} className="py-3">
+                    {item.text}
+                    <ReportRefs ids={item.reportIds} />
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
         </div>
-      )}
-      {result.uncertainties.length > 0 && (
-        <div>
-          <h3 className="flex items-center gap-2 text-xs font-semibold">
-            <OctagonAlert className="size-4" />
-            Uncertainties and conflicts
-          </h3>
-          <ul className="mt-2 list-disc space-y-2 pl-5 text-xs leading-6">
-            {result.uncertainties.map((item, index) => (
-              <li key={index}>
-                {item.text}
-                <ReportRefs ids={item.reportIds} />
-              </li>
-            ))}
-          </ul>
-        </div>
-      )}
-      <div>
-        <h3 className="text-xs font-semibold">Original reports analyzed</h3>
-        <ul className="mt-2 divide-y rounded-lg border">
-          {result.reports.map((report) => (
-            <li key={report.id} id={`ai-report-${report.id}`} className="scroll-mt-24 p-3 text-xs">
-              <div className="flex flex-wrap items-center gap-x-3 gap-y-1">
-                <span className="font-mono text-[10px] text-muted-foreground">{report.id}</span>
-                <span className="font-semibold">{statusLabel[report.status]}</span>
-                <span className="text-muted-foreground">{report.team} team</span>
-                <time
-                  className="ml-auto text-[10px] text-muted-foreground"
-                  dateTime={report.recordedAt}
-                >
-                  {formatTime(report.recordedAt)} MYT
-                </time>
-              </div>
-              <p className="mt-1 leading-6">{report.message || "No message."}</p>
-            </li>
-          ))}
-        </ul>
       </div>
-      <p className="text-[10px] leading-5 text-muted-foreground">
+      <div>
+        <h3 className="text-lg">Original reports analyzed</h3>
+        <div className="mt-3 overflow-x-auto">
+          <table className="w-full min-w-[36rem] text-sm">
+            <thead>
+              <tr className="border-b border-ink text-left text-ink-2">
+                <th scope="col" className="py-2 pr-4 font-medium">
+                  Report
+                </th>
+                <th scope="col" className="py-2 pr-4 font-medium">
+                  Time
+                </th>
+                <th scope="col" className="py-2 pr-4 font-medium">
+                  Status
+                </th>
+                <th scope="col" className="py-2 pr-4 font-medium">
+                  Team
+                </th>
+                <th scope="col" className="py-2 font-medium">
+                  Message
+                </th>
+              </tr>
+            </thead>
+            <tbody className="divide-y divide-rule">
+              {result.reports.map((report) => (
+                <tr
+                  key={report.id}
+                  id={`ai-report-${report.id}`}
+                  className="scroll-mt-24 align-top target:bg-signal-soft"
+                >
+                  <td className="figure-mono py-3 pr-4 text-ink-3">{report.id}</td>
+                  <td className="py-3 pr-4">
+                    <time className="figure-mono" dateTime={report.recordedAt}>
+                      {formatTime(report.recordedAt)}
+                    </time>
+                  </td>
+                  <td className="py-3 pr-4 font-medium whitespace-nowrap">
+                    {statusLabel[report.status]}
+                  </td>
+                  <td className="py-3 pr-4 whitespace-nowrap">{report.team}</td>
+                  <td className="py-3 leading-6">{report.message || "No message."}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <p className="text-sm leading-6 text-muted-foreground">
         Generated by {result.model}. AI can make mistakes and the reports are unverified. Check the
-        original reports before acting.
+        original reports before acting. Times are MYT.
       </p>
     </div>
   );

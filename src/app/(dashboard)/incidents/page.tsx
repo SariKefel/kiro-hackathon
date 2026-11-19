@@ -15,14 +15,18 @@ export default function IncidentsPage() {
       </div>
       <DemoBanner />
       <div className="flex items-center gap-2 text-sm font-medium">
-        <span className="size-2 rounded-full bg-emerald-600" />
         Active incidents<span className="rounded bg-secondary px-2 py-0.5 text-xs">1</span>
       </div>
       <article className="panel overflow-hidden">
         <div className="p-6 sm:p-8">
-          <Waves className="mb-5 size-7 text-primary dark:text-teal-300" />
-          <p className="mb-2 text-xs text-muted-foreground">Flood · Active response</p>
-          <h2 className="text-2xl font-semibold tracking-tight">{incident.title}</h2>
+          <Waves aria-hidden="true" className="mb-5 size-7 text-signal-text" />
+          <h2 className="text-2xl">{incident.title}</h2>
+          <p
+            role="status"
+            className="mt-2 inline-flex rounded-pill border border-safe-line bg-safe-soft px-2 py-0.5 text-sm font-medium text-safe"
+          >
+            Flood, active response
+          </p>
           <p className="mt-3 text-sm leading-7 text-muted-foreground">{incident.description}</p>
           <p className="mt-4 flex items-center gap-2 text-xs text-muted-foreground">
             <MapPin className="size-4" />
@@ -30,7 +34,7 @@ export default function IncidentsPage() {
           </p>
           <Link
             href={`/incidents/${incident.id}`}
-            className="mt-7 inline-flex min-h-11 items-center gap-2 rounded-lg bg-primary px-4 text-sm font-medium text-white"
+            className="mt-7 inline-flex min-h-11 items-center gap-2 rounded-lg bg-primary px-4 text-sm font-medium text-primary-foreground"
           >
             Open incident
             <ArrowRight className="size-4" />

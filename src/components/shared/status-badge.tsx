@@ -2,26 +2,28 @@ import { Check, CircleHelp, Hand, TriangleAlert } from "lucide-react";
 import type { AccountabilityStatus } from "@/types/domain";
 import { cn } from "@/lib/utils";
 
+// Reported statuses carry a tinted chip with a solid edge. Unknown is derived, not reported,
+// so it stays neutral with a dashed edge and never reads like a confirmation.
 export const statusDetails = {
   safe: {
     label: "Safe",
     icon: Check,
-    className: "bg-emerald-50 text-emerald-800 dark:bg-emerald-950 dark:text-emerald-300",
+    className: "border-safe-line bg-safe-soft text-safe",
   },
   needs_help: {
     label: "Needs help",
     icon: Hand,
-    className: "bg-red-50 text-red-800 dark:bg-red-950 dark:text-red-300",
+    className: "border-help-line bg-help-soft text-help",
   },
   unable_to_continue: {
     label: "Unable to continue",
     icon: TriangleAlert,
-    className: "bg-orange-50 text-orange-800 dark:bg-orange-950 dark:text-orange-300",
+    className: "border-caution-line bg-caution-soft text-caution",
   },
   unknown: {
     label: "Unknown",
     icon: CircleHelp,
-    className: "bg-amber-50 text-amber-800 dark:bg-amber-950 dark:text-amber-300",
+    className: "border-dashed border-rule-2 bg-paper-3 text-ink-2",
   },
 };
 export function StatusBadge({ status }: { status: AccountabilityStatus }) {
@@ -30,11 +32,11 @@ export function StatusBadge({ status }: { status: AccountabilityStatus }) {
   return (
     <span
       className={cn(
-        "inline-flex items-center gap-1.5 rounded-md px-2 py-1 text-xs font-medium",
+        "inline-flex items-center gap-1.5 whitespace-nowrap rounded-pill border px-2 py-0.5 text-xs font-medium",
         details.className,
       )}
     >
-      <Icon className="size-3.5 shrink-0" />
+      <Icon aria-hidden="true" className="size-3.5 shrink-0" />
       {details.label}
     </span>
   );

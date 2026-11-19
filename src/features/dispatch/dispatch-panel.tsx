@@ -39,8 +39,8 @@ const stateLabels: Record<DispatchCall["state"], string> = {
   cancelled: "Closed",
 };
 const priorityStyles = {
-  critical: "bg-red-50 text-red-800 dark:bg-red-950 dark:text-red-300",
-  high: "bg-amber-50 text-amber-800 dark:bg-amber-950 dark:text-amber-300",
+  critical: "bg-help-soft text-help",
+  high: "bg-caution-soft text-caution",
   normal: "bg-muted text-muted-foreground",
 };
 const nameOf = (id: string) => dispatchContext.people.find((p) => p.id === id)?.name ?? id;
@@ -126,14 +126,14 @@ export function DispatchPanel() {
                 />
                 <span
                   className={cn(
-                    "rounded px-1.5 py-0.5 text-[10px] font-medium capitalize",
+                    "rounded px-1.5 py-0.5 text-xs font-medium capitalize",
                     priorityStyles[s.priority],
                   )}
                 >
                   {s.priority}
                 </span>
                 <span className="mt-2 block text-sm font-semibold">{s.name}</span>
-                <span className="mt-1 block text-[11px] text-muted-foreground">
+                <span className="mt-1 block text-xs text-muted-foreground">
                   {siteCall ? stateLabels[siteCall.state] : "No responder"}
                 </span>
               </label>
@@ -171,18 +171,18 @@ export function DispatchPanel() {
                 <p className="flex flex-wrap items-center gap-2 text-sm font-medium">
                   {c.person.name}
                   {recommended ? (
-                    <span className="rounded bg-primary/10 px-1.5 py-0.5 text-[10px] font-semibold text-primary dark:text-teal-300">
+                    <span className="rounded bg-primary/10 px-1.5 py-0.5 text-xs font-semibold text-signal-text">
                       Recommended
                     </span>
                   ) : null}
                   {c.stale && position ? (
-                    <span className="rounded bg-amber-50 px-1.5 py-0.5 text-[10px] text-amber-800 dark:bg-amber-950 dark:text-amber-300">
+                    <span className="rounded bg-caution-soft px-1.5 py-0.5 text-xs text-caution">
                       Stale location
                     </span>
                   ) : null}
                 </p>
-                <p className="mt-0.5 text-[11px] text-muted-foreground">
-                  {c.person.team} · {c.person.role} · {minutesAgo(position?.capturedAt)}
+                <p className="mt-0.5 text-xs text-muted-foreground">
+                  {c.person.team}, {c.person.role}. {minutesAgo(position?.capturedAt)}
                 </p>
               </div>
               <div className="text-right text-xs tabular-nums">
@@ -191,7 +191,7 @@ export function DispatchPanel() {
                 ) : (
                   <>
                     <span className="font-semibold">{c.distanceKm.toFixed(1)} km</span>
-                    <span className="block text-[11px] text-muted-foreground">
+                    <span className="block text-xs text-muted-foreground">
                       ~{c.etaMinutes} min est.
                     </span>
                   </>
@@ -211,7 +211,7 @@ export function DispatchPanel() {
                   Call
                 </Button>
               ) : (
-                <span className="w-28 text-right text-[11px] text-muted-foreground">
+                <span className="w-28 text-right text-xs text-muted-foreground">
                   {c.unavailableReason}
                 </span>
               )}
@@ -219,7 +219,7 @@ export function DispatchPanel() {
           );
         })}
       </ol>
-      <p className="mt-3 text-[11px] leading-5 text-muted-foreground">
+      <p className="mt-3 text-xs leading-5 text-muted-foreground">
         Sample positions and straight-line distances. Travel times are estimates, not road routes.
         Calls sync between tabs on this device only.
       </p>
@@ -270,9 +270,9 @@ function CallTimeline({ call, now }: { call: DispatchCall; now: number }) {
             {a.outcome === "ringing" ? (
               <PhoneCall className="size-3.5 animate-pulse text-primary" />
             ) : a.outcome === "accepted" ? (
-              <PhoneCall className="size-3.5 text-emerald-700 dark:text-emerald-300" />
+              <PhoneCall className="size-3.5 text-safe" />
             ) : (
-              <PhoneMissed className="size-3.5 text-red-700 dark:text-red-300" />
+              <PhoneMissed className="size-3.5 text-help" />
             )}
             <span className="font-medium">{nameOf(a.responderId)}</span>
             <span className="text-muted-foreground">
@@ -288,20 +288,20 @@ function CallTimeline({ call, now }: { call: DispatchCall; now: number }) {
         ))}
       </ol>
       {call.hazards.length ? (
-        <p className="mt-3 flex items-center gap-1.5 text-xs font-medium text-amber-800 dark:text-amber-300">
+        <p className="mt-3 flex items-center gap-1.5 text-xs font-medium text-caution">
           <TriangleAlert className="size-3.5" />
           Hazard reported near {call.hazards.map(nameOf).join(", ")}
         </p>
       ) : null}
       {call.state === "unassigned" ? (
-        <p className="mt-3 flex items-center gap-1.5 text-xs font-medium text-red-800 dark:text-red-300">
+        <p className="mt-3 flex items-center gap-1.5 text-xs font-medium text-help">
           <CircleAlert className="size-3.5" />
           No responder accepted. Dismiss and call someone manually.
         </p>
       ) : null}
       {ringing && ringing.responderId !== demoResponder.id ? (
         <div className="mt-3 flex flex-wrap items-center gap-2 border-t pt-3">
-          <span className="text-[11px] text-muted-foreground">
+          <span className="text-xs text-muted-foreground">
             Simulate {nameOf(ringing.responderId)} (demo):
           </span>
           <Button size="xs" variant="outline" onClick={() => simulate(true)}>

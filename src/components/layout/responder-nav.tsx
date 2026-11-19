@@ -24,8 +24,8 @@ export function ResponderNav() {
               href={href}
               aria-current={active ? "page" : undefined}
               className={cn(
-                "flex min-h-[70px] flex-1 flex-col items-center justify-center gap-1.5 text-[11px] text-muted-foreground",
-                active && "font-semibold text-primary dark:text-teal-300",
+                "flex min-h-[70px] flex-1 flex-col items-center justify-center gap-1.5 text-xs text-muted-foreground",
+                active && "font-semibold text-signal-text",
               )}
             >
               <Icon className="size-5" />

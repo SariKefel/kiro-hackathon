@@ -68,7 +68,7 @@ export function IncidentMap({
           <MapPin className="size-4 text-primary" />
           Response locations
         </span>
-        <span className="rounded-md bg-secondary px-2 py-1 text-[10px] text-muted-foreground">
+        <span className="rounded-md bg-secondary px-2 py-1 text-xs text-muted-foreground">
           Demo assignments
         </span>
       </div>
@@ -96,13 +96,13 @@ export function IncidentMap({
                 : "Shah Alam demo response locations. Select a location below to manage responders."
             }
           />
-          <div className="pointer-events-none absolute bottom-7 left-3 rounded-md border bg-card/95 px-2 py-1 text-[10px] text-muted-foreground">
+          <div className="pointer-events-none absolute bottom-7 left-3 rounded-md border bg-card/95 px-2 py-1 text-xs text-muted-foreground">
             Marker numbers show assigned responders
           </div>
         </div>
         <div className={preview ? "" : "response-map-details"}>
           <div
-            className="grid grid-cols-3 border-y bg-secondary/40"
+            className="grid grid-cols-3 border-y"
             role="group"
             data-tour="response-locations"
             aria-label="Select response location"
@@ -115,10 +115,10 @@ export function IncidentMap({
                   type="button"
                   aria-pressed={selected === place.id}
                   onClick={() => select(place.id)}
-                  className={`min-h-16 border-b-2 px-2 py-3 text-left text-xs transition-colors sm:px-4 ${selected === place.id ? "border-primary bg-card text-primary dark:text-teal-300" : "border-transparent text-muted-foreground hover:bg-secondary"}`}
+                  className={`min-h-16 border-b-2 px-2 py-3 text-left text-sm transition-colors sm:px-4 ${selected === place.id ? "border-signal bg-signal-soft text-signal-text" : "border-transparent text-muted-foreground hover:bg-secondary"}`}
                 >
                   <span className="block font-semibold">{place.shortName}</span>
-                  <span className="mt-1 block text-[10px]">{count} assigned</span>
+                  <span className="mt-1 block text-xs">{count} assigned</span>
                 </button>
               );
             })}
@@ -129,7 +129,7 @@ export function IncidentMap({
             </p>
           ) : (
             <div className="p-4">
-              <p className="text-[10px] text-muted-foreground">{location.kind}</p>
+              <p className="text-xs text-muted-foreground">{location.kind}</p>
               <h3 className="mt-1 text-sm font-semibold">{location.name}</h3>
               <p className="mt-1 text-xs leading-5 text-muted-foreground">{location.description}</p>
               <div className="mb-3 mt-4 flex flex-wrap items-center justify-between gap-2">
@@ -155,13 +155,13 @@ export function IncidentMap({
               <ul data-tour="response-roster" className="min-h-12 divide-y">
                 {assigned.map((person) => (
                   <li key={person.id} className="flex items-center gap-2 py-2.5">
-                    <span className="flex size-8 shrink-0 items-center justify-center rounded-full bg-primary/10 text-[10px] font-semibold text-primary dark:text-teal-300">
+                    <span className="flex size-8 shrink-0 items-center justify-center rounded-full bg-primary/10 text-xs font-semibold text-signal-text">
                       {initials(person.name)}
                     </span>
                     <span className="min-w-0 flex-1">
                       <span className="block text-xs font-medium">{person.name}</span>
-                      <span className="block text-[10px] text-muted-foreground">
-                        {person.team} · {person.role}
+                      <span className="block text-xs text-muted-foreground">
+                        {person.team}, {person.role}
                       </span>
                     </span>
                     <button
@@ -188,7 +188,7 @@ export function IncidentMap({
                       aria-label="Search responders to assign"
                     />
                   </label>
-                  <p className="my-3 text-[10px] leading-5 text-muted-foreground">
+                  <p className="my-3 text-xs leading-5 text-muted-foreground">
                     Assigning someone moves their current location assignment. Only responders with
                     a Safe report can be assigned in this demo.
                   </p>
@@ -204,8 +204,8 @@ export function IncidentMap({
                         >
                           <span className="min-w-0">
                             <span className="block text-xs font-medium">{person.name}</span>
-                            <span className="block text-[10px] text-muted-foreground">
-                              {person.team} · {current?.shortName ?? "Unassigned"}
+                            <span className="block text-xs text-muted-foreground">
+                              {person.team}, {current?.shortName ?? "Unassigned"}
                             </span>
                             <StatusBadge status={person.status} />
                           </span>
@@ -213,7 +213,7 @@ export function IncidentMap({
                             type="button"
                             disabled={person.status !== "safe"}
                             onClick={() => assign(person.id, selected)}
-                            className="min-h-10 shrink-0 rounded-lg bg-primary px-3 text-xs font-medium text-white disabled:cursor-not-allowed disabled:opacity-40"
+                            className="min-h-10 shrink-0 rounded-lg bg-primary px-3 text-xs font-medium text-primary-foreground disabled:cursor-not-allowed disabled:opacity-40"
                             aria-label={`${current ? "Move" : "Assign"} ${person.name} to ${location.shortName}`}
                           >
                             {current ? "Move here" : "Assign"}
@@ -229,10 +229,7 @@ export function IncidentMap({
                   )}
                 </div>
               )}
-              <p
-                role="status"
-                className="mt-3 flex items-start gap-1 text-xs text-primary dark:text-teal-300"
-              >
+              <p role="status" className="mt-3 flex items-start gap-1 text-xs text-signal-text">
                 {message && (
                   <>
                     <Check className="mt-0.5 size-3 shrink-0" />
@@ -240,7 +237,7 @@ export function IncidentMap({
                   </>
                 )}
               </p>
-              <p className="mt-2 text-[10px] leading-5 text-muted-foreground">
+              <p className="mt-2 text-xs leading-5 text-muted-foreground">
                 Illustrative response positions, not verified field locations. Assignments are local
                 to this browser and are not sent to responders.
               </p>

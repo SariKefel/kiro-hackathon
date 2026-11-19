@@ -26,9 +26,9 @@ const PRESETS: { id: RegionPreset; label: string }[] = [
 ];
 const SYMBOLS = { earthquake: "E", flood: "F", cyclone: "C" };
 const SYMBOL_CLASSES = {
-  earthquake: "bg-amber-700 text-white",
-  flood: "bg-sky-700 text-white",
-  cyclone: "bg-purple-700 text-white",
+  earthquake: "bg-quake text-brand-ink",
+  flood: "bg-flood text-brand-ink",
+  cyclone: "bg-cyclone text-brand-ink",
 };
 const INITIAL_BOUNDS = { west: 90, south: -12, east: 142, north: 28 };
 
@@ -168,7 +168,7 @@ export function DisasterExplorer() {
   );
 
   return (
-    <section className="disaster-explorer flex h-[calc(100dvh-140px)] flex-col md:h-[calc(100dvh-76px)]">
+    <section className="disaster-explorer flex h-[calc(100dvh-136px)] flex-col md:h-[calc(100dvh-72px)]">
       <div data-tour="hazard-intro" className="shrink-0 border-b px-5 py-3 md:px-7 md:py-5">
         <div className="flex flex-wrap items-start justify-between gap-4">
           <div>
@@ -176,7 +176,7 @@ export function DisasterExplorer() {
             <p className="mt-2 hidden max-w-2xl text-sm leading-relaxed text-muted-foreground sm:block">
               Explore regional hazard reports. Select a location to inspect its original source.
             </p>
-            <p className="mt-2 text-xs font-medium text-primary dark:text-teal-300">
+            <p className="mt-2 text-xs font-medium text-signal-text">
               Public hazard reports in a demo workspace
             </p>
           </div>
@@ -187,7 +187,7 @@ export function DisasterExplorer() {
                 : !visible
                   ? "Refresh paused while hidden"
                   : isRefreshing
-                    ? "Retrieving reports..."
+                    ? "Retrieving reports…"
                     : "Checks for updates every 5 minutes"}
             </span>
             <Button
@@ -213,7 +213,7 @@ export function DisasterExplorer() {
         {error && (
           <p
             role="status"
-            className="mt-3 flex items-start gap-2 text-xs leading-relaxed text-amber-800 dark:text-amber-200"
+            className="mt-3 flex items-start gap-2 text-xs leading-relaxed text-caution"
           >
             <TriangleAlert className="mt-0.5 size-4 shrink-0" />
             Reports could not be refreshed. Previously loaded reports remain available with their
@@ -242,7 +242,7 @@ export function DisasterExplorer() {
                 <FeedHealth key={feed.id} feed={feed} now={now} retrievalFailed={!!error} />
               )) ?? (
                 <p className="text-xs text-muted-foreground">
-                  {isLoading ? "Loading source feeds..." : "No successful retrieval"}
+                  {isLoading ? "Loading source feeds…" : "No successful retrieval"}
                 </p>
               )}
             </div>
@@ -258,7 +258,7 @@ export function DisasterExplorer() {
             )) ??
               TYPES.map((type) => (
                 <div key={type} className="text-xs text-muted-foreground">
-                  {HAZARD_LABELS[type]}: {isLoading ? "Loading..." : "No successful retrieval"}
+                  {HAZARD_LABELS[type]}: {isLoading ? "Loading…" : "No successful retrieval"}
                 </div>
               ))}
           </div>
@@ -282,7 +282,7 @@ export function DisasterExplorer() {
               onClick={() => selectRegion(preset.id)}
               className={cn(
                 "min-h-11 rounded-md px-3 text-xs font-medium transition-colors",
-                region === preset.id ? "bg-primary text-white" : "hover:bg-secondary",
+                region === preset.id ? "bg-primary text-primary-foreground" : "hover:bg-secondary",
               )}
             >
               {preset.label}
@@ -308,7 +308,7 @@ export function DisasterExplorer() {
               <span
                 aria-hidden="true"
                 className={cn(
-                  "flex size-5 items-center justify-center rounded-full text-[10px] font-semibold",
+                  "flex size-5 items-center justify-center rounded-full text-xs font-semibold",
                   SYMBOL_CLASSES[type],
                 )}
               >
@@ -324,13 +324,10 @@ export function DisasterExplorer() {
         </fieldset>
       </div>
 
-      <div className="relative min-h-0 flex-1 md:grid md:grid-cols-[minmax(0,1fr)_360px]">
+      <div className="relative min-h-0 flex-1 md:grid md:grid-cols-[minmax(0,1fr)_360px] md:grid-rows-[minmax(0,1fr)]">
         <div
           data-tour="hazard-map"
-          className={cn(
-            "relative min-w-0 transition-[height] motion-reduce:transition-none md:!h-full",
-            mobile && sheetOpen ? "h-[40%]" : "h-full",
-          )}
+          className={cn("relative min-w-0 md:!h-full", mobile && sheetOpen ? "h-[40%]" : "h-full")}
         >
           <HazardMap
             events={filtered}
@@ -363,7 +360,7 @@ export function DisasterExplorer() {
         {mobile && (
           <Dialog.Root open={sheetOpen} onOpenChange={setSheetOpen} modal={false}>
             <Dialog.Content
-              className="absolute inset-x-0 bottom-0 z-20 flex h-[60%] flex-col rounded-t-2xl border-t bg-card shadow-[0_-6px_20px_rgba(0,0,0,0.08)] outline-none"
+              className="absolute inset-x-0 bottom-0 z-20 flex h-[60%] flex-col rounded-t-2xl border-t bg-card shadow-sheet outline-none"
               onInteractOutside={(event) => event.preventDefault()}
               onCloseAutoFocus={(event) => {
                 event.preventDefault();
@@ -393,7 +390,7 @@ export function DisasterExplorer() {
           </Dialog.Root>
         )}
       </div>
-      <p className="shrink-0 border-t px-5 py-2 text-[11px] leading-relaxed text-muted-foreground md:px-7">
+      <p className="shrink-0 border-t px-5 py-2 text-xs leading-relaxed text-muted-foreground md:px-7">
         <span className="hidden sm:inline">
           Markers show earthquake epicenters or provider-reported points, not affected areas.
           Missing markers do not establish safety or complete coverage.{" "}
@@ -462,18 +459,14 @@ function FeedHealth({
           className={cn(
             "ml-2",
             retained || delayed || status === "Unavailable"
-              ? "text-amber-800 dark:text-amber-200"
+              ? "text-caution"
               : "text-muted-foreground",
           )}
         >
           {status}
         </span>
-        {delayed && retained && (
-          <span className="ml-1 text-amber-800 dark:text-amber-200"> / Refresh delayed</span>
-        )}
-        {incomplete && (
-          <span className="ml-1 text-amber-800 dark:text-amber-200"> / limited coverage</span>
-        )}
+        {delayed && retained && <span className="ml-1 text-caution"> / Refresh delayed</span>}
+        {incomplete && <span className="ml-1 text-caution"> / limited coverage</span>}
       </summary>
       <div className="mt-2 space-y-2 border-t pt-2 leading-relaxed text-muted-foreground">
         <p>{feed.selection}</p>
@@ -485,7 +478,7 @@ function FeedHealth({
           {age !== null ? ` (${Math.floor(age / 60_000)} min ago)` : ""}.
         </p>
         {delayed && (
-          <p className="text-amber-800 dark:text-amber-200">
+          <p className="text-caution">
             Refresh delayed: no successful retrieval in 15 minutes or more.
           </p>
         )}
@@ -591,7 +584,7 @@ function Results({
                   {SYMBOLS[event.type]}
                 </span>
                 <span className="min-w-0">
-                  <span className="text-[11px] text-muted-foreground">
+                  <span className="text-xs text-muted-foreground">
                     {event.provider} / {HAZARD_LABELS[event.type]}
                   </span>
                   <span className="mt-1 block text-sm font-semibold leading-snug">
